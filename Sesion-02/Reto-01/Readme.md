@@ -1,6 +1,6 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Reto-01
 
-## INICIALIZANDO LA BASE DE DATOS EN UN SERVIDOR MARIADB
+## Inicializando un servidor MariaDB y una base de datos haciendo uso de contenedores
 
 ### OBJETIVO
 Inicializar la base de datos en un servidor MariaDB haciendo uso de contenedores para el proyecto BeduTravels.

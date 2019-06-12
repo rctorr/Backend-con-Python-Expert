@@ -1,9 +1,9 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-02
 
-## CRUD DE DATOS CON PYTHON EN MYSQL
+## Realizar las operaciones CRUD con Python en un servidor MariaDB
 
 ### OBJETIVO
-Conocer el procedimiento para realizar la oeración __Read__ a una tabla en un servidor MariaDB desde Python.
+Conocer el procedimiento para realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python.
 
 #### REQUISITOS
 1. Contar con los datos de conexión a la base de datos Biblioteca.

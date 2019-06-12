@@ -12,9 +12,9 @@
  - Inicializando un servidor MariaDB y una base de datos haciendo uso de contenedores
    - [Ejemplo 01](Ejemplo-01)
    - [Reto 01](Reto-01)
- - Obteniendo el modelo para una base de datos relacional
-   - [Ejemplo 01](Ejemplo-01)
-   - [Reto 01](Reto-01)
+ - Realizar las operaciones CRUD con Python en un servidor MariaDB
+   - [Ejemplo 02](Ejemplo-02)
+   - [Reto 02](Reto-02)
  - Creando tablas con SQL en MariaDB
    - [Ejemplo 03](Ejemplo-03)
    - [Reto 03](Reto-03)

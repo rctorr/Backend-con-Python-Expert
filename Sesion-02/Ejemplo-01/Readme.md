@@ -1,6 +1,6 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-01
 
-## INICIALIZANDO SERVIDOR MARIADB Y BASE DE DATOS
+## INICIALIZANDO UN SERVIDOR MARIADB Y UNA BASE DE DATOS HACIENDO USO DE CONTENEDORES
 
 ### OBJETIVOS
 - Conocer el procedimiento para inicializar un servidor MariaDB usando contenedores con Docker.

@@ -3,10 +3,11 @@
 
 import os
 
-with open("img/python-logo.png", "rb") as inpng:
-    imagen = inpng.read()
+# Leer la imagen desde el archivo "img/python-logo.png" en modo binario y
+# guardarlo en la varible imagen.
+pass
 
-# 1 es el descriptor de archivo a nivel S.O. para
-# la salida estándar.
+# Se envía la imagen y el encabezado en modo binario a la salida estándar.
+# 1 es el descriptor de archivo a nivel S.O. para la salida estándar.
 os.write(1, b"Content-Type: image/png\n\n")
 os.write(1,imagen)

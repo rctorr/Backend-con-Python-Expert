@@ -30,5 +30,5 @@ Definir el flujo de información en una petición HTTP para obtener una imagen e
    ![Resultado en el navegador](assets/resultado-navegador-01.png)
 
    __TIPS:__
-   - Recuerda agregar el MIMEType adecuado para la imagen
-   - Se recomienda hacer uso del módulo os y su función write, ver documentación en https://docs.python.org/3/library/os.html#os.write
+   - Recuerda usar la función `open()` en modo lectura binaria "rb".
+   - Se hace uso del módulo os y su función write, ver documentación en https://docs.python.org/3/library/os.html#os.write

@@ -16,7 +16,7 @@ def imagen_app(environ, start_response):
     imagenes = os.listdir(DIR_IMG)
 
     # Obtener el nombre de la imagen que el usuario quiere visualizar
-    nomimg = environ["PATH_INFO"].replace("/", "")
+    nomimg = ???
 
     # Está la imagen solicitada por el usuario en nuestra lista?
     if nomimg in imagenes:

@@ -1,5 +1,4 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-02
-
 ## Operación READ: Lectura de datos con Python y MariaDB
 
 ### OBJETIVO

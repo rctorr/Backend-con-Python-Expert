@@ -12,7 +12,7 @@
  - Inicializando un servidor MariaDB y una base de datos haciendo uso de contenedores
    - [Ejemplo 01](Ejemplo-01)
    - [Reto 01](Reto-01)
- - Realizar las operaciones CRUD con Python en un servidor MariaDB
+ - Realizar la operación Read a una tabla con Python en un servidor MariaDB.
    - [Ejemplo 02](Ejemplo-02)
    - [Reto 02](Reto-02)
  - Creando tablas con SQL en MariaDB

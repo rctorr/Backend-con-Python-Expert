@@ -15,17 +15,9 @@
  - Operación READ: Lectura de datos con Python y MariaDB
    - [Ejemplo 02](Ejemplo-02)
    - [Reto 02](Reto-02)
- - Creando tablas con SQL en MariaDB
+ - Operación CREATE: Agregando datos con Python y MariaDB
    - [Ejemplo 03](Ejemplo-03)
    - [Reto 03](Reto-03)
- - CRUD de datos con SQL en MariaDB
-   - [Ejemplo 04](Ejemplo-04)
-   - [Reto 04](Reto-04)
- - Operación READ: Lectura de datos con Python y MariaDB
-   - [Ejemplo 05](Ejemplo-05)
-   - [Reto 05](Reto-05)
- - Operación CREATE: Agregando datos con Python y MariaDB
-   - [Proyecto](Proyecto)
 
 ### POSTWORK
  - Aplicar los conceptos de la clase a un Proyecto

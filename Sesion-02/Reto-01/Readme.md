@@ -13,19 +13,13 @@ Inicializar la base de datos en un servidor MariaDB haciendo uso de contenedores
   - __User:__ root
   - __Pass:__ pythonsql
 1. Haber actualizado el repositorio
-1. Abrir una terminal y cambiarse a la carpeta de trabajo `Sesion-02/Reto-01`:
-
-   ```console
-   $ cd Sesion-02/Reto-01
-
-   Sesion-02/Reto-01 $
-   ```
+1. Abrir una terminal y cambiarse a la carpeta de trabajo `Sesion-02/Reto-01`.
 
 ### DESARROLLO
-4. Inicializar la base de datos usando el archivo `sql/bedutravels.sql`:
+1. Inicializar la base de datos usando el archivo `sql/bedutravels.sql`:
 
    ```console
-   Sesion-02/Reto-01 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/bedutravels.sql
+   Sesion-02/Reto-01 $ docker exec -i pythonsql ???
    ```
    ***
 
@@ -37,7 +31,7 @@ Inicializar la base de datos en un servidor MariaDB haciendo uso de contenedores
    - __Base de datos:__ BeduTravels
 
   ```console
-  Sesion-02/Reto-01 $ docker exec -it pythonsql mysql -hlocalhost -uBeduTravels -pBeduTravels BeduTravels
+  Sesion-02/Reto-01 $ docker exec -it pythonsql ???
   Welcome to the MariaDB monitor.  Commands end with ; or \g.
   Your MariaDB connection id is 11
   Server version: 10.3.15-MariaDB-1:10.3.15+maria~bionic mariadb.org binary distribution

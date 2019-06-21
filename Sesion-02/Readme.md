@@ -22,6 +22,8 @@
  - Automatizando la ejecución de archivos SQL con Python
    - [Ejemplo 04](Ejemplo-04)
    - [Reto 04](Reto-04)
+ - Consulta de datos en una relación de dos o más tablas con Python
+   - [Proyecto](Proyecto)
 
 ### POSTWORK
  - Aplicar los conceptos de la clase a un Proyecto

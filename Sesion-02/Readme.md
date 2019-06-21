@@ -19,6 +19,9 @@
    - [Ejemplo 03](Ejemplo-03)
  - Operación UPDATE: Modificando datos con Python y MariaDB
    - [Reto 03](Reto-03)
+ - Automatizando la ejecución de archivos SQL con Python
+   - [Ejemplo 04](Ejemplo-04)
+   - [Reto 04](Reto-04)
 
 ### POSTWORK
  - Aplicar los conceptos de la clase a un Proyecto

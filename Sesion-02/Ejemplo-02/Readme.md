@@ -1,6 +1,6 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-02
 
-## Realizar las operación Read a una tabla con Python en un servidor MariaDB.
+## Operación READ: Lectura de datos con Python y MariaDB
 
 ### OBJETIVO
 Conocer el procedimiento para realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python para el proyecto Biblioteca.

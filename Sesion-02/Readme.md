@@ -17,6 +17,7 @@
    - [Reto 02](Reto-02)
  - Operación CREATE: Agregando datos con Python y MariaDB
    - [Ejemplo 03](Ejemplo-03)
+ - Operación UPDATE: Modificando datos con Python y MariaDB
    - [Reto 03](Reto-03)
 
 ### POSTWORK

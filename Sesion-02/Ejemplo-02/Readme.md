@@ -1,32 +1,27 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-02
 
-## Realizar las operaciones CRUD con Python en un servidor MariaDB
+## Realizar las operación Read a una tabla con Python en un servidor MariaDB.
 
 ### OBJETIVO
-Conocer el procedimiento para realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python.
+Conocer el procedimiento para realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python para el proyecto Biblioteca.
 
 #### REQUISITOS
 1. Contar con los datos de conexión a la base de datos Biblioteca.
 
-   __Host:__ localhost
-   __User:__ Biblioteca \
-   __Password:__ Biblioteca \
+   __Host:__ localhost <br />
+   __User:__ Biblioteca <br />
+   __Password:__ Biblioteca <br />
    __Base de datos:__ Biblioteca
 
 1. Usar la carpeta de trabajo `Sesion-02/Ejemplo-02`
 
-   ```console
-   $ cd Sesion-02/Ejemplo-02
-
-   Sesion-02/Ejemplo-02 $
-   ```
-
-1. Crear la tabla __Libro__ e insertar datos desde el archivo `sql/tabla-libro.sql`
+1. Contar con la tabla __Libro__ creada y con los datos contenidos en el archivo `sql/tabla-libro.sql`.
 
    ![Tabla Libro](assets/tabla-libro.jpg)
 
+   Si no cuenta con la tabla, entonces inicializarla con el siguiente comando:
    ```console
-   Sesion-02/Ejemplo-02 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/tabla-libro.sql
+   Sesion-02/Ejemplo-02 $ docker exec -i pythonsql mysql -hlocalhost -uBiblioteca -pBiblioteca Biblioteca < sql/tabla-libro.sql
 
    Sesion-02/Ejemplo-02 $
    ```
@@ -51,7 +46,9 @@ Conocer el procedimiento para realizar la operación __Read__ a una tabla en un 
    ```
 
 ### DESARROLLO
-1. __OPERACIÓN READ__ Crea el script `lista-registros.py` que imprima en formato texto en la salida estándar la lista de registros de la tabla proporcionada como parámetro en la línea de comandos. Hacer uso de los módulos `click`, `mysql-connector-python` y `stdout`. Aplicar el modelo MVC y todas las funciones que tengan que ver con la base de datos colocarlas dentro del script/módulo `modelomysql.py`.
+ 1. __OPERACIÓN READ__ Crea el script `lista-registros.py` que imprima en formato texto en la salida estándar, la lista de registros de la tabla proporcionada como parámetro en la línea de comandos. Hacer uso de los módulos `click`, `mysql-connector-python` y `stdout`.
+
+ Aplicar el modelo MVC y todas las funciones que tengan que ver con la base de datos colocarlas dentro del script/módulo `modelomysql.py`.
 
    __Caso: Ejecutando el script sin argumentos__
 

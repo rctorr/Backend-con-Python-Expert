@@ -28,8 +28,3 @@
 ### POSTWORK
  - Bases de datos relacionales con Python y MariaDB aplicado a tú Proyecto.
    - [Ver lineamientos](Postwork)
-
-### SUGERENCIAS
- - Recuerda que cuentas con los scripts `stdout.py`, `modelomysql.py`, `lista-registros.py` a tu disposición.
- - También cuentas con los script `agrega-nombretabla.py` o `lista-reporte.py` que contienen el código mínimo para que puedas modificarlos o complementarlo para tus propios fines.
- 

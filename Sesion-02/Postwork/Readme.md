@@ -87,7 +87,7 @@
    --------------
    ```
    ***
--
+
 1. __GENERANDO REPORTES__ Para este paso seguir las instrucciones del Proyecto realizado en clase pero ahora con los datos para tú Proyecto, crea el script llamado `lista-reporte.py` que muestre resultados de dos o más tablas y que sea información útil.
 
   __Resultado de ejecución del script:__
@@ -96,3 +96,7 @@
   [Tabla con renglones resultado ...]
   ```
   ***
+
+### SUGERENCIAS
+ - Recuerda que cuentas con los scripts `stdout.py`, `modelomysql.py`, `lista-registros.py` a tu disposición.
+ - También cuentas con los script `agrega-nombretabla.py` o `lista-reporte.py` que contienen el código mínimo para que puedas modificarlos o complementarlo para tus propios fines.

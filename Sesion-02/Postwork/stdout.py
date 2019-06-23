@@ -33,3 +33,45 @@ def imprime_registros(registros, titulo=None):
         print(" | ".join(reg))
     print("-" * len(titulo))
     print()
+
+def imprime_registros_html(registros, titulo=None):
+    """
+    Imprime la lista de registros en la salida estándar en formato HTML, cada
+    registro es de tipo lista.
+
+    titulo - Es de tipo str y si es proporcionado se imprime como título
+    """
+
+    # Se crea la variable de tipo plantilla
+    html = """
+<html>
+<head>
+    <title>{titulo}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>{titulo}</h1>
+    <hr />
+    <table>
+        <!-- Lista de renglones -->
+        {renglones}
+    </table>
+</body>
+</html>
+    """
+    renglones = []
+    for reg in registros:
+        linea = "<tr>"
+        for campo in reg:
+            # Se cambia los valores None por cademas vacias para impresión
+            campo = "" if campo == None else campo
+            linea += "<td>{}</td>".format(campo)
+        linea += "</tr>"
+        renglones.append(linea)
+    html = html.format(
+        titulo=titulo,
+        renglones="\n".join(renglones)
+    )
+    print(html)
+

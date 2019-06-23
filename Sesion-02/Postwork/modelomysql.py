@@ -5,12 +5,13 @@
 Módulo encargado de realizar las operaciones a la base de datos MariaDB
 """
 
-# Datos de conexión a la base de datos
+# Datos de conexión a la base de datos, replaza los símbolos ??? por tus
+## propios valores
 BD = {
-    "database":"BeduTravels",
+    "database":"???",
     "host":"localhost",
-    "user":"BeduTravels",
-    "password":"BeduTravels"
+    "user":"???",
+    "password":"???"
 }
 
 # zona de imports
@@ -79,6 +80,26 @@ def obtiene_tablas():
         # Si no hay conexión a la BD regresamos una lista vacía
         return []
 
+def ejecuta_sql(sql):
+    """
+    Ejecuta las instrucciones proporcionadas por sql y regresa True en
+    caso de éxtio, False en caso contrario.
+    """
+    # Se realiza la conexión a la base de datos
+    conn = conecta_bd()
+    if conn:
+        # Se obtiene un cursor o indice a la base de datos
+        cur = conn.cursor()
+        # Se ejecuta la consulta
+        cur.execute(sql)
+        # Se cierra la BD
+        conn.close()
+
+        return True
+    else:
+        # Si no hay conexión a la BD regresamos una lista vacía
+        return False
+
 def agrega_registro(tabla, valores):
     """ Agrega un registro en tabla """
     # Se realiza la conexión a la BD
@@ -104,3 +125,28 @@ def agrega_registro(tabla, valores):
         return True
 
     return False  # En caso de error
+
+def obtiene_reporte():
+    """
+    Obtiene un reporte haciendo uso de dos o más tablas y regresa los
+    resultados en forma de lista.
+    """
+    # Obtiene los registros de las tablas involucradas
+    registros1 = obtiene_registros("Tabla1")
+    registros2 = obtiene_registros("Tabla2")
+    # Para poder usar el id como índice, se crea una lista de diccionaros
+    # con los registros.
+    registros2 = {r[0]:r[1:] for r in registros2}
+
+    if registros1:
+        # Se crea la fila de encabezado
+        registros = [["Campo1", "Campo2", "CampoN"]]
+
+        # Se arman los nuevas registros en base a lo solicitado
+        for r in registros1[1:]:
+            # registro = construido en base más de una tabla
+            registros.append(registro)
+
+        return registros
+
+    return []

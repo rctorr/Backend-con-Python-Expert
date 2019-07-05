@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevo prestamo{% endblock %}
+
+{% block contenido %}
+<h3 class="text-black">Nuevo préstamo</h3>
+<form method="POST">
+    {% csrf_token %}
+    <aside>
+    <label>Usuario</label>
+    <select name="idUsuario">
+        {% for u in usuarios %}
+        <option value="{{ u.id }}">{{ u }}</option>
+        {% endfor %}
+    </select>
+    <label>Fecha:</label>
+    <input type="text" readonly value="{{ fecha }}">
+    </aside>
+    <aside class="libros">
+        <label>Libros:</label><br />
+        <select name="idLibro1">
+            <option value="0">Ninguno</option>
+            {% for l in libros %}
+            <option value="{{ l.id }}">{{ l }}</option>
+            {%  endfor %}
+        </select><br />
+        <select name="idLibro2">
+            <option value="0">Ninguno</option>
+            {% for l in libros %}
+            <option value="{{ l.id }}">{{ l }}</option>
+            {%  endfor %}
+        </select><br />
+        <select name="idLibro3">
+            <option value="0">Ninguno</option>
+            {% for l in libros %}
+            <option value="{{ l.id }}">{{ l }}</option>
+            {%  endfor %}
+        </select><br />
+        <select name="idLibro4">
+            <option value="0">Ninguno</option>
+            {% for l in libros %}
+            <option value="{{ l.id }}">{{ l }}</option>
+            {%  endfor %}
+        </select><br />
+        <select name="idLibro5">
+            <option value="0">Ninguno</option>
+            {% for l in libros %}
+            <option value="{{ l.id }}">{{ l }}</option>
+            {%  endfor %}
+        </select><br />
+    </aside>
+    <hr />
+    <input type="submit" name="submit" value="Guardar">
+    <aside>
+        <p>{{ msg }}</p>
+    </aside>
+</form>
+{% endblock %}

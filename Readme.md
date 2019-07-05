@@ -15,6 +15,6 @@
  - [Sesión 4](Sesion-04): Fundamentos de Django
  - [Sesión 5](Sesion-05): Modelos, consultas y formularios
  - [Sesión 6](Sesion-06): Autenticación, grupos y permisos
- - [Sesión 7](Sesion-07): Django REST Framework I
+ - [Sesión 7](Sesion-07): Django REST Framework
  - [Sesión 8](Sesion-08): Django REST Framework II
  - Proyecto final

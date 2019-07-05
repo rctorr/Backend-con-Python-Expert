@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Entrada al sistema{% endblock %}
+
+{% block contenido %}
+<div class="row animate-box">
+  <div class="col-md-8 col-md-offset-2">
+    <h3 class="text-black text-center">Entrada al sistema</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <aside class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" class="form-control" required placeholder="Escribe tu usuario" name="username" />
+        </aside>
+        <aside class="form-group">
+            <label for="clave">Clave</label>
+            <input type="password" id="clave" class="form-control" required placeholder="Escribe tu clave" name="password" />
+        </aside>
+        <hr />
+        <aside class="form-group">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Enviar" />
+            </div>
+          </div>
+        </aside>
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% else %}
+        <input type="hidden" name="next" value="/" />
+        {% endif %}
+        {% if msg %}
+        <aside class="alert alert-dismissible alert-danger">
+            {{ msg }}
+        </aside>
+        {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

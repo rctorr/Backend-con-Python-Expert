@@ -9,8 +9,7 @@
 
 ### ORGANIZACIÓN DE MÓDULO
 
- - [Sesión 1](Sesion-01): Desarrollo web con Python.
- - [Sesión 2](Sesion-02): Bases de datos con Python y MariaDB
+ - [Sesión 1](Sesion-01): Bases de datos con Python y MariaDB
  - [Sesión 3](Sesion-03): HTTP, WSGI y Frameworks
  - [Sesión 4](Sesion-04): Fundamentos de Django
  - [Sesión 5](Sesion-05): Modelos, consultas y formularios

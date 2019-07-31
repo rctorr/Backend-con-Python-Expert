@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Reto-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Reto-01
 
 ## Inicializando un servidor MariaDB y una base de datos haciendo uso de contenedores
 

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Proyecto
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Proyecto
 ## Consulta de datos en una relación de dos o más tablas con Python
 
 ### OBJETIVO

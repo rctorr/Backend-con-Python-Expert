@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-04
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Ejemplo-04
 ## Automatizando la ejecución de archivos SQL con Python
 
 ### OBJETIVO

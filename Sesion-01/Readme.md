@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 02`
+`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 01`
 ## Bases de datos con Python (MariaDB / MySQL)
 
 ### OBJETIVOS

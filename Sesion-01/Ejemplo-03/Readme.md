@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Ejemplo-03
 ## Operación CREATE: Agregando datos con Python y MariaDB
 
 ### OBJETIVO

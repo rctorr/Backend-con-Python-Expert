@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Postwork
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Postwork
 ## Bases de datos relacionales con Python y MariaDB aplicado a tú Proyecto
 
 ### OBJETIVOS

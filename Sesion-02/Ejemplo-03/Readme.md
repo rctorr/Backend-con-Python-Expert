@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-03
 
 ## Conociendo la interface WSGI creando una micro aplicación web con Python.
 
@@ -13,13 +13,13 @@ Comprender el flujo de información entre un servidor web y una aplicación en P
 
    __Cambiarse a la carpeta `webapp`:__
    ```console
-   Sesion-03/Ejemplo-03 $ cd webapp
-   Sesion-03/Ejemplo-03/webapp $
+   Sesion-02/Ejemplo-03 $ cd webapp
+   Sesion-02/Ejemplo-03/webapp $
    ```
 
    __Ejecutando el script con:__
    ```console
-   Sesion-03/Ejemplo-03/webapp $ python info.py
+   Sesion-02/Ejemplo-03/webapp $ python info.py
    Esuchando en localhost:8000... [Presiona Control+C para terminar!]
 
    Abre la siguiente url en tu navegador:

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 07`
+`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 02`
 ## HTTP, WSGI y Web Frameworks
 
 ### OBJETIVOS

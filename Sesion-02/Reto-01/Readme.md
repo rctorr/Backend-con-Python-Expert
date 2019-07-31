@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Reto-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Reto-01
 ## Conociendo el protocolo HTTP por medio de una micro aplicación Python
 
 ### OBJETIVO
@@ -12,13 +12,13 @@ Definir el flujo de información en una petición HTTP para obtener una imagen e
 
    __Cambiarse a la carpeta `html` del `Reto-01`:__
    ```console
-   Sesion-03/Reto-01 $ cd html
-   Sesion-03/Reto-01/html $
+   Sesion-02/Reto-01 $ cd html
+   Sesion-02/Reto-01/html $
    ```
 
    __Crear el servidor con la instrucción:__
    ```console
-   Sesion-03/Reto-01/html $ python -m http.server --cgi
+   Sesion-02/Reto-01/html $ python -m http.server --cgi
    Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
    ```
    ***

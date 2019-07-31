@@ -16,7 +16,7 @@ Realizar la operación __UPDATE__ para un registro de una tabla con Python y Mar
 
   ![Tabla Usuario](assets/tabla-usuario.jpg)
 
-1. Usar la carpeta de trabajo `Sesion-02/Reto-03/`
+1. Usar la carpeta de trabajo `Sesion-01/Reto-03/`
 
 ### DESARROLLO
 1. __OPERACIÓN UPDATE__ Crear el script `actualiza-usuario.py` y realizar las modificaciones en el script `modelomysql.py` para que se pueda modificar un registro a la tabla Usuario en la base de datos BeduTravels desde la línea de comandos. Hacer uso de los módulos `click`, `mysql-connector-python` y `modelomysql`.
@@ -24,7 +24,7 @@ Realizar la operación __UPDATE__ para un registro de una tabla con Python y Mar
    __Caso: Ejecutando el script sin argumentos__
 
    ```console
-   Sesion-02/Reto-03 $ python actualiza-usuario.py
+   Sesion-01/Reto-03 $ python actualiza-usuario.py
    Usage: actualiza-usuario.py [OPTIONS] ID NOMBRE APELLIDOS EDAD GENERO
    Try "actualiza-usuario.py --help" for help.
 
@@ -34,7 +34,7 @@ Realizar la operación __UPDATE__ para un registro de una tabla con Python y Mar
    __Caso: Actualiza un registro a la tabla Usuario en base al id__
 
    ```console
-   Sesion-02/Reto-03 $ python lista-registros.py Usuario
+   Sesion-01/Reto-03 $ python lista-registros.py Usuario
 
    Tabla: Usuario
    --------------
@@ -48,10 +48,10 @@ Realizar la operación __UPDATE__ para un registro de una tabla con Python y Mar
     7 | Chabelo |           |  100 | M     
    --------------
 
-   Sesion-02/Reto-03 $ python actualiza-usuario.py 7 None Lopez None None
+   Sesion-01/Reto-03 $ python actualiza-usuario.py 7 None Lopez None None
    Se ha actualizado el registro (7, None, 'Lopez', None, None) a la tabla Usuario
 
-   Sesion-02/Reto-03 $ python lista-registros.py Usuario
+   Sesion-01/Reto-03 $ python lista-registros.py Usuario
    Tabla: Usuario
    --------------
    Id | Nombre  | Apellidos | Edad | Genero

@@ -12,7 +12,7 @@ Conocer el procedimiento para realizar la operación __Read__ a una tabla en un 
    __Password:__ Biblioteca <br />
    __Base de datos:__ Biblioteca
 
-1. Usar la carpeta de trabajo `Sesion-02/Ejemplo-02`
+1. Usar la carpeta de trabajo `Sesion-01/Ejemplo-02`
 
 1. Contar con la tabla __Libro__ creada y con los datos contenidos en el archivo `sql/tabla-libro.sql`.
 
@@ -20,9 +20,9 @@ Conocer el procedimiento para realizar la operación __Read__ a una tabla en un 
 
    Si no cuenta con la tabla, entonces inicializarla con el siguiente comando:
    ```console
-   Sesion-02/Ejemplo-02 $ docker exec -i pythonsql mysql -hlocalhost -uBiblioteca -pBiblioteca Biblioteca < sql/tabla-libro.sql
+   Sesion-01/Ejemplo-02 $ docker exec -i pythonsql mysql -hlocalhost -uBiblioteca -pBiblioteca Biblioteca < sql/tabla-libro.sql
 
-   Sesion-02/Ejemplo-02 $
+   Sesion-01/Ejemplo-02 $
    ```
 
 1. Instalar el módulo `mysql-connector-python` que será el responsable de permitir realizar una conexión a base de datos MySQL / MariaDB desde Python.
@@ -52,7 +52,7 @@ Conocer el procedimiento para realizar la operación __Read__ a una tabla en un 
    __Caso: Ejecutando el script sin argumentos__
 
    ```console
-   Sesion-02/Ejemplo-02 $ python lista-registros.py
+   Sesion-01/Ejemplo-02 $ python lista-registros.py
 
    Tablas disponibles
    ------------------
@@ -63,7 +63,7 @@ Conocer el procedimiento para realizar la operación __Read__ a una tabla en un 
    __Caso: Imprimiendo registros de la tabla Libro__
 
    ```console
-   Sesion-02/Ejemplo-02 $ python lista-registros.py Libro
+   Sesion-01/Ejemplo-02 $ python lista-registros.py Libro
 
    Tabla: Libro
    ------------

@@ -12,12 +12,12 @@ Realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python 
    __Password:__ BeduTravels \
    __Base de datos:__ BeduTravels
 
-1. Usar la carpeta de trabajo `Sesion-02/Reto-02`
+1. Usar la carpeta de trabajo `Sesion-01/Reto-02`
 
    ```console
-   $ cd Sesion-02/Reto-02
+   $ cd Sesion-01/Reto-02
 
-   Sesion-02/Reto-02 $
+   Sesion-01/Reto-02 $
    ```
 
 1. Crear la tabla __Usuario__ e insertar datos desde el archivo `sql/tabla-usuario.sql`
@@ -25,9 +25,9 @@ Realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python 
    ![Tabla Usuario](assets/tabla-usuario.jpg)
 
    ```console
-   Sesion-02/Reto-02 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/tabla-usuario.sql
+   Sesion-01/Reto-02 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/tabla-usuario.sql
 
-   Sesion-02/Reto-02 $
+   Sesion-01/Reto-02 $
    ```
 
 ### DESARROLLO
@@ -36,7 +36,7 @@ Realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python 
    __Caso: Ejecutando el script sin argumentos__
 
    ```console
-   Sesion-02/Reto-02 $ python lista-registros.py
+   Sesion-01/Reto-02 $ python lista-registros.py
 
    Tablas disponibles
    ------------------
@@ -47,7 +47,7 @@ Realizar la operación __Read__ a una tabla en un servidor MariaDB desde Python 
    __Caso: Imprimiendo registros de la tabla Usuario__
 
    ```console
-   Sesion-02/Reto-02 $ python lista-registros.py Usuario
+   Sesion-01/Reto-02 $ python lista-registros.py Usuario
 
    Tabla: Usuario
    --------------

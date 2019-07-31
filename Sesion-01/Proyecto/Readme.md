@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Proyecto
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Proyecto
 ## Consulta de datos en una relación de dos o más tablas con Python
 
 ### OBJETIVO
@@ -6,7 +6,7 @@ Construir un script en Python que realice consulta de datos en dos o más tablas
 
 ### REQUISITOS
 1. Carpeta de repo actualizada
-1. Usar la carpeta de trabajo `Sesion-02/Proyecto`
+1. Usar la carpeta de trabajo `Sesion-01/Proyecto`
 1. Usar el diagrama del modelo entidad-relación:
 
    ![Modelo entidad-relación](assets/bedutravels-modelo-er.jpg)
@@ -19,7 +19,7 @@ Construir un script en Python que realice consulta de datos en dos o más tablas
    __Ejecutando el script:__
 
    ```bash
-   Sesion-02/Proyecto $ python lista-viajes.py
+   Sesion-01/Proyecto $ python lista-viajes.py
 
    Lista de viajes reservados
    --------------------------
@@ -34,7 +34,7 @@ Construir un script en Python que realice consulta de datos en dos o más tablas
    __Super reto:__ Listar la lista de viajes reservados en formato html
 
    ```bash
-   Sesion-02/Proyecto $ python lista-viajes.py --html > lista-viajes.html
+   Sesion-01/Proyecto $ python lista-viajes.py --html > lista-viajes.html
    ```
 
    __Vista del resultado en navegador:__

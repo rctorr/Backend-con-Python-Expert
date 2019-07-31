@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Ejemplo-01
 
 ## Inicializando un servidor MariaDB y una base de datos haciendo uso de contenedores
 
@@ -10,12 +10,12 @@
 #### REQUISITOS
 1. Contar con Docker instalado
 1. Contar con el repositorio actualizado creado por el experto para este módulo.
-1. Abrir una terminal y posicionarse en la carpeta de trabajo `Backend-con-Python/Sesion-02/Ejemplo-01`:
+1. Abrir una terminal y posicionarse en la carpeta de trabajo `Backend-con-Python/Sesion-01/Ejemplo-01`:
 
    ```console
-   $ cd Sesion-02/Ejemplo-01
+   $ cd Sesion-01/Ejemplo-01
 
-   Sesion-02/Ejemplo-01 $
+   Sesion-01/Ejemplo-01 $
    ```
 
 ### DESARROLLO
@@ -24,7 +24,7 @@
    __Ejecución de comando en terminal:__
 
    ```console
-   Sesion-02/Ejemplo-01 $ docker pull mariadb:10.3
+   Sesion-01/Ejemplo-01 $ docker pull mariadb:10.3
    10.3: Pulling from library/mariadb
    6abc03819f3e: Pull complete
    05731e63f211: Pull complete
@@ -42,7 +42,7 @@
    Digest: sha256:db6e7bda67ea88efb00ba4ad82cb72dfee8938935914ae0948f6af523d398ca2
    Status: Downloaded newer image for mariadb:10.3
 
-   Sesion-02/Ejemplo-01 $  
+   Sesion-01/Ejemplo-01 $  
    ```
    ***
 
@@ -72,19 +72,19 @@
    __El contenedor se crea con el siguiente comando:__
 
    ```console
-   Sesion-02/Ejemplo-01 $ docker create --name pythonsql -e MYSQL_ROOT_PASSWORD=pythonsql -p 3306:3306 mariadb:10.3
+   Sesion-01/Ejemplo-01 $ docker create --name pythonsql -e MYSQL_ROOT_PASSWORD=pythonsql -p 3306:3306 mariadb:10.3
    2bc444c9f01b9d157ac0e6bf13ce042cee1b7556ba328169453fea8800d285b1
 
-   Sesion-02/Ejemplo-01 $
+   Sesion-01/Ejemplo-01 $
    ```
    ***
 
 1. Para iniciar el servidor MariaDB hay que iniciar el contenedor llamado __pythonsql__:
 
    ```console
-   Sesion-02/Ejemplo-01 $ docker start pythonsql
+   Sesion-01/Ejemplo-01 $ docker start pythonsql
    pythonsql
-   Sesion-02/Ejemplo-01 $ docker ps
+   Sesion-01/Ejemplo-01 $ docker ps
    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 46304152770a        mariadb:10.3        "docker-entrypoint.s…"   7 days ago          Up 26 hours         0.0.0.0:3306->3306/tcp   pythonsql
    ```
@@ -94,7 +94,7 @@
 
    __El comando a ejecutar es:__
    ```console
-   Sesion-02/Ejemplo-01 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/biblioteca.sql
+   Sesion-01/Ejemplo-01 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/biblioteca.sql
 
    Sesion-01/Ejemplo-01 $
    ```
@@ -109,7 +109,7 @@
 1. Para validar que la base de datos se haya inicializado de forma correcta se realiza una conexión a la base de datos con el siguiente comando:
 
   ```console
-  Sesion-02/Ejemplo-01 $ docker exec -it pythonsql mysql -hlocalhost -uBiblioteca -pBilioteca Biblioteca
+  Sesion-01/Ejemplo-01 $ docker exec -it pythonsql mysql -hlocalhost -uBiblioteca -pBilioteca Biblioteca
   Welcome to the MariaDB monitor.  Commands end with ; or \g.
   Your MariaDB connection id is 9
   Server version: 10.3.15-MariaDB-1:10.3.15+maria~bionic mariadb.org binary distribution
@@ -120,7 +120,7 @@
 
   MariaDB [Biblioteca]> EXIT;
 
-  Sesion-02/Ejemplo-01 $
+  Sesion-01/Ejemplo-01 $
   ```
   ***
 

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Reto-04
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Reto-04
 ## Automatizando la ejecución de archivos SQL con Python
 
 ### OBJETIVO
@@ -6,7 +6,7 @@ Construir un script en Python para ejecutar instrucciones SQL por medio de archi
 
 #### REQUISITOS
 1. Carpeta de repo actualizada
-1. Usar la carpeta de trabajo `Sesion-02/Reto-04`
+1. Usar la carpeta de trabajo `Sesion-01/Reto-04`
 1. Usar el nuevo diagrama del modelo entidad-relación:
 
    ![Modelo entidad-relación](bedutravels-modelo-er.jpg)
@@ -17,7 +17,7 @@ Construir un script en Python para ejecutar instrucciones SQL por medio de archi
    __Ejecutando el script con el archivo `sql/tablas-inicial.sql`:__
 
     ```bash
-    Sesion-02/Reto-04 $ python sql2mysql.py sql/tablas-inicial.sql
+    Sesion-01/Reto-04 $ python sql2mysql.py sql/tablas-inicial.sql
 
     Se ha ejecutado el archivo sql/tablas-inicial.sql correctamente
     ```
@@ -25,7 +25,7 @@ Construir un script en Python para ejecutar instrucciones SQL por medio de archi
     __Lista de los nuevos datos en las tablas:__
 
     ```bash
-    Sesion-02/Reto-04 $ python lista-registros.py Usuario
+    Sesion-01/Reto-04 $ python lista-registros.py Usuario
 
     Tabla: Usuario
     --------------

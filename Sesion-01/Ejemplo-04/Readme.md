@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-04
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Ejemplo-04
 ## Automatizando la ejecución de archivos SQL con Python
 
 ### OBJETIVO
@@ -6,7 +6,7 @@ Conocer la forma de construir un script en Python para ejecutar instrucciones SQ
 
 #### REQUISITOS
 1. Carpeta de repo actualizada
-1. Usar la carpeta de trabajo `Sesion-02/Ejemplo-04`
+1. Usar la carpeta de trabajo `Sesion-01/Ejemplo-04`
 
 #### DESARROLLO
 1. Crear el script `sql2mysql.py` que reciba como parámetro el nombre de un archivo con extensión sql y ejecute las instrucciones en un servidor MariaDB.
@@ -14,7 +14,7 @@ Conocer la forma de construir un script en Python para ejecutar instrucciones SQ
    __Ejecutando el script con el archivo `sql/tablas-inicial.sql`:__
 
     ```bash
-    Sesion-02/Ejemplo-04 $ python sql2mysql.py sql/tablas-inicial.sql
+    Sesion-01/Ejemplo-04 $ python sql2mysql.py sql/tablas-inicial.sql
 
     Se ha ejecutado el archivo sql/tablas-inicial.sql correctamente
     ```
@@ -22,7 +22,7 @@ Conocer la forma de construir un script en Python para ejecutar instrucciones SQ
     __Lista de los nuevos dos en las tablas:__
 
     ```bash
-    Sesion-02/Ejemplo-04 $ python lista-registros.py Libro
+    Sesion-01/Ejemplo-04 $ python lista-registros.py Libro
 
     Tabla: Libro
     ------------

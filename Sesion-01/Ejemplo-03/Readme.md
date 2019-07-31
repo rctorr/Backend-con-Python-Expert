@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Ejemplo-03
 ## Operación CREATE: Agregando datos con Python y MariaDB
 
 ### OBJETIVO
@@ -16,7 +16,7 @@ Conocer el procedimiento para realizar la operación __CREATE__ en una tabla con
 
   ![Tabla Libro](assets/tabla-libro.jpg)
 
-1. Usar la carpeta de trabajo `Sesion-02/Ejemplo-03`
+1. Usar la carpeta de trabajo `Sesion-01/Ejemplo-03`
 
 ### DESARROLLO
 1. __OPERACIÓN CREATE__ Crea el script `agrega-libro.py` y realiza las modificaciones en el script `modelomysql.py` para que se pueda agregar un nuevo registro a la tabla Libro en la base de datos Biblioteca desde la línea de comandos. Hacer uso de los módulos `click`, `mysql-connector-python` y `modelomysql`.
@@ -24,7 +24,7 @@ Conocer el procedimiento para realizar la operación __CREATE__ en una tabla con
    __Caso: Ejecutando el script sin argumentos__
 
    ```console
-   Sesion-02/Ejemplo-03 $ python agrega-libro.py
+   Sesion-01/Ejemplo-03 $ python agrega-libro.py
    Usage: agrega-libro.py [OPTIONS] TITULO EDITORIAL NUMPAG AUTORES
    Try "agrega-libro.py --help" for help.
 
@@ -34,10 +34,10 @@ Conocer el procedimiento para realizar la operación __CREATE__ en una tabla con
    __Caso: Agregando un libro a la tabla__
 
    ```console
-   Sesion-02/Ejemplo-03 $ python agrega-libro.py "Un puente hacia el infinito" "Zeta Bolsillo" 409 1
+   Sesion-01/Ejemplo-03 $ python agrega-libro.py "Un puente hacia el infinito" "Zeta Bolsillo" 409 1
    Se ha agregado el registro ('Un puente hacia el infinito', 'Zeta Bolsillo', 409, '1') a la tabla Libro
 
-   Sesion-02/Ejemplo-03 $ python lista-registros.py Libro
+   Sesion-01/Ejemplo-03 $ python lista-registros.py Libro
 
    Tabla: Libro
    --------------

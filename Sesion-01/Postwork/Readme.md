@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Postwork
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 01`](../Readme.md) > Postwork
 ## Bases de datos relacionales con Python y MariaDB aplicado a tú Proyecto
 
 ### OBJETIVOS
@@ -9,10 +9,10 @@
 
 ### REQUISITOS
 1. Contar con Docker instalado.
-1. Contar con el archivo `Sesion-02/Postwork/sql/proyecto.sql` con la definición la base de datos, usuario y permisos para tú Proyecto.
-1. Contar con el archivo `Sesion-02/Postwork/sql/tablas.sql` con la definición de las tablas de tú Proyecto.
+1. Contar con el archivo `Sesion-01/Postwork/sql/proyecto.sql` con la definición la base de datos, usuario y permisos para tú Proyecto.
+1. Contar con el archivo `Sesion-01/Postwork/sql/tablas.sql` con la definición de las tablas de tú Proyecto.
 1. Contar con el diagrama del modelo entidad-relación de tú Proyecto
-1. Usar la carpeta de trabajo `Sesion-02/Postwork`
+1. Usar la carpeta de trabajo `Sesion-01/Postwork`
 1. Los datos de administrador del servidor MariaDB:
 
    __Host:__ localhost<br />
@@ -24,26 +24,26 @@
 
   __Comando a ejecutar para el caso de Docker en Linux o Mac:__
   ```sh
-  Sesion-02/Postwork $ sudo docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
+  Sesion-01/Postwork $ sudo docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
   ```
 
   __Comando a ejecutar para el caso de Docker en Windows:__
   ```sh
-  Sesion-02/Postwork > docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
+  Sesion-01/Postwork > docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
   ```
 
   __Comando a ejecutar para el caso de MySQL:__
   ```sh
-  Sesion-02/Postwork $ mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
+  Sesion-01/Postwork $ mysql -hlocalhost -uroot -ppythonsql < sql/proyecto.sql  
   ```
   ***
 
 1. __INICIALIZACIÓN DE TABLAS__ Las tablas se pueden crear usando el archivo `sql/tablas-proyecto.sql` con el siguiente comando:
 
    ```console
-   Sesion-02/Postwork $ sudo docker exec -i pythonsql mysql -hlocalhost -uProyecto -pProyecto Proyecto < sql/tablas.sql
+   Sesion-01/Postwork $ sudo docker exec -i pythonsql mysql -hlocalhost -uProyecto -pProyecto Proyecto < sql/tablas.sql
 
-   Sesion-02/Postwork $
+   Sesion-01/Postwork $
    ```
    Asumiendo que los datos de acceso para la base de datos para tú proyecto son:
 
@@ -57,9 +57,9 @@
 
    __Para inicializar las tablas:__
    ```console
-   Sesion-02/Postwork $ python sql2mysql.py sql/tablas.sql
+   Sesion-01/Postwork $ python sql2mysql.py sql/tablas.sql
 
-   Sesion-02/Postwork $
+   Sesion-01/Postwork $
    ```
 
 1. __OPERACIONES CRUD__ Modifica o crea los script necesarios para poder realizar las operaciones que necesites, por ejemplo `lista-registros.py`, `agrega-registro.py`, `actualiza-registro` o `borra-registro`.
@@ -67,7 +67,7 @@
    __Caso: Ejecutando el script `lista-registros.py` sin argumentos__
 
    ```console
-   Sesion-02/Postwork $ python lista-registros.py
+   Sesion-01/Postwork $ python lista-registros.py
 
    Tablas disponibles
    ------------------
@@ -79,7 +79,7 @@
    __Caso: Imprimiendo registros de la tabla ???__
 
    ```console
-   Sesion-02/Postwork $ python lista-registros.py ???
+   Sesion-01/Postwork $ python lista-registros.py ???
 
    Tabla: ???
    --------------

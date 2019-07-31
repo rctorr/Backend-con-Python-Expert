@@ -10,10 +10,11 @@
 ### ORGANIZACIÓN DE MÓDULO
 
  - [Sesión 1](Sesion-01): Bases de datos con Python y MariaDB
- - [Sesión 3](Sesion-03): HTTP, WSGI y Frameworks
- - [Sesión 4](Sesion-04): Fundamentos de Django
- - [Sesión 5](Sesion-05): Modelos, consultas y formularios
- - [Sesión 6](Sesion-06): Autenticación, grupos y permisos
- - [Sesión 7](Sesion-07): Django REST Framework
- - [Sesión 8](Sesion-08): Django REST Framework II
+ - [Sesión 2](Sesion-02): HTTP, WSGI y Frameworks
+ - [Sesión 3](Sesion-03): Fundamentos de Django
+ - [Sesión 4](Sesion-04): Modelos, consultas y formularios
+ - [Sesión 5](Sesion-05): Autenticación, grupos y permisos
+ - [Sesión 6](Sesion-06): Django REST Framework
+ - [Sesión 7](Sesion-07): Django GraphQL con Graphene
+ - [Sesión 8](Sesion-08): Puesta en producción
  - Proyecto final

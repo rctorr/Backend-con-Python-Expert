@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Reto-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Reto-03
 
 ## Conociendo la interface WSGI creando una micro aplicación web con Python.
 

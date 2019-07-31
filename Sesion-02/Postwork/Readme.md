@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Postwork
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a un Proyecto
 
 ### OBJETIVOS
@@ -8,12 +8,12 @@
 #### REQUISITOS
 1. Constar con la carpeta del repo actualizada.
 1. Contar con las páginas del formulario y su respuesta en HTML y CSS.
-1. Usar la carpeta de trabajo `Sesion-03/Postwork`
+1. Usar la carpeta de trabajo `Sesion-02/Postwork`
 
    ```sh
-   $ cd Sesion-03/Postwork
+   $ cd Sesion-02/Postwork
 
-   Sesion-03/Postwork $
+   Sesion-02/Postwork $
    ```
 
 ### DESARROLLO
@@ -21,14 +21,14 @@
 
    __Cambiarse a la carpeta `webapp`:__
    ```console
-   Sesion-03/Postwork $ cd webapp
-   Sesion-03/Postwork/webapp $
+   Sesion-02/Postwork $ cd webapp
+   Sesion-02/Postwork/webapp $
    ```
 
    __Ejecutando el script con:__
 
    ```console
-   Sesion-03/Postwork/webapp $ python index.py
+   Sesion-02/Postwork/webapp $ python index.py
    Bottle v0.13-dev server starting up (using WSGIRefServer())...
    Listening on http://localhost:8000/
    Hit Ctrl-C to quit.

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Proyecto
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Proyecto
 
 ## Conociendo los micro frameworks creando una micro aplicación web con Bottle.
 
@@ -13,14 +13,14 @@
 
    __Cambiarse a la carpeta `webapp`:__
    ```console
-   Sesion-03/Proyecto $ cd webapp
-   Sesion-03/Proyecto/webapp $
+   Sesion-02/Proyecto $ cd webapp
+   Sesion-02/Proyecto/webapp $
    ```
 
    __Ejecutando el script con:__
 
    ```console
-   Sesion-03/Proyecto/webapp $ python index.py
+   Sesion-02/Proyecto/webapp $ python index.py
    Bottle v0.13-dev server starting up (using WSGIRefServer())...
    Listening on http://localhost:8000/
    Hit Ctrl-C to quit.

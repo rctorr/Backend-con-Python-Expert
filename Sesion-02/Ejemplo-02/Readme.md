@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-02
 ## Conociendo la interface WSGI por medio de la aplicación web "hola mundo" con Python.
 
 ### OBJETIVO
@@ -59,13 +59,13 @@ Comprender el flujo de información entre un servidor web y una aplicación en P
 
    __Cambiarse a la carpeta `webapp`:__
    ```console
-   Sesion-03/Ejemplo-02 $ cd webapp
-   Sesion-03/Ejemplo-02/webapp $
+   Sesion-02/Ejemplo-02 $ cd webapp
+   Sesion-02/Ejemplo-02/webapp $
    ```
 
    __Crear el servidor con la instrucción:__
    ```console
-   Sesion-03/Ejemplo-02/webapp $ python holamundo.py
+   Sesion-02/Ejemplo-02/webapp $ python holamundo.py
    Esuchando en localhost:8000... [Presiona Ctrol+C para terminar!]
    ```
    El servidor se inicia en todas las ¿interfaces? del equipo en el puerto 8000 quedando en espera de peticiones hasta que se presione Control+C.

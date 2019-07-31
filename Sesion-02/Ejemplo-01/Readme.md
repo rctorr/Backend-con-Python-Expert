@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-01
 ## Conociendo el protocolo HTTP por medio de una micro aplicación Python
 
 ### OBJETIVO
@@ -15,13 +15,13 @@ Conociendo el flujo de información en una comunicación usando el protocolo HTT
 
    __Cambiarse a la carpeta `html` del `Ejemplo-01`:__
    ```console
-   Sesion-03/Ejemplo-01 $ cd html
-   Sesion-03/Ejemplo-01/html $
+   Sesion-02/Ejemplo-01 $ cd html
+   Sesion-02/Ejemplo-01/html $
    ```
 
    __Crear el servidor con la instrucción:__
    ```console
-   Sesion-03/Ejemplo-01/html $ python -m http.server
+   Sesion-02/Ejemplo-01/html $ python -m http.server
    Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
    ```
    El servidor se inicia en todas las ¿interfaces? del equipo en el puerto 8000 quedando en espera de peticiones hasta que se presiones Control+C. Se sugiere dejar el servidor corriendo hasta nuevo aviso.
@@ -56,7 +56,7 @@ Conociendo el flujo de información en una comunicación usando el protocolo HTT
    En la terminal donde se está ejecutando el servidor presionar Control+C y ejecutar de nuevo el servidor de la siguiente forma:
 
    ```console
-   Sesion-03/Ejemplo-01/html $ python -m http.server --cgi
+   Sesion-02/Ejemplo-01/html $ python -m http.server --cgi
    Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
    ```
 

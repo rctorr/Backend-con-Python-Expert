@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-04
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 02`](../Readme.md) > Ejemplo-04
 
 ## Introducción a los micro frameworks creando la micro aplicación "hola mundo" con Bottle.
 
@@ -51,14 +51,14 @@
 
    __Cambiarse a la carpeta `webapp`:__
    ```console
-   Sesion-03/Ejemplo-04 $ cd webapp
-   Sesion-03/Ejemplo-04/webapp $
+   Sesion-02/Ejemplo-04 $ cd webapp
+   Sesion-02/Ejemplo-04/webapp $
    ```
 
    __Ejecutando el script con:__
 
    ```console
-   Sesion-03/Ejemplo-04/webapp $ python holamundo.py
+   Sesion-02/Ejemplo-04/webapp $ python holamundo.py
    Bottle v0.13-dev server starting up (using WSGIRefServer())...
    Listening on http://localhost:8000/
    Hit Ctrl-C to quit.

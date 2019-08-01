@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Reto-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Reto-03
 ## Usando las consultas junto a las plantillas de Django
 
 ### OBJETIVO
@@ -7,7 +7,7 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-05/Reto-03`
+1. Usar la carpeta de trabajo `Sesion-04/Reto-03`
 1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
 
    ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)

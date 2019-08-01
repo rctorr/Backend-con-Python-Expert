@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Ejemplo-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-02
 ## Creando relaciones uno a muchos con el modelo de datos de Django.
 
 ### OBJETIVO
@@ -6,7 +6,7 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-05/Ejemplo-02`
+1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-02`
 1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
 
    ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)

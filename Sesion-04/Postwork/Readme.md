@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Postwork
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a un Proyecto
 
 ### OBJETIVOS
@@ -9,9 +9,9 @@
 
 #### REQUISITOS
 1. Constar con la carpeta del repo actualizada.
-1. Usar la carpeta de trabajo `Sesion-05/Postwork/Proyecto/`.
+1. Usar la carpeta de trabajo `Sesion-04/Postwork/Proyecto/`.
 1. Activar el entorno virtual para tú proyecto.
-1. Página de inicio maquetada del tú proyecto en la carpeta `Sesion-05/Postwork/public_html/`.
+1. Página de inicio maquetada del tú proyecto en la carpeta `Sesion-04/Postwork/public_html/`.
 
 ### DESARROLLO
 1. Usando el modelo entidad-relación, crear el modelo correspondiente a cada tabla.

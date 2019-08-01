@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h3>Lista de libros prestados</h3>
+<table class="table table-responsive table-hover table-striped ">
+    <tr>
+        <th>Id Préstamo</th>
+        <th>Título</th>
+        <th>Fecha préstamo</th>
+        <th>Fecha devolución</th>
+        <th>Nombre</th>
+        {% if "eliminar" in grupos %}
+        <th>Acciones</th>
+        {% endif %}
+    </tr>
+    {% for p in prestamos %}
+    {%  for l in p.libros.all %}
+    <tr>
+        <td class="text-right">{{ p.id }}</td>
+        <td>{{ l.titulo }}</td>
+        <td>{{ p.fechaPre }}</td>
+        <td>{{ p.fechaDev }}</td>
+        <td>{{ p.usuario.nombre }}</td>
+        {% if "eliminar" in grupos %}
+        <td class="acciones">
+            <a data-toggle="modal" data-target="#eliminaModal"
+                data-url="/prestamo/{{ p.id }}/libros/elimina/{{ l.id }}/">
+                <i class="icon-cross"></i>
+            </a>
+        </td>
+        {% endif %}
+    </tr>
+    {%   endfor %}
+    {% endfor %}
+</table>
+{% endblock %}
+
+{% block modals %}
+<!-- Modal -->
+<div class="modal fade" id="eliminaModal" tabindex="-1" role="dialog" aria-labelledby="eliminaModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="eliminaModalLabel">Está eliminando un libro de un préstamo</h4>
+      </div>
+      <div class="modal-body">
+        ¿Desea eliminarlo realmente?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <a href="#" class="btn btn-primary">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div><!-- Termina modal -->
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $('#eliminaModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var url = button.data('url')
+      var modal = $(this)
+      modal.find('.modal-footer a').attr("href", url)
+    })
+</script>
+{% endblock %}

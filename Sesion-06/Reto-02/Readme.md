@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 11`](../Readme.md) > Reto-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 06`](../Readme.md) > Reto-02
 ## Creando un API para realizar las operaciones CRUD de una tabla tipo catálogo.
 
 ### OBJETIVOS
@@ -7,7 +7,7 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-07/Reto-02`
+1. Usar la carpeta de trabajo `Sesion-06/Reto-02`
 1. Activar el entorno virtual __Biblioteca__
 1. Diagrama de entidad-relación del proyecto Biblioteca
 

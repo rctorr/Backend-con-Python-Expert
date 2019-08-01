@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 11`](../Readme.md) > Proyecto
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 06`](../Readme.md) > Proyecto
 ## Creando un API para realizar las operaciones CRUD de una tabla con relaciones muchos a muchos.
 
 ### OBJETIVOS
@@ -7,7 +7,7 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-07/Proyecto`
+1. Usar la carpeta de trabajo `Sesion-06/Proyecto`
 1. Activar el entorno virtual __Biblioteca__
 1. Diagrama de entidad-relación del proyecto Biblioteca
 

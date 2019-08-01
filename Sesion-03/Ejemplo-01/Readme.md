@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Ejemplo-01
 ## Entornos virtuales e instalación de Django
 
 ### OBJETIVO
@@ -8,13 +8,13 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-01`
+1. Usar la carpeta de trabajo `Sesion-03/Ejemplo-01`
 
 #### DESARROLLO
 1. Crear un entorno virtual para el proyecto Biblioteca con Django usando el siguiente comando:
 
    ```console
-   Sesion-04/Ejemplo-01 $ conda create --name Biblioteca python=3.7
+   Sesion-03/Ejemplo-01 $ conda create --name Biblioteca python=3.7
    Solving environment: done
 
    ## Package Plan ##
@@ -85,7 +85,7 @@
    # > source deactivate
    #
 
-   Sesion-04/Ejemplo-01 $
+   Sesion-03/Ejemplo-01 $
    ```
 
    __Nota:__ Revisar concepto de entorno virtual [Ver diapo]
@@ -93,25 +93,25 @@
    __Para activar el nuevo entorno se realiza con:__
 
    ```console
-   Sesion-04/Ejemplo-01 $ source activate Biblioteca
+   Sesion-03/Ejemplo-01 $ source activate Biblioteca
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
 
    __Para desactivar el nuevo entorno se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-04/Ejemplo-01 $ source deactivate
+   (Biblioteca) Sesion-03/Ejemplo-01 $ source deactivate
 
-   Sesion-04/Ejemplo-01 $    
+   Sesion-03/Ejemplo-01 $    
    ```
 
    __Dejar activo el entorno Biblioteca para continuar:__
 
    ```console
-   Sesion-04/Ejemplo-01 $ source activate Biblioteca
+   Sesion-03/Ejemplo-01 $ source activate Biblioteca
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
    ***
 
@@ -120,7 +120,7 @@
    __La instalación se realiza con el comando pip dentro del entorno virtual:__
 
    ```console
-   (Biblioteca) Sesion-04/Ejemplo-01 $ pip install django
+   (Biblioteca) Sesion-03/Ejemplo-01 $ pip install django
    Collecting django
      Downloading https://files.pythonhosted.org/packages/eb/4b/743d5008fc7432c714d753e1fc7ee56c6a776dc566cc6cfb4136d46cdcbb/Django-2.2.2-py3-none-any.whl (7.4MB)
         |████████████████████████████████| 7.5MB 232kB/s
@@ -132,7 +132,7 @@
    Installing collected packages: pytz, sqlparse, django
    Successfully installed django-2.2.2 pytz-2019.1 sqlparse-0.3.0
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
 
    __La página principal del framework Django:__
@@ -145,21 +145,21 @@
    __Para respaldar un entorno virtual se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-04/Ejemplo-01 $ pip freeze > requeriments.txt
+   (Biblioteca) Sesion-03/Ejemplo-01 $ pip freeze > requeriments.txt
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $ cat requeriments.txt  # type requeriments.txt
+   (Biblioteca) Sesion-03/Ejemplo-01 $ cat requeriments.txt  # type requeriments.txt
    certifi==2019.3.9
    Django==2.2.2
    pytz==2019.1
    sqlparse==0.3.0
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
 
    __Para restaurar un entorno virtual se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-04/Ejemplo-01 $ pip install -r requeriments.txt
+   (Biblioteca) Sesion-03/Ejemplo-01 $ pip install -r requeriments.txt
    Requirement already satisfied: certifi==2019.3.9 in /home/rctorr/miniconda3/envs/Biblioteca/lib/python3.7/site-packages (from -r requeriments.txt (line 1)) (2019.3.9)
    Collecting Django==2.2.2 (from -r requeriments.txt (line 2))
      Using cached https://files.pythonhosted.org/packages/eb/4b/743d5008fc7432c714d753e1fc7ee56c6a776dc566cc6cfb4136d46cdcbb/Django-2.2.2-py3-none-any.whl
@@ -170,19 +170,19 @@
    Installing collected packages: pytz, sqlparse, Django
    Successfully installed Django-2.2.2 pytz-2019.1 sqlparse-0.3.0
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
 
    __Para mostrar la lista de módulos instalados:__
 
    ```console
-   (Biblioteca) Sesion-04/Ejemplo-01 $ pip freeze
+   (Biblioteca) Sesion-03/Ejemplo-01 $ pip freeze
    certifi==2019.3.9
    Django==2.2.2
    pytz==2019.1
    sqlparse==0.3.0
 
-   (Biblioteca) Sesion-04/Ejemplo-01 $
+   (Biblioteca) Sesion-03/Ejemplo-01 $
    ```
 
    Ahora estamos listos para continuar con Django.

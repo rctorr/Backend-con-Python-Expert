@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Proyecto
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Proyecto
 ## Agregar la página de inicio ya maquetada a la aplicación web BeduTravels
 
 ### OBJETIVOS
@@ -8,7 +8,7 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Proyecto/BeduTravels/`
+1. Usar la carpeta de trabajo `Sesion-03/Proyecto/BeduTravels/`
 1. Activar el entorno virtual __BeduTravels__
 1. Página de inicio maquetada del proyecto __BeduTravels__
 
@@ -88,7 +88,7 @@
 
    (BeduTravels) Proyecto/BeduTravels $ cp -a ../public_html/js reservas/static/reservas/
 
-   Sesion-04/Proyecto/BeduTravels $ tree -d 1 reservas/static/reservas/
+   Sesion-03/Proyecto/BeduTravels $ tree -d 1 reservas/static/reservas/
    reservas/static/reservas/
    ├── css
    ├── fonts

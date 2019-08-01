@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Reto-01
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Reto-01
 ## Entornos virtuales e instalación de Django
 
 ### OBJETIVO
@@ -7,13 +7,13 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Reto-01`
+1. Usar la carpeta de trabajo `Sesion-03/Reto-01`
 
 #### DESARROLLO
 1. Crear un entorno virtual para el proyecto BeduTravels con Django usando el comando:
 
    ```console
-   Sesion-04/Reto-01 $ conda create --name BeduTravels python=3.7
+   Sesion-03/Reto-01 $ conda create --name BeduTravels python=3.7
    Solving environment: done
 
    ## Package Plan ##
@@ -84,15 +84,15 @@
    # > source deactivate
    #
 
-   Sesion-04/Reto-01 $
+   Sesion-03/Reto-01 $
    ```
 
    __Dejar activo el entorno BeduTravels para continuar:__
 
    ```console
-   Sesion-04/Reto-01 $ source activate BeduTravels
+   Sesion-03/Reto-01 $ source activate BeduTravels
 
-   (BeduTravels) Sesion-04/Reto-01 $
+   (BeduTravels) Sesion-03/Reto-01 $
    ```
    ***
 
@@ -101,7 +101,7 @@
    __Para restaurar un entorno virtual se realiza con:__
 
    ```console
-   (BeduTravels) Sesion-04/Reto-01 $ pip install -r requeriments.txt
+   (BeduTravels) Sesion-03/Reto-01 $ pip install -r requeriments.txt
    Requirement already satisfied: certifi==2019.3.9 in /home/rctorr/miniconda3/envs/BeduTravels/lib/python3.7/site-packages (from -r requeriments.txt (line 1)) (2019.3.9)
    Collecting Django==2.2.2 (from -r requeriments.txt (line 2))
      Using cached https://files.pythonhosted.org/packages/eb/4b/743d5008fc7432c714d753e1fc7ee56c6a776dc566cc6cfb4136d46cdcbb/Django-2.2.2-py3-none-any.whl
@@ -112,19 +112,19 @@
    Installing collected packages: pytz, sqlparse, Django
    Successfully installed Django-2.2.2 pytz-2019.1 sqlparse-0.3.0
 
-   (BeduTravels) Sesion-04/Reto-01 $
+   (BeduTravels) Sesion-03/Reto-01 $
    ```
 
    __Para mostrar la lista de módulos instalados:__
 
    ```console
-   (BeduTravels) Sesion-04/Reto-01 $ pip freeze
+   (BeduTravels) Sesion-03/Reto-01 $ pip freeze
    certifi==2019.3.9
    Django==2.2.2
    pytz==2019.1
    sqlparse==0.3.0
 
-   (BeduTravels) Sesion-04/Reto-01 $
+   (BeduTravels) Sesion-03/Reto-01 $
    ```
 
    Ahora estamos listos para continuar con Django.

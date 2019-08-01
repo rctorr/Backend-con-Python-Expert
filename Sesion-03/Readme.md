@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 04`
+`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 03`
 ## Django Fundamentals
 
 ### OBJETIVOS

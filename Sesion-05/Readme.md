@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 06`
+`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 05`
 ## Autenticación, grupos y permisos
 
 ### OBJETIVOS

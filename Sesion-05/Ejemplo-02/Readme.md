@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 10`](../Readme.md) > Ejemplo-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Ejemplo-02
 ## Definiendo y agregando autenticación de entrada usando la vista auth_views.login de Django.
 
 ### OBJETIVO

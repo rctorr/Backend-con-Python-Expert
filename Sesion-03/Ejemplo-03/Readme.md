@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-03
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Ejemplo-03
 ## Agregar la página de inicio ya maquetada a la aplicación web
 
 ### OBJETIVOS
@@ -8,7 +8,7 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-03/Biblioteca/`
+1. Usar la carpeta de trabajo `Sesion-03/Ejemplo-03/Biblioteca/`
 1. Activar el entorno virtual __Biblioteca__
 1. Página de inicio maquetada del proyecto __Biblioteca__
 
@@ -88,7 +88,7 @@
 
    (Biblioteca) Ejemplo-03/Biblioteca $ cp -a ../public_html/js catalogo/static/catalogo/
 
-   Sesion-04/Ejemplo-03/Biblioteca $ tree -d 1 catalogo/static/catalogo/
+   Sesion-03/Ejemplo-03/Biblioteca $ tree -d 1 catalogo/static/catalogo/
    catalogo/static/catalogo/
    ├── css
    ├── fonts

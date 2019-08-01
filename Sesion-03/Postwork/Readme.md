@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Postwork
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a un Proyecto
 
 ### OBJETIVOS
@@ -9,24 +9,24 @@
 
 #### REQUISITOS
 1. Constar con la carpeta del repo actualizada.
-1. Usar la carpeta de trabajo `Sesion-04/Postwork/Proyecto/`.
+1. Usar la carpeta de trabajo `Sesion-03/Postwork/Proyecto/`.
 1. Activar el entorno virtual para tú proyecto.
-1. Página de inicio maquetada del tú proyecto en la carpeta `Sesion-04/Postwork/public_html/`.
+1. Página de inicio maquetada del tú proyecto en la carpeta `Sesion-03/Postwork/public_html/`.
 
 ### DESARROLLO
 1. Crear un entorno virtual para tú proyecto usando el comando:
 
    ```console
-   Sesion-04/Postwork $ conda create --name ??? python=3.7
+   Sesion-03/Postwork $ conda create --name ??? python=3.7
    ```
 
    __Dejar activo el entorno ??? para continuar:__
 
    ```console
-   Sesion-04/Postwork $ conda activate ???
+   Sesion-03/Postwork $ conda activate ???
    [...]
 
-   (???) Sesion-04/Postwork $
+   (???) Sesion-03/Postwork $
    ```
    ***
 
@@ -93,7 +93,7 @@
    Quit the server with CONTROL-C.   
    ```
 
-   __Nota:__ Como el servidor bloquea la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual ??? y cambiarse a la carpeta de trabajo `Sesion-04/Postwork/???/`.
+   __Nota:__ Como el servidor bloquea la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual ??? y cambiarse a la carpeta de trabajo `Sesion-03/Postwork/???/`.
    ***
 
 1. Agrega la aplicación __mi_app__ a la configuración en el archivo `???/???/settings.py`:
@@ -163,7 +163,7 @@
 
    ```console
    [...]
-   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-04/Postwork/???/mi_app/urls.py", line 5, in <module>
+   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-03/Postwork/???/mi_app/urls.py", line 5, in <module>
      path('', views.index, name='index'),
    AttributeError: module 'mi_app.views' has no attribute 'index'
    ```
@@ -244,7 +244,7 @@
 
    (???) Postwork/??? $ cp -a ../public_html/js mi_app/static/mi_app/
 
-   Sesion-04/Postwork/??? $ tree -d 1 mi_app/static/mi_app/
+   Sesion-03/Postwork/??? $ tree -d 1 mi_app/static/mi_app/
    mi_app/static/mi_app/
    ├── css
    ├── fonts

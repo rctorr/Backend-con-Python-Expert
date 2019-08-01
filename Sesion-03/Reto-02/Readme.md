@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Reto-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Reto-02
 ## Iniciar la construcción de la aplicación web BeduTravels con Django
 
 ### OBJETIVOS
@@ -8,7 +8,7 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Reto-02`
+1. Usar la carpeta de trabajo `Sesion-03/Reto-02`
 1. Activar el entorno virtual __BeduTravels__
 
 #### DESARROLLO
@@ -75,7 +75,7 @@
    Quit the server with CONTROL-C.   
    ```
 
-   __Nota:__ Como el servidor bloquea la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual BeduTravels y cambiarse a la carpeta de trabajo `Sesion-04/Reto-02/BeduTravels/`.
+   __Nota:__ Como el servidor bloquea la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual BeduTravels y cambiarse a la carpeta de trabajo `Sesion-03/Reto-02/BeduTravels/`.
 
 1. Agrega la aplicación __reservas__ a la configuración en el archivo `BeduTravels/BeduTravels/settings.py`:
 
@@ -142,7 +142,7 @@
 
    ```console
    [...]
-   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-04/Reto-02/BeduTravels/reservas/urls.py", line 5, in <module>
+   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-03/Reto-02/BeduTravels/reservas/urls.py", line 5, in <module>
      path('', views.index, name='index'),
    AttributeError: module 'reservas.views' has no attribute 'index'
    ```

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-02
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Ejemplo-02
 ## Iniciar la construcción de una aplicación web con Django
 
 ### OBJETIVOS
@@ -9,7 +9,7 @@
 
 #### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-02`
+1. Usar la carpeta de trabajo `Sesion-03/Ejemplo-02`
 1. Activar el entorno virtual __Biblioteca__
 
 #### DESARROLLO
@@ -77,7 +77,7 @@
    ```
    Si se abre la url indicada, se observará lo mismo que el "hola mundo!", así que sigamos un poco más adelante, nuestro objetivo es mostrar la página `index.html` pero como parte de la aplicación web.
 
-   __Nota:__ Como el servidor bloque la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual Biblioteca y cambiarse a la carpeta de trabajo `Sesion-04/Ejemplo-02/Biblioteca/`.
+   __Nota:__ Como el servidor bloque la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual Biblioteca y cambiarse a la carpeta de trabajo `Sesion-03/Ejemplo-02/Biblioteca/`.
 
 1. Agrega la aplicación __catalogo__ a la configuración en el archivo `Biblioteca/Biblioteca/settings.py`:
 
@@ -148,7 +148,7 @@
 
    ```console
    [...]
-   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-04/Ejemplo-02/Biblioteca/catalogo/urls.py", line 5, in <module>
+   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-03/Ejemplo-02/Biblioteca/catalogo/urls.py", line 5, in <module>
      path('', views.index, name='index'),
    AttributeError: module 'catalogo.views' has no attribute 'index'
    ```

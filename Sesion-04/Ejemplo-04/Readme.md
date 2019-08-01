@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 09`](../Readme.md) > Ejemplo-04
+`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-04
 ## Definiendo y agregando una página con formulario a la aplicación web
 
 ### OBJETIVO
@@ -7,7 +7,7 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Sesion-05/Ejemplo-04`
+1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-04`
 1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
 
    ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)

@@ -1,0 +1,188 @@
+[
+{
+    "model": "catalogo.usuario",
+    "pk": 1,
+    "fields": {
+        "nombre": "Hugo",
+        "apellidos": "Mac Rico",
+        "edad": 15,
+        "genero": "H",
+        "direccion": null
+    }
+},
+{
+    "model": "catalogo.usuario",
+    "pk": 2,
+    "fields": {
+        "nombre": "Paco",
+        "apellidos": "Mac Pobre",
+        "edad": 18,
+        "genero": "H",
+        "direccion": null
+    }
+},
+{
+    "model": "catalogo.usuario",
+    "pk": 3,
+    "fields": {
+        "nombre": "Daisy",
+        "apellidos": "Mac Rica",
+        "edad": 19,
+        "genero": "M",
+        "direccion": "Casa de Mickey"
+    }
+},
+{
+    "model": "catalogo.usuario",
+    "pk": 6,
+    "fields": {
+        "nombre": "Donald",
+        "apellidos": "Mac Pato",
+        "edad": 101,
+        "genero": "H",
+        "direccion": ""
+    }
+},
+{
+    "model": "catalogo.libro",
+    "pk": 1,
+    "fields": {
+        "titulo": "Yo, Robot",
+        "editorial": "Gnome Press",
+        "numPag": 374,
+        "autores": 1
+    }
+},
+{
+    "model": "catalogo.libro",
+    "pk": 2,
+    "fields": {
+        "titulo": "El fin de la eternidad",
+        "editorial": "Gnome Press",
+        "numPag": 191,
+        "autores": 1
+    }
+},
+{
+    "model": "catalogo.libro",
+    "pk": 3,
+    "fields": {
+        "titulo": "El arte de la guerra",
+        "editorial": "Obelisco",
+        "numPag": 112,
+        "autores": 1
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 1,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-24",
+        "fechaDev": null,
+        "libros": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 2,
+    "fields": {
+        "usuario": 2,
+        "fechaPre": "2019-06-24",
+        "fechaDev": null,
+        "libros": [
+            2
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 3,
+    "fields": {
+        "usuario": 3,
+        "fechaPre": "2019-06-24",
+        "fechaDev": null,
+        "libros": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 4,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-24",
+        "fechaDev": null,
+        "libros": [
+            2
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 5,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-25",
+        "fechaDev": null,
+        "libros": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 6,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-25",
+        "fechaDev": null,
+        "libros": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 7,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-25",
+        "fechaDev": null,
+        "libros": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 8,
+    "fields": {
+        "usuario": 1,
+        "fechaPre": "2019-06-25",
+        "fechaDev": null,
+        "libros": [
+            1
+        ]
+    }
+},
+{
+    "model": "catalogo.prestamo",
+    "pk": 9,
+    "fields": {
+        "usuario": 3,
+        "fechaPre": "2019-06-25",
+        "fechaDev": null,
+        "libros": [
+            1,
+            2,
+            3
+        ]
+    }
+}
+]

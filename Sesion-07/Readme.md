@@ -9,7 +9,7 @@
 
  - Conociendo e instalando Django Graphene
    - [Ejemplo 01](Ejemplo-01)
- - Creando un API para realizar las operaciones CRUD de una tabla tipo catálogo.
+ - Creando un API GraphQL para realizar operaciones CRUD de una tabla
    - [Ejemplo 02](Ejemplo-02)
    - [Reto 02](Reto-02)
  - Creando un API para realizar las operaciones CRUD de una tabla con relaciones uno a muchos.

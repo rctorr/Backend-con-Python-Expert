@@ -15,12 +15,18 @@ class User(models.Model):
     clave = models.CharField(max_length=40, null=True, blank=True)
     tipo = models.CharField(max_length=45, null=True, blank=True)
 
+    def __str__(self):
+        return "{} {}".format(self.nombre, self.apellidos)
+
 class Zona(models.Model):
     """ Define la tabla Zona """
     nombre = models.CharField(max_length=45)
     descripcion = models.CharField(max_length=256, null=True, blank=True)
     latitud = models.DecimalField(max_digits=8, decimal_places=6, null=True, blank=True)
     longitud = models.DecimalField(max_digits=8, decimal_places=6, null=True, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.nombre)
 
 class Tour(models.Model):
     """ Define la tabla Tour """
@@ -36,11 +42,17 @@ class Tour(models.Model):
     zonaLlegada = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
         blank=True, related_name="Tours_zonaLlegada")
 
+    def __str__(self):
+        return "{}".format(self.nombre)
+
 class Opinion(models.Model):
     """ Define la tabla Opinion """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
     texto = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.texto)
 
 class Salida(models.Model):
     """ Define la tabla Salida """
@@ -49,3 +61,6 @@ class Salida(models.Model):
     asientos = models.PositiveSmallIntegerField(null=True, blank=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{} ({}, {})".format(self.tour, self.fechaInicio, self.fechaFin)

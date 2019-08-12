@@ -35,25 +35,15 @@
    ```
    ***
 
-1. Se crea la ruta para la url `/api/usuarios` modificando el archivo `BeduTravels/catalogo/urls.py`:
+1. Se crea la ruta para la url `/graphql` modificando el archivo `Bedutravels/tours/urls.py`:
 
    ```python
-   # Imports
-   from django.contrib.auth import views as auth_views
-   from django.urls import path, include
-   from rest_framework import routers
+   from django.urls import path
+   from graphene_django.views import GraphQLView
 
-   from . import views
-
-   # Agregando rutas para django rest
-   router = routers.DefaultRouter()
-   router.register(r'usuarios', views.UsuarioViewSet)
-   [...]
-   # Rutas para la url /api/
-   path("api/", include(router.urls)),
-   # Rutas para la autenticación url /api/auth/
-   path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
-   [...]
+   urlpatterns = [
+       path('graphql', GraphQLView.as_view(graphiql=True)),
+   ]
    ```
    ***
 

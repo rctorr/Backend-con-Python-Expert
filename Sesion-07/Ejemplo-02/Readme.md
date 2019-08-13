@@ -5,16 +5,15 @@
 - Configurar __Django Graphene__
 - Definir la url única para el acceso a todo el __API GraphQL__
 - Integrar __Django Graphene__ en el proyecto
-- Realizar operaciones de CRUD vía __API GraphQL__
+- Realizar operaciones de consulta vía __API GraphQL__
 
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-06/Ejemplo-02`
-1. Activar el entorno virtual __BeduTravels__
-1. Diagrama de entidad-relación del proyecto BeduTravels
-
-   ![Diagrama entidad-relación](assets/bedutravels-modelo-er.jpg)
-1. Carpeta de proyecto 'Ejemplo-02/Bedutravels/' con los siguientes datos de acceso al admin de Django :
+1. Activar el entorno virtual __Bedutravels__
+1. Diagrama de entidad-relación del proyecto Bedutravels
+   ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
+1. Carpeta de proyecto `Ejemplo-02/Bedutravels/` con los siguientes datos de acceso al admin de Django :
    - Usuario: bedutravels
    - Clave: bedutravels
 
@@ -35,109 +34,117 @@
    ```
    ***
 
-1. Se crea la ruta para la url `/api/usuarios` modificando el archivo `BeduTravels/catalogo/urls.py`:
+1. Se crea la ruta para la url `/graphql` modificando el archivo `Bedutravels/tours/urls.py`:
 
    ```python
-   # Imports
-   from django.contrib.auth import views as auth_views
-   from django.urls import path, include
-   from rest_framework import routers
+   from django.urls import path
+   from graphene_django.views import GraphQLView
 
-   from . import views
-
-   # Agregando rutas para django rest
-   router = routers.DefaultRouter()
-   router.register(r'usuarios', views.UsuarioViewSet)
-   [...]
-   # Rutas para la url /api/
-   path("api/", include(router.urls)),
-   # Rutas para la autenticación url /api/auth/
-   path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
-   [...]
+   urlpatterns = [
+       path('graphql', GraphQLView.as_view(graphiql=True)),
+   ]
    ```
    ***
 
-1. Se crea la vista para el api de la tabla __Usuario__ aunque en este caso en lugar de generar y regresar HTML será JSON.
-
-   __Abrimos el archivo `BeduTravels/catalogo/views.py` y agregar el siguiente contenido:__
+1. Se crea el esquema (schema) en el archivo `Bedutravels/tours/schema.py` para atender las consultas que obtiene la lista de todos los registros de los modelos __User__ y __Zona__
 
    ```python
-   # Imports
-   from django.contrib.auth import authenticate, login, logout
-   from django.contrib.auth.decorators import login_required
-   from django.shortcuts import render, redirect
+   import graphene
 
-   from .models import Usuario, Libro, Prestamo
-   from .serializers import UsuarioSerializer
-
-   from rest_framework import viewsets
-
-   import datetime
-
-   [...al final agregar...]
-   # Vistas basadas en clases para Django Rest
-   class UsuarioViewSet(viewsets.ModelViewSet):
-      """
-      API que permite realizar operaciones en la tabla Usuario
-      """
-      # Se define el conjunto de datos sobre el que va a operar la vista,
-      # en este caso sobre todos los usuarios disponibles.
-      queryset = Usuario.objects.all().order_by('id')
-      # Se define el Serializador encargado de transformar la peticiones
-      # en formato JSON a objetos de Django y de Django a JSON.
-      serializer_class = UsuarioSerializer
+   from graphene_django.types import DjangoObjectType
+   from .models import User, Zona, Tour, Opinion, Salida
    ```
-   ***
+   Cada campo que será usando en la consulta, se define mediante un tipo de dato por medio de una clase que hereda de __DjangoObjectType__ y además es la encargada de crear el vínculo con el modelo correspondiente.
 
-1. Se crea el serializador `UsuarioSerializer` en el archivo `BeduTravels/catalogo/serializers.py`.
+   A continuación se muestran la definición de los tipos __UserType__ y __ZonaType__.
 
    ```python
-   from rest_framework import serializers
-
-   from .models import Usuario
-
-   class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
-       """ Serializador para atender las conversiones para Usuario """
+   class UserType(DjangoObjectType):
+       """ Tipo de dato para manejar el tipo User """
        class Meta:
-           # Se define sobre que modelo actua
-           model = Usuario
-           # Se definen los campos a incluir
-           fields = ('id', 'nombre', 'apellidos', 'edad', 'genero', 'direccion')
+           # Se relaciona con el origen de la data en models.User
+           model = User
+
+   class ZonaType(DjangoObjectType):
+       """ Tipo de dato para manejar el tipo Zona """
+       class Meta:
+           # Se relaciona con el origen de la data en models.Zona
+           model = Zona
+   ```
+   Observar como en cada clase se vincula el modelo correspondiente.
+
+   Después se crea la clase que atenderá las consultas realizadas desde el API:
+
+   ```python
+   class Query(graphene.ObjectType):
+       """ Definición de las respuestas a las consultas posibles """
+
+       # Se definen los posibles campos en las consultas
+       all_users = graphene.List(UserType)  # allUsers
+       all_zonas = graphene.List(ZonaType)  # allZonas
+
+       # Se define las respuestas para cada campo definido
+       def resolve_all_users(self, info, **kwargs):
+           # Responde con la lista de todos registros
+           return User.objects.all()
+
+       def resolve_all_zonas(self, info, **kwargs):
+           # Responde con la lista de todos registros
+           return Zona.objects.all()
+   ```
+
+   Finalmente se crea la variable `schema` que define el esquema de los posibles campos y consultas.
+
+   ```python
+   # Se crea un esquema que hace uso de la clase Query
+   schema = graphene.Schema(query=Query)   
    ```
    ***
 
-1. Acceso y uso de la __API__ `/api/usuarios`
+1. Acceso y uso de la __API__ `/graphql`
 
    __Para tener acceso al API abrir la siguiente url:__
 
-   http://localhost:8000/api/usuarios/
+   http://localhost:8000/graphql
 
    Se deberá de observar algo similar a lo siguiente:
 
-   ![BeduTravels API Usuarios](assets/api-usuarios-01.png)
+   ![Bedutravels API GraphQL](assets/api-graphql-01.png)
 
-   __Agregando un nuevo usuario vía web:__
+   __Obteniendo la lista de todos los registros del modelo User:__
 
-   ![Agregando usuario vía web](assets/api-usuarios-02.png)
+   Escribir la siquiente consulta (query) en formato __GraphQL__ en la región izquierda remplazando cualquier contenido existente:
 
-   ![Usuario agregado](assets/api-usuarios-03.png)
-
-   __Agregando un nuevo usuario vía consola:__
-
-   ```console
-   (BeduTravels) Ejemplo-02 $ curl -d '{"nombre": "Donald", "apellidos": "Mac Pato", "edad": 101, "genero": "H", "direccion": ""}' -H 'Content-Type: application/json' http://localhost:8000/api/usuarios/
-   {"id":6,"nombre":"Donald","apellidos":"Mac Pato","edad":101,"genero":"H","direccion":""}
-   (BeduTravels) Ejemplo-02 $
+   ```json
+   query {
+     allUsers {
+       id
+     }
+   }   
    ```
-   Notar que esto genera una petición POST y como resultado se obtiene el usuario agregado con el id asignado.
+   luego dar click en el botón de reproducir (play), el resultado se mostrará en la región derecha similar al siguiente:
 
-   También se puede verificar actualizando la lista de usuarios en la vista del api del navegador.
+   ![allUser id](assets/api-graphql-02.png)
+   Se puede observar como el resultado incluye los tres registros en el modelo __User__, pero sólo se ha obtenido el __id__, esto es porque en la consulta así se ha solicitado, entonces ahora se solicitará también el __nombre__ y el __genero__, se da click en reproducir (play) y se obtiene algo similar a:
 
-   __Eliminando el usuario Pluto vía consola:__
+   ![allUser id, nombre, genero](assets/api-graphql-03.png)
 
-   ```console
-   (BeduTravels) Ejemplo-02 $ curl -X DELETE http://localhost:8000/api/usuarios/5/
+   __Ahora también obteniendo la lista de todos los registros del modelo Zona con la siguiente consulta:__
 
-   (BeduTravels) Ejemplo-02 $
+   ```json
+   query {
+     allUsers {
+       id
+       nombre
+       genero
+     }
+     allZonas {
+       id
+       nombre
+     }
+   }
    ```
-   Sin más el usuario se elimina y se puede verificar en la vista web.
+   El resultado será similar a:
+
+   ![allUser, allZona](assets/api-graphql-04.png)
+   ***

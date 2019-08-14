@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 06`](../Readme.md) > Ejemplo-01
+[`Backend con Python`](../../Readme.md) > [`Sesión 06`](../Readme.md) > Ejemplo-01
 ## Conociendo e instalando Django Graphene
 
 ### OBJETIVO

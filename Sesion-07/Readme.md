@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 07`
+[`Backend con Python`](../Readme.md) > `Sesión 07`
 ## Django GraphQL con Graphene
 
 ### OBJETIVOS

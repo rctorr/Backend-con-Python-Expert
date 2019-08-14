@@ -1,10 +1,11 @@
 `Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-02
-## Creando un API GraphQL para realizar operaciones CRUD de una tabla
+## Definiendo esquemas para crear un API GraphQL y realizar consultas de datos
 
 ### OBJETIVOS
 - Configurar __Django Graphene__
 - Definir la url única para el acceso a todo el __API GraphQL__
 - Integrar __Django Graphene__ en el proyecto
+- Definir el esquema para las consultas con __GraphQL__
 - Realizar operaciones de consulta vía __API GraphQL__
 
 ### REQUISITOS

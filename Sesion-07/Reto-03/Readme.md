@@ -23,10 +23,13 @@
        class Arguments:
            """ Define los argumentos para modificar una Zona """
            id = graphene.ID(required=True)
+           nombre = graphene.String()
+           descripcion = graphene.String()
+           longitud = graphene.Float()
+           latitud = graphene.Float()
 
-       # El atributo usado para la respuesta de la mutación, en este caso sólo se
-       # indicará con la variuable ok true en caso de éxito o false en caso
-       # contrario
+       # El campo regresado como respuesta de la mutación, en este caso se regresa
+       # la zona modificada.
        zona = graphene.Field(ZonaType)
 
        def mutate(self, info, id, nombre=None, descripcion=None, longitud=None,
@@ -37,6 +40,8 @@
            try:
                # Si la zona existe se modifica
                zona = Zona.objects.get(pk=id)
+               # Si algunos de los atributos es proporcionado, entonces se
+               # actualiza
                if nombre is not None:
                  zona.nombre = nombre
                if descripcion is not None:

@@ -138,6 +138,8 @@ class ModificarZona(graphene.Mutation):
         try:
             # Si la zona existe se modifica
             zona = Zona.objects.get(pk=id)
+            # Si algunos de los atributos es proporcionado, entonces se
+            # actualiza
             if nombre is not None:
               zona.nombre = nombre
             if descripcion is not None:

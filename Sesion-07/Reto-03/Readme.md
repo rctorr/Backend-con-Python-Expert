@@ -22,30 +22,16 @@
        """ Permite realizar la operación de modificar en la tabla Zona """
        class Arguments:
            """ Define los argumentos para modificar una Zona """
-           id = graphene.ID(required=True)
+           ???
 
-       # El atributo usado para la respuesta de la mutación, en este caso sólo se
-       # indicará con la variuable ok true en caso de éxito o false en caso
-       # contrario
        zona = graphene.Field(ZonaType)
 
-       def mutate(self, info, id, nombre=None, descripcion=None, longitud=None,
-           latitud=None):
+       def mutate(self, info, ???):
            """
            Se encarga de modificar la Zona identificada por el id.
            """
            try:
-               # Si la zona existe se modifica
-               zona = Zona.objects.get(pk=id)
-               if nombre is not None:
-                 zona.nombre = nombre
-               if descripcion is not None:
-                 zona.descripcion = descripcion
-               if latitud is not None:
-                 zona.latitud = latitud
-               if longitud is not None:
-                 zona.longitud = longitud
-               zona.save()
+             ???
            except Zona.DoesNotExist:
                # Si la zona no existe, se procesa la excepción
                zona = None
@@ -63,17 +49,19 @@
    class Mutaciones(graphene.ObjectType):
        crear_zona = CrearZona.Field()
        eliminar_zona = EliminarZona.Field()
-       modificar_zona = ModificarZona.Field()
+       ???
    ```
    ***
 
 1. Modificando una Zona usando la __API__ `/graphql`
 
-   __Modificando la zona Michoacán:__
+   __Creando la zona Michoacán:__
 
    ```json
-   mutation ModificarZona {
-     modificarZona(id:"11", descripcion:"Estado de Michoacán") {
+   mutation CrearZona {
+     crearZona(
+       nombre:"Michoacán",
+       descripcion:"Michoacán") {
        zona {
          id
          nombre
@@ -82,6 +70,26 @@
      }
    }
    ```
+   Importante anotar el __id__ porque será usando a continuación
+
+   __Modificando la zona Michoacán:__
+
+   ```json
+   mutation ModificarZona {
+     modificarZona(
+       id:"12",
+       descripcion:"Estado de Michoacán") {
+         zona {
+           id
+           nombre
+           descripcion
+         }
+     }
+   }
+   ```
    el resultado deberá ser similar al siguiente:
 
-   ![Crearzona](assets/mutaciones-01.png)
+   ![ModificarZona](assets/mutaciones-01.png)
+
+   ![ModificarZona](assets/mutaciones-02.png)
+   Observar que la descripción de la Zona Michoacán haya cambiado.

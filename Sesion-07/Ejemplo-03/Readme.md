@@ -1,10 +1,10 @@
 [`Backend con Python`](../../Readme.md) > [`Sesión 07`](../Readme.md) > Ejemplo-03
-## Definiendo mutaciones para el API GraphQL y realizar modificaciones de datos
+## Definiendo mutaciones (operaciones) para el API GraphQL
 
 ### OBJETIVOS
-- Definir el mutaciones para los modelos de Django
-- Realizar operaciones CRUD de datos vía __API GraphQL__ a una tabla
-- Realizar operaciones CRUD de datos vía __API GraphQL__ a tablas con relaciones.
+- Comprender y aplicar el concepto de mutaciones de GraphQL
+- Crear una mutación para agregar una nueva Zona
+- Crear una mutación para eliminar una Zona existente
 
 ### REQUISITOS
 1. Actualizar repositorio
@@ -14,184 +14,174 @@
    ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-1. Crear el esquema (schema) en el archivo `Bedutravels/tours/schema.py` para atender las consultas que obtiene la lista de todos los registros de los modelos __Tour__ y __Salidas__
+1. Crear la mutación en el archivo `Bedutravels/tours/schema.py` que permite agregar un registro a la tabla __Zona__
 
-   Se necesitan los tipos __TourType__ y __SalidasType__:
-
-   ```python
-   class TourType(DjangoObjectType):
-       """ Tipo de dato para manejar el tipo Tour """
-       class Meta:
-           # Se relaciona con el origen de la data en models.Tour
-           model = Tour
-
-   class SalidaType(DjangoObjectType):
-       """ Tipo de dato para manejar el tipo Salida """
-       class Meta:
-           # Se relaciona con el origen de la data en models.Salida
-           model = Salida
-   ```
-
-   Después se agregan las variables para cada tipo de campo nuevo y la función que atenderá las consultas:
+   Se necesitan el tipo __ZoneType__ que ya está definido en el archivo, así que lo primero es crear la clase __CrearZona__ de la siguiente manera:
 
    ```python
-   # Se definen los posibles campos en las consultas
-   [...]
-   all_tours = graphene.List(TourType)  # allTours
-   all_salidas = graphene.List(SalidaType)  # allSalidas
-   [...]
-   def resolve_all_tours(self, info, **kwargs):
-       # Responde con la lista de todos registros
-       return Tour.objects.all()
+   class CrearZona(graphene.Mutation):
+       """ Permite realizar la operación de crear en la tabla Zona """
 
-   def resolve_all_salidas(self, info, **kwargs):
-       # Responde con la lista de todos registros
-       return Salida.objects.all()
+       class Arguments:
+           """ Define los argumentos para crear una Zona """
+           nombre = graphene.String(required=True)
+           descripcion = graphene.String()
+           latitud = graphene.Decimal()
+           longitud = graphene.Decimal()
+
+       # El atributo usado para la respuesta de la mutación
+       zona = graphene.Field(ZonaType)
+
+       def mutate(self, info, nombre, descripcion=None, latitud=None,
+           longitud=None):
+           """
+           Se encarga de crear la nueva Zona donde sólo nombre es obligatorio, el
+           resto de los atributos son opcionales.
+           """
+           zona = Zona(
+               nombre=nombre,
+               descripcion=descripcion,
+               latitud=latitud,
+               longitud=longitud
+           )
+           zona.save()
+
+           # Se regresa una instancia de esta mutación y como parámetro la Zona
+           # creada.
+           return CrearZona(zona=zona)
    ```
+   Por cada operación como Crear, Modificar o Eliminar es necesario crear una clase que hereda de __graphene.Mutation__ en este caso __CrearZona__ que se encargue de realizar la operación correspondiente.
+
+   También es necesario crear la subclase __Arguments__ que define los argumentos y tipos que necesita la mutación, así como si son opcionales u obligatorios.
+
+   Al igual que en las consultas, se definen los campos que se regresa como resultado de la ejecución de la mutación, en este caso la variable __zona__ que regresará la Zona creada.
+
+   Finalmente, el método __mutate__ que es donde se realiza la operación de crear una nueva Zona con los datos recibidos.   
    ***
 
-1. Acceso y uso de la __API__ `/graphql` a sólo una tabla
+1. Agregar la mutación al esquema (schema) en el archivo `Bedutravels/tours/schema.py` para dar acceso a cada una de las mutaciones
 
-   __Para tener acceso al API abrir la siguiente url:__
+   Para ello se crea una clase que contendrá todas las mutaciones posibles, done cada mutación es un argumento. La clase es la siguiente:
+
+   ```python
+   class Mutaciones(graphene.ObjectType):
+       crear_zona = CrearZona.Field()
+   ```
+
+   Ahora agregamos esta lista de mutaciones (operaciones) al esquema:
+
+   ```python
+   schema = graphene.Schema(query=Query, mutation=Mutaciones)
+   ```
+
+1. Agregando una nueva Zona usando la __API__ `/graphql`
+
+   __Abrir la url:__
 
    http://localhost:8000/graphql
 
-   __Obteniendo la lista de todos los registros del modelo Tour:__
-
-   Escribir la siquiente consulta en formato __GraphQL__ y ejecutar la consulta:
+   __Creando la zona Oaxaca:__
 
    ```json
-   query {
-     allTours {
-       id
-       nombre
-       operador
-       tipoDeTour
-       descripcion
-       img
-       pais
-     }
-   }   
-   ```
-   el resultado deberá ser similar al siguiente:
-
-   ![allUser id](assets/api-graphql-01.png)
-
-   __Obteniendo la lista de todos los registros del modelo Salida:__
-
-   ```json
-   query {
-     allSalidas {
-       id
-       fechaInicio
-       fechaFin
-       asientos
-       precio
-     }
-   }   
-   ```
-   El resultado será similar a:
-
-   ![allUser, allZona](assets/api-graphql-02.png)
-   ***
-
-1. Acceso y uso de la __API__ `/graphql` a tablas con relaciones
-
-   __El acceso al API sigue siendo el mismo:__
-
-   http://localhost:8000/graphql
-
-   __Obtener la lista de todas las salidas y su tour relacionado (ver diagrama del modelo-er):__
-
-   La consulta en GraphQL es:
-
-   ```json
-   query {
-     allSalidas {
-       id
-       fechaInicio
-       fechaFin
-       precio
-       asientos
-       tour {
-         id
-         nombre
-       }
-     }
-   }   
-   ```
-   El resultado deberá ser similar a:
-   ![Todas las salidas y su tour relacionado](assets/api-graphql-03.png)
-
-   __Obtener la lista de todos los tours y su lista de salidas relacionado:__
-
-   Para hacer esta consulta más simple, se recomienda realizar la siguiente modificación al archivo `Bedutravels/tours/models.py`:
-
-   ```python
-   class Salida(models.Model):
-       [...]
-       tour = models.ForeignKey(Tour, related_name="salidas", on_delete=models.CASCADE)
-   ```
-   Consiste en agregar el parámetro `related_name` que es como si se agregara un atributo al modelo __Tour__ quedando como `Tour.salidas` y nos permitirá mostrar todas las salidas para cada Tour.
-
-   La consulta en GraphQL es:
-
-   ```json
-   query {
-     allTours {
-       id
-       nombre
-       descripcion
-       operador
-       tipoDeTour
-       salidas {
-         id
-         fechaInicio
-         fechaFin
-         precio
-       }
-     }
-   }   
-   ```
-   El resultado deberá ser similar a:
-   ![Todos los tours y sus salidas disponibles](assets/api-graphql-04.png)
-
-   __Obtener la lista de todas las Zonas con todos los Tours de salida para cada zona y con todas las Salidas para cada Tour:__
-
-   Para hacer esta consulta más simple, se recomienda realizar la siguiente modificación al archivo `Bedutravels/tours/models.py`:
-
-   ```python
-   class Tour(models.Model):
-       [...]
-       zonaSalida = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
-           blank=True, related_name="tours_salida")
-       zonaLlegada = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
-           blank=True, related_name="tours_llegada")
-   ```
-   Consiste en modificar el parámetro `related_name` para que el acceso de los Tours desde las Zonas sea más simple.
-
-   La consulta en GraphQL es:
-
-   ```json
-   query {
-     allZonas {
-       id
-       nombre
-       toursSalida {
+   mutation Crearzona {
+     crearZona(
+       nombre:"Oaxaca",
+       descripcion:"Oaxaca"
+     ) {
+       zona {
          id
          nombre
          descripcion
-         operador
-         tipoDeTour
-         salidas {
+       }
+     }
+   }
+   ```
+   el resultado deberá ser similar al siguiente:
+
+   ![Crearzona](assets/mutaciones-01.png)
+
+   __Creando la zona Michoacán:__
+
+   ```json
+   mutation Crearzona {
+     mutation Crearzona {
+       crearZona(
+         nombre:"Michoacán",
+         descripcion:"Oaxaca"
+       ) {
+         zona {
            id
-           fechaInicio
-           fechaFin
-           precio
+           nombre
+           descripcion
          }
        }
      }
-   }   
    ```
-   El resultado deberá ser similar a:
-   ![Todas las zonas con sus tours y salidas disponibles](assets/api-graphql-05.png)
+   Ha! Hemos creado una zona erronea, hay que eliminarla y volver a crearla, por lo que a continuación se creará la mutación __EliminarZona__
+
+1. Crear la mutación __EliminarZona__ en el archivo `Bedutravels/tours/schema.py` que permite eliminar un registro a la tabla __Zona__
+
+   Se crea la clase __EliminarZona__ de la siguiente manera:
+
+   ```python
+   class EliminarZona(graphene.Mutation):
+       """ Permite realizar la operación de eliminar en la tabla Zona """
+       class Arguments:
+           """ Define los argumentos para eliminar una Zona """
+           id = graphene.ID(required=True)
+
+       # El atributo usado para la respuesta de la mutación, en este caso sólo se
+       # indicará con la variuable ok true en caso de éxito o false en caso
+       # contrario
+       ok = graphene.Boolean()
+
+       def mutate(self, info, id):
+           """
+           Se encarga de eliminar la nueva Zona donde sólo es necesario el atributo
+           id y además obligatorio.
+           """
+           try:
+               # Si la zona existe se elimina sin más
+               zona = Zona.objects.get(pk=id)
+               zona.delete()
+               ok = True
+           except Zona.DoesNotExist:
+               # Si la zona no existe, se procesa la excepción
+               ok = False
+           # Se regresa una instancia de esta mutación
+           return EliminarZona(ok=ok)
+   ```
+   En este caso el único argumento necesario para borrar una Zona es el id, además de que el valor regresado por la mutación no es una Zona, si no, una variable de tipo lógico (Boolean) que regresa un valor de __true__ si se ha encontrado y eliminado la Zona o __false__ en caso contrario.
+   ***
+
+1. Agregar la nueva mutación al esquema (schema) en el archivo `Bedutravels/tours/schema.py`
+
+   Por lo tanto hay que modificar la clase __Mutaciones__ de la siguiente manera:
+
+   ```python
+   class Mutaciones(graphene.ObjectType):
+       crear_zona = CrearZona.Field()
+       eliminar_zona = EliminarZona.Field()
+   ```
+
+   Como el esquema ya incluye la clase de mutaciones, ya no es necesario agregarla.
+   ***
+
+1. Eliminando una Zona usando la __API__ `/graphql`
+
+   __Abrir la url:__
+
+   http://localhost:8000/graphql
+
+   __Elimando la zona Michoacán:__
+
+   ```json
+   mutation EliminarZona {
+     eliminarZona(id:"11") {
+       ok
+     }
+   }
+   ```
+   el resultado deberá ser similar al siguiente:
+
+   ![Crearzona](assets/mutaciones-02.png)

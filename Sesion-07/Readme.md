@@ -15,7 +15,7 @@
  - Definiendo mutaciones (operaciones) para el API GraphQL
    - [Ejemplo 03](Ejemplo-03)
    - [Reto 03](reto-03)
- - Creando una API GraphQL que permita realizar consultas y todas las operaciones CRUD sobre una tabla
+ - Creando una API GraphQL con todas las operaciones CRUD sobre una tabla
    - [Proyecto](Proyecto)
 
 ### POSTWORK

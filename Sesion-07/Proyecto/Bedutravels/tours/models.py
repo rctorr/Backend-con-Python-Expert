@@ -34,9 +34,9 @@ class Tour(models.Model):
     slug = models.CharField(max_length=45, null=True, blank=True)
     operador = models.CharField(max_length=45, null=True, blank=True)
     tipoDeTour = models.CharField(max_length=45, null=True, blank=True)
-    descripcion = models.CharField(max_length=256, null=True, blank=True)
+    descripcion = models.CharField(max_length=256)
     img = models.CharField(max_length=256, null=True, blank=True)
-    pais = models.CharField(max_length=45)
+    pais = models.CharField(max_length=45, null=True, blank=True)
     zonaSalida = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
         blank=True, related_name="tours_salida")
     zonaLlegada = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,

@@ -169,7 +169,7 @@ class CrearTour(graphene.Mutation):
         operador = graphene.String()
         tipoDeTour = graphene.String()
         img = graphene.String()
-        pais = graphene.String()
+        pais = graphene.String(required=False)
 
     # El atributo usado para la respuesta de la mutación
     tour = graphene.Field(TourType)
@@ -277,12 +277,42 @@ class ModificarTour(graphene.Mutation):
         return ModificarTour(tour=tour)
 
 
+class EliminarTour(graphene.Mutation):
+    """ Permite realizar la operación de eliminar en la tabla Tour """
+
+    class Arguments:
+        """ Define los argumentos para eliminar un Tour """
+        id = graphene.ID(required=True)
+
+    # El atributo usado para la respuesta de la mutación
+    ok = graphene.Boolean()
+
+    def mutate(self, info, id):
+        """
+        Se encarga de eliminar un Tour
+
+        Los atributos obligatorios son:
+        - id
+        """
+        try:
+            # Si el Tour existe, se elimina
+            tour = Tour.objects.get(pk=id)
+            tour.delete()
+            ok = True
+        except Tour.DoesNotExist:
+            ok = False
+
+        # Se regresa el estado de la operación
+        return EliminarTour(ok=ok)
+
+
 class Mutaciones(graphene.ObjectType):
     crear_zona = CrearZona.Field()
     eliminar_zona = EliminarZona.Field()
     modificar_zona = ModificarZona.Field()
     crear_tour = CrearTour.Field()
     modificar_tour = ModificarTour.Field()
+    eliminar_tour = EliminarTour.Field()
 
 
 # Se crea un esquema que hace uso de la clase Query

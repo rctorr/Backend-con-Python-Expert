@@ -319,3 +319,109 @@
    }
    ```
    ***
+
+1. Se crea la operación eliminar para la tabla __Tour__
+
+   __Se crea la mutación en el archivo `Bedutravels/tours/schema.py`:__
+
+   ```python
+   class EliminarTour(graphene.Mutation):
+       """ Permite realizar la operación de eliminar en la tabla Tour """
+
+       class Arguments:
+           """ Define los argumentos para eliminar un Tour """
+           id = graphene.ID(required=True)
+
+       # El atributo usado para la respuesta de la mutación
+       ok = graphene.Boolean()
+
+       def mutate(self, info, id):
+           """
+           Se encarga de eliminar un Tour
+
+           Los atributos obligatorios son:
+           - id
+           """
+           try:
+               # Si el Tour existe, se elimina
+               tour = Tour.objects.get(pk=id)
+               tour.delete()
+               ok = True
+           except Tour.DoesNotExist:
+               ok = False
+
+           # Se regresa el estado de la operación
+           return EliminarTour(ok=ok)
+   ```
+   Considera que para eliminar un __Tour__ necesitamos saber cual y para ello se requiere del __id__.
+
+   Como el tour será eliminado, no se puede regresar como valor, por esa razón se usa la variable __ok__ para indicar el estado de la operación.
+
+   __Se agrega a la clase de la lista de mutaciones:__
+
+   ```python
+   class Mutaciones(graphene.ObjectType):
+       crear_zona = CrearZona.Field()
+       eliminar_zona = EliminarZona.Field()
+       modificar_zona = ModificarZona.Field()
+       crear_tour = CrearTour.Field()
+       modificar_tour = ModificarTour.Field()
+       eliminar_tour = EliminarTour.Field()
+   ```
+
+1. Se agrega un nuevo __Tour__ usando los siguientes datos:
+
+   - Nombre: Luciérnas salvajes
+   - Descripción: Viven en carne propia ser perseguido y devorado por miles de Luciérnagas.
+   - Zona de salida: Ciudad de México
+   - Zona de llegada: Yucatán
+
+   __La mutación en GraphQL es:__
+
+   ```json
+   mutation CrearTour {
+     crearTour(
+       nombre:"Luciérnagas salvajes",
+       descripcion: "Viven en carne propia ser perseguido y devorado por miles de Luciérnagas."
+       idZonaSalida:"1",
+       idZonaLlegada:"4"
+     ) {
+       tour {
+         id
+         nombre
+         descripcion
+         zonaSalida {
+           id
+           nombre
+         }
+         zonaLlegada {
+           id
+           nombre
+         }
+       }
+     }
+   }
+   ```
+
+   __Eliminando el tour anterior:__
+
+   ```json
+   mutation EliminarTour {
+     eliminarTour(id:"6") {
+       ok
+     }
+   }
+   ```
+
+   __Obteniendo un resultado similar a:__
+
+   ```json
+   {
+     "data": {
+       "eliminarTour": {
+         "ok": true
+       }
+     }
+   }
+   ```
+   ***

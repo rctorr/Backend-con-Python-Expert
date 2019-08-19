@@ -211,11 +211,78 @@ class CrearTour(graphene.Mutation):
         return CrearTour(tour=tour)
 
 
+class ModificarTour(graphene.Mutation):
+    """ Permite realizar la operación de modificar en la tabla Tour """
+
+    class Arguments:
+        """ Define los argumentos para modificar un Tour """
+        id = graphene.ID(required=True)
+        nombre = graphene.String()
+        descripcion = graphene.String()
+        idZonaSalida = graphene.ID()
+        idZonaLlegada = graphene.ID()
+        slug = graphene.String()
+        operador = graphene.String()
+        tipoDeTour = graphene.String()
+        img = graphene.String()
+        pais = graphene.String()
+
+    # El atributo usado para la respuesta de la mutación
+    tour = graphene.Field(TourType)
+
+    def mutate(self, info, id, nombre=None, descripcion=None, idZonaSalida=None,
+        idZonaLlegada=None, slug=None, operador=None, tipoDeTour=None,
+        img=None, pais=None):
+        """
+        Se encarga de modificar un nuevo Tour
+
+        Los atributos obligatorios son:
+        - id
+
+        Los atributos opcionales son:
+        - nombre
+        - descripcion
+        - idZonaSalida
+        - idZonaLlegada
+        - slug
+        - operador
+        - tipoDeTour
+        - img
+        - pais
+        """
+        tour = Tour.objects.get(pk=id)
+        if nombre is not None:
+            tour.nombre = nombre
+        if slug is not None:
+            tour.slug = slug
+        if idZonaSalida is not None:
+            zonaSalida = Zona.objects.get(pk=idZonaSalida)
+            tour.zonaSalida = zonaSalida
+        if idZonaLlegada is not None:
+            zonaLlegada = Zona.objects.get(pk=idZonaLlegada)
+            tour.zonaLlegada = zonaLlegada
+        if descripcion is not None:
+            tour.descripcion = descripcion
+        if operador is not None:
+            tour.operador = operador
+        if tipoDeTour is not None:
+            tour.tipoDeTour = tipoDeTour
+        if img is not None:
+            tour.img = img
+        if pais is not None:
+            tour.pais = pais
+        tour.save()
+
+        # Se regresa una instancia de esta mutación
+        return ModificarTour(tour=tour)
+
+
 class Mutaciones(graphene.ObjectType):
     crear_zona = CrearZona.Field()
     eliminar_zona = EliminarZona.Field()
     modificar_zona = ModificarZona.Field()
     crear_tour = CrearTour.Field()
+    modificar_tour = ModificarTour.Field()
 
 
 # Se crea un esquema que hace uso de la clase Query

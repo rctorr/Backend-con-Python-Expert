@@ -3,7 +3,7 @@
 
 ### OBJETIVOS
 - Conocer Django Rest Framework
-- Crear una API para realizar operaciones CRUD a los modelos del proyecto Biblioteca usando Django Rest Framework
+- Crear una API para realizar operaciones CRUD a los modelos del proyecto Bedutravels usando Django Rest Framework
 
 ### ORGANIZACIÓN DE CLASE
 

@@ -156,10 +156,66 @@ class ModificarZona(graphene.Mutation):
         return ModificarZona(zona=zona)
 
 
+class CrearTour(graphene.Mutation):
+    """ Permite realizar la operación de crear en la tabla Tour """
+
+    class Arguments:
+        """ Define los argumentos para crear un Tour """
+        nombre = graphene.String(required=True)
+        descripcion = graphene.String(required=True)
+        idZonaSalida = graphene.ID(required=True)
+        idZonaLlegada = graphene.ID(required=True)
+        slug = graphene.String()
+        operador = graphene.String()
+        tipoDeTour = graphene.String()
+        img = graphene.String()
+        pais = graphene.String()
+
+    # El atributo usado para la respuesta de la mutación
+    tour = graphene.Field(TourType)
+
+    def mutate(self, info, nombre, descripcion, idZonaSalida, idZonaLlegada,
+        slug=None, operador=None, tipoDeTour=None, img=None, pais=None):
+        """
+        Se encarga de crear un nuevo Tour
+
+        Los atributos obligatorios son:
+        - nombre
+        - descripcion
+        - idZonaSalida
+        - idZonaLlegada
+
+        Los atributos opcionales son:
+        - slug
+        - operador
+        - tipoDeTour
+        - img
+        - pais
+        """
+        zonaSalida = Zona.objects.get(pk=idZonaSalida)
+        zonaLlegada = Zona.objects.get(pk=idZonaLlegada)
+        tour = Tour(
+            nombre=nombre,
+            descripcion=descripcion,
+            zonaSalida=zonaSalida,
+            zonaLlegada=zonaLlegada,
+            slug=slug,
+            operador=operador,
+            tipoDeTour=tipoDeTour,
+            img=img,
+            pais=pais
+        )
+        tour.save()
+
+        # Se regresa una instancia de esta mutación
+        return CrearTour(tour=tour)
+
+
 class Mutaciones(graphene.ObjectType):
     crear_zona = CrearZona.Field()
     eliminar_zona = EliminarZona.Field()
     modificar_zona = ModificarZona.Field()
+    crear_tour = CrearTour.Field()
 
 
 # Se crea un esquema que hace uso de la clase Query

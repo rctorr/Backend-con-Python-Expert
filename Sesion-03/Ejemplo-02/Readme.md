@@ -99,6 +99,18 @@
 
    [Ver diapos]
 
+1. Agrega información regional a la configuración en el archivo `Bedutravels/Bedutravels/settings.py`:
+
+   ```python
+   # Internationalization
+   # https://docs.djangoproject.com/en/2.2/topics/i18n/
+
+   LANGUAGE_CODE = 'es-MX'
+
+   TIME_ZONE = 'America/Mexico_City'
+   ```
+   Esto permite que el administrador de django esté en español, además de que el tratamiento de horas y fechas serán referidas a la zona horaria de México.
+
 1. Mapear la url `/` con las rutas generales del proyecto __Bedutravels__ hacia las rutas de la aplicación __tours__
 
    ```

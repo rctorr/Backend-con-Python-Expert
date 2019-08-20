@@ -2,98 +2,102 @@
 ## Creando un API para realizar las operaciones CRUD de una tabla con relaciones uno a muchos.
 
 ### OBJETIVOS
-- Agregar el modelo __Prestamo__ a el __API__ de la Biblioteca
-- Realizar operaciones de CRUD vía API para la tabla __Prestamo__
+- Agregar el modelo __Tour__ a el __API__ de la Bedutravels
+- Realizar operaciones de CRUD vía API para la tabla __Tour__
 
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-06/Ejemplo-03`
-1. Activar el entorno virtual __Biblioteca__
-1. Diagrama de entidad-relación del proyecto Biblioteca
+1. Activar el entorno virtual __Bedutravels__
+1. Diagrama de entidad-relación del proyecto Bedutravels
 
-   ![Diagrama entidad-relación](assets/biblioteca-diagrama-modelo-er.jpg)
+   ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-1. Se crea la ruta para la url `/api/prestamos` modificando el archivo `Biblioteca/catalogo/urls.py`:
+1. Se crea la ruta para la url `/api/tours` modificando el archivo `Bedutravels/Bedutravels/urls.py`:
 
    ```python
-   router.register(r'prestamos', views.PrestamoViewSet)
+   router.register(r'tours', views.TourViewSet)
    ```
    ***
 
-1. Se crea la vista para el api de la tabla __Prestamo__ aunque en este caso en lugar de generar y regresar HTML será JSON.
+1. Se crea la vista para el api de la tabla __Tour__ aunque en este caso en lugar de generar y regresar HTML será JSON.
 
-   __Abrimos el archivo `Biblioteca/catalogo/views.py` y agregar el siguiente contenido:__
+   __Abrimos el archivo `Bedutravels/tours/views.py` y agregar el siguiente contenido:__
 
    ```python
-   from .serializers import UsuarioSerializer, LibroSerializer ,PrestamoSerializer
+   from .serializers import UserSerializer, ZonaSerializer ,TourSerializer
 
    [...al final agregar...]
-   class PrestamoViewSet(viewsets.ModelViewSet):
+   class TourViewSet(viewsets.ModelViewSet):
       """
-      API que permite realizar operaciones en la tabla Prestamo
+      API que permite realizar operaciones en la tabla Tour
       """
       # Se define el conjunto de datos sobre el que va a operar la vista,
-      # en este caso sobre todos los prestamos disponibles.
-      queryset = Prestamo.objects.all().order_by('id')
+      # en este caso sobre todos los tours disponibles.
+      queryset = Tour.objects.all().order_by('id')
       # Se define el Serializador encargado de transformar la peticiones
       # en formato JSON a objetos de Django y de Django a JSON.
-      serializer_class = PrestamoSerializer
+      serializer_class = TourSerializer
    ```
    ***
 
-1. Se crea el serializador `PrestamoSerializer` en el archivo `Biblioteca/catalogo/serializers.py`.
+1. Se crea el serializador `TourSerializer` en el archivo `Bedutravels/tours/serializers.py`.
 
    ```python
-   from .models import Usuario, Libro, Prestamo
+   from .models import User, Zona, Tour
 
-   class PrestamoSerializer(serializers.HyperlinkedModelSerializer):
-       """ Serializador para atender las conversiones para Prestamo """
+   class TourSerializer(serializers.HyperlinkedModelSerializer):
+       """ Serializador para atender las conversiones para Tour """
        class Meta:
-           # Se define sobre que modelo actua
-           model = Prestamo
+           # Se define sobre que modelo actúa
+           model = Tour
            # Se definen los campos a incluir
-           fields = ('id', 'usuario', 'fechaPre', 'fechaDev')
+           fields = ('id', 'nombre', 'slug', 'operador', 'tipoDeTour',
+            'descripcion', 'img', 'pais', 'zonaSalida', 'zonaLlegada')
 
-   class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
-       """ Serializador para atender las conversiones para Usuario """
+   -
+   class ZonaSerializer(serializers.HyperlinkedModelSerializer):
+       """ Serializador para atender las conversiones para Zona """
 
        # Se define la relación de un usuario y sus préstamos realizados
-       prestamos = PrestamoSerializer(many=True, read_only=True)
+       tours = TourSerializer(many=True, read_only=True)
 
        class Meta:
-           # Se define sobre que modelo actua
-           model = Usuario
+           # Se define sobre que modelo actúa
+           model = Zona
            # Se definen los campos a incluir
-           fields = ('id', 'nombre', 'apellidos', 'edad', 'genero',
-               'direccion', 'prestamos')
+           fields = ('id', 'nombre', 'descripcion', 'latitud', 'longitud', 'tours_salida', 'tours_llegada')
    ```
    __Nota:__ Es importante el nuevo orden de las clases
 
-   __Se realiza la siguiente modificación al modelo Prestamo en el archivos `Biblioteca/catalogo/models.py`:__
+   __Se realiza la siguiente modificación al modelo Tour en el archivos `Bedutravels/tours/models.py`:__
 
    ```python
-   class Prestamo(models.Model):
-       """ Define la tabla Prestamo """
-       usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="prestamos")
+   class Tour(models.Model):
+       """ Define la tabla Tour """
+       zonaSalida = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
+           blank=True, related_name="tours_salida")
+       zonaLlegada = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
+           blank=True, related_name="tours_llegada")
    ```
-   Este cambio permite hacer un seguimiento desde un usuario hacía sus prestamos relacionados.
+   Este cambio permite hacer un seguimiento desde un usuario hacía sus tours relacionados.
    ***
 
-1. Acceso y uso de la __API__ `/api/prestamos`
+1. Acceso y uso de la __API__ `/api/tours`
 
    __Para tener acceso al API abrir la siguiente url:__
 
-   http://localhost:8000/api/prestamos/
+   http://localhost:8000/api/tours/
 
    Se deberá de observar algo similar a lo siguiente:
 
-   ![biblioteca API Prestamos](assets/api-prestamos-01.png)
+   ![bedutravels API Tours](assets/api-tours-01.png)
 
-   __Para tener acceso a la lista de prestamos del usuario con id=1 abrir la siguiente url:__
+   __Para tener acceso a la lista de tours de la zona con id=1 abrir la siguiente url:__
 
-   http://localhost:8000/api/usuarios/1/
+   http://localhost:8000/api/zonas/1/
 
    Se deberá de observar algo similar a lo siguiente:
 
-   ![biblioteca API Prestamos](assets/api-prestamos-02.png)
+   ![bedutravels API Tours](assets/api-tours-02.png)

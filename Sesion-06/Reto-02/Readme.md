@@ -2,82 +2,82 @@
 ## Creando un API para realizar las operaciones CRUD de una tabla tipo catálogo.
 
 ### OBJETIVOS
-- Agregar el modelo __Libro__ a el __API__ de la Biblioteca
-- Realizar operaciones de CRUD vía API para la tabla __Libro__
+- Agregar el modelo __Zona__ a el __API__ de Bedutravels
+- Realizar operaciones de CRUD vía API para la tabla __Zona__
 
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-06/Reto-02`
-1. Activar el entorno virtual __Biblioteca__
-1. Diagrama de entidad-relación del proyecto Biblioteca
+1. Activar el entorno virtual __Bedutravels__
+1. Diagrama de entidad-relación del proyecto Bedutravels
 
-   ![Diagrama entidad-relación](assets/biblioteca-diagrama-modelo-er.jpg)
+   ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-1. Se crea la ruta para la url `/api/libros` modificando el archivo `Biblioteca/catalogo/urls.py`:
+1. Se crea la ruta para la url `/api/zonas` modificando el archivo `Bedutravels/Bedutravels/urls.py`:
 
    ```python
-   router.register(r'libros', views.LibroViewSet)
+   router.register(r'zonas', views.ZonaViewSet)
    ```
    ***
 
-1. Se crea la vista para el api de la tabla __Libro__ aunque en este caso en lugar de generar y regresar HTML será JSON.
+1. Se crea la vista para el api de la tabla __Zona__ aunque en este caso en lugar de generar y regresar HTML será JSON.
 
-   __Abrimos el archivo `Biblioteca/catalogo/views.py` y agregar el siguiente contenido:__
+   __Abrimos el archivo `Bedutravels/tours/views.py` y agregar el siguiente contenido:__
 
    ```python
-   from .serializers import UsuarioSerializer, LibroSerializer
+   from .serializers import UsuarioSerializer, ZonaSerializer
 
    [...al final agregar...]
-   class LibroViewSet(viewsets.ModelViewSet):
+   class ZonaViewSet(viewsets.ModelViewSet):
       """
-      API que permite realizar operaciones en la tabla Libro
+      API que permite realizar operaciones en la tabla Zona
       """
       # Se define el conjunto de datos sobre el que va a operar la vista,
-      # en este caso sobre todos los libros disponibles.
-      queryset = Libro.objects.all().order_by('id')
+      # en este caso sobre todos los zonas disponibles.
+      queryset = Zona.objects.all().order_by('id')
       # Se define el Serializador encargado de transformar la peticiones
       # en formato JSON a objetos de Django y de Django a JSON.
-      serializer_class = LibroSerializer
+      serializer_class = ZonaSerializer
    ```
    ***
 
-1. Se crea el serializador `LibroSerializer` en el archivo `Biblioteca/catalogo/serializers.py`.
+1. Se crea el serializador `ZonaSerializer` en el archivo `Bedutravels/tours/serializers.py`.
 
    ```python
-   from .models import Usuario, Libro
+   from .models import User, Zona
 
-   class LibroSerializer(serializers.HyperlinkedModelSerializer):
-       """ Serializador para atender las conversiones para Libro """
+   class ZonaSerializer(serializers.HyperlinkedModelSerializer):
+       """ Serializador para atender las conversiones para Zona """
        class Meta:
            # Se define sobre que modelo actua
-           model = Libro
+           model = Zona
            # Se definen los campos a incluir
-           fields = ('id', 'titulo', 'editorial', 'numPag', 'autores')
+           fields = ('id', 'nombre', 'descripcion', 'longitud', 'latitud')
    ```
    ***
 
-1. Acceso y uso de la __API__ `/api/libros`
+1. Acceso y uso de la __API__ `/api/zonas`
 
    __Para tener acceso al API abrir la siguiente url:__
 
-   http://localhost:8000/api/libros/
+   http://localhost:8000/api/zonas/
 
    Se deberá de observar algo similar a lo siguiente:
 
-   ![biblioteca API Libros](assets/api-libros-01.png)
+   ![bedutravels API Zonas](assets/api-zonas-01.png)
 
-   __Agregando un nuevo libro vía web:__
+   __Agregando un nueva zona vía web:__
 
-   ![Agregando libro vía web](assets/api-libros-02.png)
+   ![Agregando zona vía web](assets/api-zonas-02.png)
 
-   ![Libro agregado](assets/api-libros-03.png)
+   ![Zona agregado](assets/api-zonas-03.png)
 
-   __Eliminando el usuario agregado vía consola:__
+   __Eliminando la última zona agregada vía consola:__
 
    ```console
-   (Biblioteca) Reto-02 $ curl -X DELETE http://localhost:8000/api/libros/4/
+   (Bedutravels) Reto-02 $ curl -X DELETE http://localhost:8000/api/zonas/5/
 
-   (Biblioteca) Reto-02 $
+   (Bedutravels) Reto-02 $
    ```
    Sin más el usuario se elimina y se puede verificar en la vista web.

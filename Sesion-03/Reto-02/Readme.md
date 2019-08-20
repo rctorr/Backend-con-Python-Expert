@@ -21,10 +21,15 @@
    .
    ├── Bedutravels
    │   ├── __init__.py
+   │   ├── __pycache__
+   │   │   ├── __init__.cpython-37.pyc
+   │   │   └── settings.cpython-37.pyc
    │   ├── settings.py
    │   ├── urls.py
    │   └── wsgi.py
-   ├── tours
+   ├── db.sqlite3
+   ├── manage.py
+   ├── perfiles
    │   ├── admin.py
    │   ├── apps.py
    │   ├── __init__.py
@@ -33,7 +38,21 @@
    │   ├── models.py
    │   ├── tests.py
    │   └── views.py
-   └── manage.py
+   ├── requeriments.txt
+   └── tours
+       ├── admin.py
+       ├── apps.py
+       ├── __init__.py
+       ├── migrations
+       │   └── __init__.py
+       ├── models.py
+       ├── __pycache__
+       │   ├── admin.cpython-37.pyc
+       │   ├── __init__.cpython-37.pyc
+       │   └── models.cpython-37.pyc
+       ├── tests.py
+       ├── urls.py
+       └── views.py
    ```
    ***
 

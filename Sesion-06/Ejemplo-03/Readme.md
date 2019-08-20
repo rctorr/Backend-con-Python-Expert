@@ -56,11 +56,11 @@
            fields = ('id', 'nombre', 'slug', 'operador', 'tipoDeTour',
             'descripcion', 'img', 'pais', 'zonaSalida', 'zonaLlegada')
 
-   -
+
    class ZonaSerializer(serializers.HyperlinkedModelSerializer):
        """ Serializador para atender las conversiones para Zona """
 
-       # Se define la relación de un usuario y sus préstamos realizados
+       # Se define la relación de una zona y sus tours realizados
        tours = TourSerializer(many=True, read_only=True)
 
        class Meta:
@@ -70,18 +70,6 @@
            fields = ('id', 'nombre', 'descripcion', 'latitud', 'longitud', 'tours_salida', 'tours_llegada')
    ```
    __Nota:__ Es importante el nuevo orden de las clases
-
-   __Se realiza la siguiente modificación al modelo Tour en el archivos `Bedutravels/tours/models.py`:__
-
-   ```python
-   class Tour(models.Model):
-       """ Define la tabla Tour """
-       zonaSalida = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
-           blank=True, related_name="tours_salida")
-       zonaLlegada = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True,
-           blank=True, related_name="tours_llegada")
-   ```
-   Este cambio permite hacer un seguimiento desde un usuario hacía sus tours relacionados.
    ***
 
 1. Acceso y uso de la __API__ `/api/tours`

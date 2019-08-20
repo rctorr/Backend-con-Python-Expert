@@ -14,10 +14,10 @@
    ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-1. Se crea la ruta para la url `/api/zonas` modificando el archivo `Bedutravels/tours/urls.py`:
+1. Se crea la ruta para la url `/api/zonas` modificando el archivo `Bedutravels/Bedutravels/urls.py`:
 
    ```python
-   router.register(r'zonas', views.ZonaViewSet)
+   ???
    ```
    ***
 
@@ -35,10 +35,10 @@
       """
       # Se define el conjunto de datos sobre el que va a operar la vista,
       # en este caso sobre todos los zonas disponibles.
-      queryset = Zona.objects.all().order_by('id')
+      ???
       # Se define el Serializador encargado de transformar la peticiones
       # en formato JSON a objetos de Django y de Django a JSON.
-      serializer_class = ZonaSerializer
+      ???
    ```
    ***
 
@@ -51,9 +51,9 @@
        """ Serializador para atender las conversiones para Zona """
        class Meta:
            # Se define sobre que modelo actua
-           model = Zona
+           ???
            # Se definen los campos a incluir
-           fields = ('id', 'nombre', 'descripcion', 'longitud', 'latitud')
+           ???
    ```
    ***
 
@@ -76,7 +76,7 @@
    __Eliminando la última zona agregada vía consola:__
 
    ```console
-   (Bedutravels) Reto-02 $ curl -X DELETE http://localhost:8000/api/zonas/4/
+   (Bedutravels) Reto-02 $ curl -X DELETE http://localhost:8000/api/zonas/5/
 
    (Bedutravels) Reto-02 $
    ```

@@ -56,7 +56,7 @@
 
 1. Se crea la vista para el api de la tabla __User__ aunque en este caso en lugar de generar y regresar HTML será JSON.
 
-   __Abrir el archivo `Bedutravels/Bedutravels/views.py` y agregar el siguiente contenido:__
+   __Abrir el archivo `Bedutravels/tours/views.py` y agregar el siguiente contenido:__
 
    ```python
    # Imports
@@ -86,7 +86,7 @@
    ```
    ***
 
-1. Se crea el serializador `UserSerializer` en el archivo `Bedutravels/bedutravels/serializers.py`.
+1. Se crea el serializador `UserSerializer` en el archivo `Bedutravels/tours/serializers.py`.
 
    ```python
    from rest_framework import serializers
@@ -122,18 +122,26 @@
    __Agregando un nuevo usuario vía consola:__
 
    ```console
-   (Bedutravels) Ejemplo-02 $ curl -d '{"nombre": "Donald", "apellidos": "Mac Pato", "edad": 101, "genero": "H", "direccion": ""}' -H 'Content-Type: application/json' http://localhost:8000/api/users/
-   {"id":6,"nombre":"Donald","apellidos":"Mac Pato","edad":101,"genero":"H","direccion":""}
+   (Bedutravels) Ejemplo-02 $ curl -d '{"nombre": "Donald", "apellidos": "Mac Pato", "email":"donald@pato.org", "fechaNacimiento":"2000-01-01", "genero": "H"}' -H 'Content-Type: application/json' http://localhost:8000/api/users/
+   {"id":5,"nombre":"Donald","apellidos":"Mac Pato","email":"donald@pato.org","fechaNacimiento":"2000-01-01","genero":"H","clave":null,"tipo":null}
+
    (Bedutravels) Ejemplo-02 $
    ```
    Notar que esto genera una petición POST y como resultado se obtiene el usuario agregado con el id asignado.
 
    También se puede verificar actualizando la lista de Users en la vista del api del navegador.
 
+   __Creando el usuario Pluto vía consola:__
+
+   ```console
+   (Bedutravels) Ejemplo-02 $ curl -d '{"nombre": "Pluto", "apellidos": "Mac Perro", "email":"pluto@pato.org", "fechaNacimiento":"2000-01-01", "genero": "H"}' -H 'Content-Type: application/json' http://localhost:8000/api/users/
+   {"id":6,"nombre":"Pluto","apellidos":"Mac Perro","email":"pluto@pato.org","fechaNacimiento":"2000-01-01","genero":"H","clave":null,"tipo":null}
+   ```
+
    __Eliminando el usuario Pluto vía consola:__
 
    ```console
-   (Bedutravels) Ejemplo-02 $ curl -X DELETE http://localhost:8000/api/users/5/
+   (Bedutravels) Ejemplo-02 $ curl -X DELETE http://localhost:8000/api/users/6/
 
    (Bedutravels) Ejemplo-02 $
    ```

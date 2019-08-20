@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User, Zona, Tour
+from .models import User, Zona, Tour, Salida
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -13,14 +13,25 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             'fechaNacimiento', 'genero', 'clave', 'tipo')
 
 
+class SalidaSerializer(serializers.HyperlinkedModelSerializer):
+    """ Serializador para atender las conversiones para Salida """
+    class Meta:
+        # Se define sobre que modelo actúa
+        model = Salida
+        # Se definen los campos a incluir
+        fields = ('id', 'fechaInicio', 'fechaFin', 'asientos', 'precio', 'tour')
+
+
 class TourSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializador para atender las conversiones para Tour """
+
     class Meta:
         # Se define sobre que modelo actúa
         model = Tour
         # Se definen los campos a incluir
         fields = ('id', 'slug', 'nombre', 'operador', 'tipoDeTour',
-            'descripcion', 'img', 'pais', 'zonaSalida', 'zonaLlegada')
+            'descripcion', 'img', 'pais', 'zonaSalida', 'zonaLlegada',
+            'salidas')
 
 
 class ZonaSerializer(serializers.HyperlinkedModelSerializer):

@@ -22,6 +22,7 @@ from tours import views
 # Agregando rutas para django rest
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
+router.register(r'zonas', views.ZonaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

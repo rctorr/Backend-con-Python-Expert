@@ -14,7 +14,7 @@
    ![Diagrama entidad-relación](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-1. Se crea la ruta para la url `/api/zonas` modificando el archivo `Bedutravels/tours/urls.py`:
+1. Se crea la ruta para la url `/api/zonas` modificando el archivo `Bedutravels/Bedutravels/urls.py`:
 
    ```python
    router.register(r'zonas', views.ZonaViewSet)
@@ -76,7 +76,7 @@
    __Eliminando la última zona agregada vía consola:__
 
    ```console
-   (Bedutravels) Reto-02 $ curl -X DELETE http://localhost:8000/api/zonas/4/
+   (Bedutravels) Reto-02 $ curl -X DELETE http://localhost:8000/api/zonas/5/
 
    (Bedutravels) Reto-02 $
    ```

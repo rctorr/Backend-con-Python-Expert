@@ -1,9 +1,10 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 03`
+[`Backend con Python`](../Readme.md) > `Sesión 03`
 ## Django Fundamentals
 
 ### OBJETIVOS
  - Conocer los entornos virtuales y su aplicación
  - Conocer el framework Django y su instalación
+ - Construir la aplicación "Hola mundo!" con Django
  - Conocer y aplicar los conceptos de rutas, vistas y plantillas creando una aplicación web.
 
 ### ORGANIZACIÓN DE CLASE

@@ -14,7 +14,7 @@
    - [Reto 02](Reto-02)
  - Creando un API para realizar las operaciones CRUD de una tabla con relaciones uno a muchos.
    - [Ejemplo 03](Ejemplo-03)
- - Creando un API para realizar las operaciones CRUD de una tabla con relaciones muchos a muchos.
+ - Creando un API para realizar las operaciones CRUD de una tabla
    - [Proyecto](Proyecto)
 
 ### POSTWORK

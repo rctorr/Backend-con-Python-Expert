@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 04`
+[`Backend con Python`](../Readme.md) > `Sesión 04`
 ## Modelos, Consultas y Formularios
 
 ### OBJETIVOS

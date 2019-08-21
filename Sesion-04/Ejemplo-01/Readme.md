@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-01
+[`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Ejemplo-01
 ## Creando una tabla con el modelo de datos de Django
 
 ### OBJETIVO
@@ -10,9 +10,9 @@
 #### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-04/Ejemplo-01`
-1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
+1. Diagrama del modelo entidad-relación para el proyecto __Bedutravels__
 
-   ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)
+   ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.png)
 
 1. Documentación de Django referente a modelos:
    - Descripción de modelos y ejemplos: https://docs.djangoproject.com/en/2.2/topics/db/models/
@@ -22,23 +22,25 @@
 #### DESARROLLO
 1. Usando el modelo entidad-relación, crear cada modelo correspondiente a cada tabla.
 
-   __Creando el modelo para la tabla Usuario agregando lo siguiente al archivo `Biblioteca/catalogo/models.ps`:__
+   __Creando el modelo para la tabla User agregando lo siguiente al archivo `Bedutravels/tours/models.ps`:__
 
    ```python
    from django.db import models
 
    # Create your models here.
-   class Usuario(models.Model):
-       """ Define la tabla Usuario """
+   class User(models.Model):
+       """ Define la tabla User """
        nombre = models.CharField(max_length=40)
-       apellidos = models.CharField(max_length=80)
-       edad = models.SmallIntegerField()
-       GENERO_OPCIONES = [
-           ("M", "Mujer"),
+       apellidos = models.CharField(max_length=80, null=True, blank=True)
+       email = models.EmailField()
+       fechaNacimiento = models.DateField(null=True, blank=True)
+       GENERO = [
            ("H", "Hombre"),
+           ("M", "Mujer"),
        ]
-       genero = models.CharField(max_length=1, choices=GENERO_OPCIONES)
-       direccion = models.CharField(max_length=256, null=True, blank=True)
+       genero = models.CharField(max_length=1, choices=GENERO)
+       clave = models.CharField(max_length=40, null=True, blank=True)
+       tipo = models.CharField(max_length=45, null=True, blank=True)
    ```
 
    __Nota:__ Django por omisión usa la base de datos SQLite3 y crea un archivo en la carpeta del proyecto con el nombre `db.sqlite3`.
@@ -60,14 +62,14 @@
    __Avisando a Django que hemos modificado el archivo `models.py`:__
 
    ```console
-   (Biblioteca) Ejemplo-01/Biblioteca $ python manage.py makemigrations
-   Migrations for 'catalogo':
-     catalogo/migrations/0001_initial.py
-       - Create model Usuario
+   (Bedutravels) Ejemplo-01/Bedutravels $ python manage.py makemigrations
+   Migrations for 'tours':
+     tours/migrations/0001_initial.py
+       - Create model User
 
-   (Biblioteca) Ejemplo-01/Biblioteca $ python manage.py migrate
+   (Bedutravels) Ejemplo-01/Bedutravels $ python manage.py migrate
    Operations to perform:
-     Apply all migrations: admin, auth, catalogo, contenttypes, sessions
+     Apply all migrations: admin, auth, tours, contenttypes, sessions
    Running migrations:
      Applying contenttypes.0001_initial... OK
      Applying auth.0001_initial... OK
@@ -85,51 +87,51 @@
      Applying auth.0009_alter_user_last_name_max_length... OK
      Applying auth.0010_alter_group_name_max_length... OK
      Applying auth.0011_update_proxy_permissions... OK
-     Applying catalogo.0001_initial... OK
+     Applying tours.0001_initial... OK
      Applying sessions.0001_initial... OK
 
-   (Biblioteca) Ejemplo-01/Biblioteca $
+   (Bedutravels) Ejemplo-01/Bedutravels $
    ```
 
    __Django ya cuenta con un sistema CRUD para nuestros modelos y para activarlo es necesario agregar un usuario administrador cuando menos:__
 
    ```console
-   (Biblioteca) Ejemplo-01/Biblioteca $ python manage.py createsuperuser
-   Nombre de usuario (leave blank to use 'rctorr'): biblioteca
-   Dirección de correo electrónico: biblioteca@gmail.com
+   (Bedutravels) Ejemplo-01/Bedutravels $ python manage.py createsuperuser
+   Nombre de usuario (leave blank to use 'rctorr'): bedutravels
+   Dirección de correo electrónico: bedutravels@gmail.com
    Password:
    Password (again):
    La contraseña es muy similar a  nombre de usuario.
    Bypass password validation and create user anyway? [y/N]: y
    Superuser created successfully.
 
-   (Biblioteca) Ejemplo-01/Biblioteca $
+   (Bedutravels) Ejemplo-01/Bedutravels $
    ```
 
    Abrir la url http://localhost:8000/admin y usar los siguientes datos para entrar:
-   - Usuario: biblioteca
-   - Clave: biblioteca
-   - Email: biblioteca@gmail.com
+   - User: bedutravels
+   - Clave: bedutravels
+   - Email: bedutravels@gmail.com
 
    __Se deberá de ver algo similar a la siguiente imagen:__
 
-   ![Django Admin](assets/django-admin-01.png)
+   ![Django Admin](assets/admin-01.png)
 
-   Pero nuestro modelo Usuario ¿dónde está?
+   Pero nuestro modelo User ¿dónde está?
 
-   __Agregando el siguiente código al archivo `Biblioteca/catalogo/admin.py`:__
+   __Agregando el siguiente código al archivo `Bedutravels/tours/admin.py`:__
 
    ```python
    from django.contrib import admin
-   from .models import Usuario
+   from .models import User
 
    # Register your models here.
-   admin.site.register(Usuario)
+   admin.site.register(User)
    ```
    Actuaizamos el navegador se obtendrá lo siguiente:
 
-   ![Django admin con modelo Usuario](assets/django-admin-02.png)
+   ![Django admin con modelo User](assets/admin-02.png)
 
-   Ahora ya se puede listar, agregar, actualizar o eliminar registros en la tabla Usuario.
+   Ahora ya se puede listar, agregar, actualizar o eliminar registros en la tabla User.
 
    Diviértete!!!

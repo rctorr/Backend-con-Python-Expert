@@ -42,6 +42,9 @@
        clave = models.CharField(max_length=40, null=True, blank=True)
        tipo = models.CharField(max_length=45, null=True, blank=True)
    ```
+   Observar como se han remplazado los tipos de datos de SQL por tipos de datos de Django, además, cada campo definido es requerido a menos que se indique lo contrario, que es el caso de los campos con los parámetros `null=True` y `blank=True` que son opcionales.
+
+   También está el caso del campo __genero__ que sólo puede tomar las opciones indicadas por el atributo `choices=GENERO` y que puede ser empleado para cuando las opciones no cambiarán en toda la vida de la aplicación.
 
    __Nota:__ Django por omisión usa la base de datos SQLite3 y crea un archivo en la carpeta del proyecto con el nombre `db.sqlite3`.
 
@@ -132,6 +135,8 @@
 
    ![Django admin con modelo User](assets/admin-02.png)
 
-   Ahora ya se puede listar, agregar, actualizar o eliminar registros en la tabla User.
+   Ahora ya se puede listar, agregar, actualizar o eliminar registros en la tabla User, así se verías después de agregar tres usuarios a nuestro modelo User.
+
+   ![Django admin con modelo User](assets/admin-03.png)
 
    Diviértete!!!

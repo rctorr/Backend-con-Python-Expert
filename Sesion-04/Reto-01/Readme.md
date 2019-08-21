@@ -8,7 +8,7 @@
 #### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-04/Reto-01`
-1. Diagrama del modelo entidad-relación para el proyect __Bedutravels__
+1. Diagrama del modelo entidad-relación para el proyecto __Bedutravels__
 
    ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.png)
 
@@ -56,7 +56,14 @@
    - Usuario: bedutravels
    - Clave: bedutravels
 
-   __Se deberá de ver algo similar a la siguiente imagen después de agregar 3 zonas:__
+   __Se deberá de ver algo similar a la siguiente imagen después de agregar las siguientes 4 zonas:__
+
+   - Ciudad de México
+   - Chiapas
+   - Guanajuato
+   - Yucatán
+
+   Utiliza el mismo texto para nombre y descripción.
 
    ![Django Admin](assets/admin-01.png)
 
@@ -80,9 +87,11 @@
 1. También se puede hacer que aparezcan los campos que uno necesite, agregando el siguiente código al archivo `Bedutravels/tours/admin.py`:
 
    ```python
+   # Personalizando modelos en el admin
    class UserAdmin(admin.ModelAdmin):
        # Se sobre escribe lo que hace __str__
-       list_display = ("id", "nombre", "apellidos", "email", "fechaNacimiento", "genero", "tipo")
+       list_display = ("id", "nombre", "apellidos", "email", "fechaNacimiento",
+           "genero", "tipo")
 
    admin.site.register(User, UserAdmin)
    ```

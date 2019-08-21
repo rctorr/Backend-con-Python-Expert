@@ -11,15 +11,15 @@
 1. Usar la carpeta de trabajo `Sesion-03/Ejemplo-01`
 
 #### DESARROLLO
-1. Crear un entorno virtual para el proyecto Biblioteca con Django usando el siguiente comando:
+1. Crear un entorno virtual para el proyecto Bedutravels con Django usando el siguiente comando:
 
    ```console
-   Sesion-03/Ejemplo-01 $ conda create --name Biblioteca python=3.7
+   Sesion-03/Ejemplo-01 $ conda create --name Bedutravels python=3.7
    Solving environment: done
 
    ## Package Plan ##
 
-     environment location: /home/rctorr/miniconda3/envs/Biblioteca
+     environment location: /home/rctorr/miniconda3/envs/Bedutravels
 
      added / updated specs:
        - python=3.7
@@ -79,7 +79,7 @@
    Executing transaction: done
    #
    # To activate this environment, use:
-   # > source activate Biblioteca
+   # > source activate Bedutravels
    #
    # To deactivate an active environment, use:
    # > source deactivate
@@ -93,25 +93,25 @@
    __Para activar el nuevo entorno se realiza con:__
 
    ```console
-   Sesion-03/Ejemplo-01 $ source activate Biblioteca
+   Sesion-03/Ejemplo-01 $ source activate Bedutravels
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
 
    __Para desactivar el nuevo entorno se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-03/Ejemplo-01 $ source deactivate
+   (Bedutravels) Sesion-03/Ejemplo-01 $ source deactivate
 
    Sesion-03/Ejemplo-01 $    
    ```
 
-   __Dejar activo el entorno Biblioteca para continuar:__
+   __Dejar activo el entorno Bedutravels para continuar:__
 
    ```console
-   Sesion-03/Ejemplo-01 $ source activate Biblioteca
+   Sesion-03/Ejemplo-01 $ source activate Bedutravels
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
    ***
 
@@ -120,7 +120,7 @@
    __La instalación se realiza con el comando pip dentro del entorno virtual:__
 
    ```console
-   (Biblioteca) Sesion-03/Ejemplo-01 $ pip install django
+   (Bedutravels) Sesion-03/Ejemplo-01 $ pip install django
    Collecting django
      Downloading https://files.pythonhosted.org/packages/eb/4b/743d5008fc7432c714d753e1fc7ee56c6a776dc566cc6cfb4136d46cdcbb/Django-2.2.2-py3-none-any.whl (7.4MB)
         |████████████████████████████████| 7.5MB 232kB/s
@@ -132,7 +132,7 @@
    Installing collected packages: pytz, sqlparse, django
    Successfully installed django-2.2.2 pytz-2019.1 sqlparse-0.3.0
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
 
    __La página principal del framework Django:__
@@ -145,22 +145,22 @@
    __Para respaldar un entorno virtual se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-03/Ejemplo-01 $ pip freeze > requeriments.txt
+   (Bedutravels) Sesion-03/Ejemplo-01 $ pip freeze > requeriments.txt
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $ cat requeriments.txt  # type requeriments.txt
+   (Bedutravels) Sesion-03/Ejemplo-01 $ cat requeriments.txt  # type requeriments.txt
    certifi==2019.3.9
    Django==2.2.2
    pytz==2019.1
    sqlparse==0.3.0
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
 
    __Para restaurar un entorno virtual se realiza con:__
 
    ```console
-   (Biblioteca) Sesion-03/Ejemplo-01 $ pip install -r requeriments.txt
-   Requirement already satisfied: certifi==2019.3.9 in /home/rctorr/miniconda3/envs/Biblioteca/lib/python3.7/site-packages (from -r requeriments.txt (line 1)) (2019.3.9)
+   (Bedutravels) Sesion-03/Ejemplo-01 $ pip install -r requeriments.txt
+   Requirement already satisfied: certifi==2019.3.9 in /home/rctorr/miniconda3/envs/Bedutravels/lib/python3.7/site-packages (from -r requeriments.txt (line 1)) (2019.3.9)
    Collecting Django==2.2.2 (from -r requeriments.txt (line 2))
      Using cached https://files.pythonhosted.org/packages/eb/4b/743d5008fc7432c714d753e1fc7ee56c6a776dc566cc6cfb4136d46cdcbb/Django-2.2.2-py3-none-any.whl
    Collecting pytz==2019.1 (from -r requeriments.txt (line 3))
@@ -170,19 +170,19 @@
    Installing collected packages: pytz, sqlparse, Django
    Successfully installed Django-2.2.2 pytz-2019.1 sqlparse-0.3.0
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
 
    __Para mostrar la lista de módulos instalados:__
 
    ```console
-   (Biblioteca) Sesion-03/Ejemplo-01 $ pip freeze
+   (Bedutravels) Sesion-03/Ejemplo-01 $ pip freeze
    certifi==2019.3.9
    Django==2.2.2
    pytz==2019.1
    sqlparse==0.3.0
 
-   (Biblioteca) Sesion-03/Ejemplo-01 $
+   (Bedutravels) Sesion-03/Ejemplo-01 $
    ```
 
    Ahora estamos listos para continuar con Django.

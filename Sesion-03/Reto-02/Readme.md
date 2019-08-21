@@ -1,50 +1,35 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Reto-02
-## Iniciar la construcción de la aplicación web BeduTravels con Django
+[`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Reto-02
+## Iniciar la construcción de una aplicación web con Django
 
 ### OBJETIVOS
-- Crear el proyecto __BeduTravels__ con Django
-- Crear la apicación __reservas__
-- Definir la ruta / y su vista asociada
+- Crear una aplicación en Django
+- Definir una ruta en Django
+- Definir una vista asociada a la ruta
 
 #### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-03/Reto-02`
-1. Activar el entorno virtual __BeduTravels__
+1. Activar el entorno virtual __Bedutravels__
 
 #### DESARROLLO
-1. Crear el proyecto __BeduTravels__ con Django y nos cambiamos a la carpeta del proyecto:
+1. Crear la aplicación __perfiles__ con:
 
    ```console
-   (BeduTravels) Reto-02 $ ???
+   (Bedutravels) Reto-02/Bedutravels $ python manage.py startapp perfiles
 
-   (BeduTravels) Reto-02 $ tree BeduTravels
-   BeduTravels
-   ├── BeduTravels
-   │   ├── __init__.py
-   │   ├── settings.py
-   │   ├── urls.py
-   │   └── wsgi.py
-   └── manage.py
-
-   (BeduTravels) Reto-02 $ cd BeduTravels
-
-   (BeduTravels) Reto-02/BeduTravels $
-   ```
-   ***
-
-1. Crear la aplicación __reservas__ con el comando:
-
-   ```console
-   (BeduTravels) Reto-02/BeduTravels $ python manage.py ???
-
-   (BeduTravels) Reto-02/BeduTravels $ tree
+   (Bedutravels) Reto-02/Bedutravels $ tree
    .
-   ├── BeduTravels
+   ├── Bedutravels
    │   ├── __init__.py
+   │   ├── __pycache__
+   │   │   ├── __init__.cpython-37.pyc
+   │   │   └── settings.cpython-37.pyc
    │   ├── settings.py
    │   ├── urls.py
    │   └── wsgi.py
-   ├── reservas
+   ├── db.sqlite3
+   ├── manage.py
+   ├── perfiles
    │   ├── admin.py
    │   ├── apps.py
    │   ├── __init__.py
@@ -53,31 +38,38 @@
    │   ├── models.py
    │   ├── tests.py
    │   └── views.py
-   └── manage.py
+   ├── requeriments.txt
+   └── tours
+       ├── admin.py
+       ├── apps.py
+       ├── __init__.py
+       ├── migrations
+       │   └── __init__.py
+       ├── models.py
+       ├── __pycache__
+       │   ├── admin.cpython-37.pyc
+       │   ├── __init__.cpython-37.pyc
+       │   └── models.cpython-37.pyc
+       ├── tests.py
+       ├── urls.py
+       └── views.py
    ```
    ***
 
-1. Ejecutar el proyecto __BeduTravels__ con:
+1. Ejecutar el proyecto __Bedutravels__ con:
 
    ```console
-   (BeduTravels) Reto-02/BeduTravels $ python manage.py runserver
-   Watching for file changes with StatReloader
-   Performing system checks...
-
-   System check identified no issues (0 silenced).
-
-   You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
-   Run 'python manage.py migrate' to apply them.
+   Reto-02/Bedutravels $ python manage.py runserver
+   [...]
 
    June 19, 2019 - 10:38:22
-   Django version 2.2.2, using settings 'BeduTravels.settings'
+   Django version 2.2.2, using settings 'Bedutravels.settings'
    Starting development server at http://127.0.0.1:8000/
    Quit the server with CONTROL-C.   
    ```
+   ***
 
-   __Nota:__ Como el servidor bloquea la terminal, vamos a dejar esta terminal aquí y para los siguiente comandos abrir otra terminal, activar el entorno virtual BeduTravels y cambiarse a la carpeta de trabajo `Sesion-03/Reto-02/BeduTravels/`.
-
-1. Agrega la aplicación __reservas__ a la configuración en el archivo `BeduTravels/BeduTravels/settings.py`:
+1. Agrega la aplicación __perfiles__ a la configuración en el archivo `Bedutravels/Bedutravels/settings.py`:
 
    ```python
    # Application definition
@@ -89,66 +81,49 @@
        'django.contrib.sessions',
        'django.contrib.messages',
        'django.contrib.staticfiles',
-       'reservas',
+       'tours',
+       'perfiles',
    ]   
    ```
+   ***
 
-1. Mapear la url `/` con las rutas generales del proyecto __BeduTravels__ hacia las rutas de la aplicación __reservas__
+1. Mapear la url `/perfiles` con las rutas generales del proyecto __Bedutravels__ hacia las rutas de la aplicación __perfiles__
 
    ```
-   url / -> BeduTravels/BeduTravels/urls.py -> BeduTravels/reservas/urls.py
+   url / -> Bedutravels/Bedutravels/urls.py -> Bedutravels/perfiles/urls.py
    ```
 
-   __En el archivo `BeduTravels/BeduTravels/urls.py` agregar lo siguiente:__
+   __En el archivo `Bedutravels/Bedutravels/urls.py` agregar lo siguiente:__
 
    ```python
-   from django.contrib import admin
-   from django.urls import path, include  # modificada
-
    urlpatterns = [
-       ???
        path('admin/', admin.site.urls),
+       path('', include("tours.urls")),
+       path('perfiles/', include("perfiles.urls")),  # agregada
    ]
    ```
+   ***
 
-   En la vetana donde se está ejecutando el proyecto __BeduTravels__ se puede observar el siguiente mensaje de error:
-
-   ```console
-   (BeduTravels) Reto-02/BeduTravels $ python manage.py runserver
-   [...]
-   File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
-   ModuleNotFoundError: No module named 'reservas.urls'
-   ```
-   Lo que indica que nos falta crear el archivo `urls.py` dentro de la carpeta `BeduTravels/reservas/`
-
-1. Mapear la url `/` con las rutas de la aplicación __reservas__
+1. Mapear la url `/perfiles` con las rutas de la aplicación __perfiles__
 
    ```
-   url / -> BeduTravels/reservas/urls.py -> BeduTravels/reservas/views.py
+   url /perfiles -> Bedutravels/perfiles/urls.py -> Bedutravels/perfiles/views.py
    ```
 
-   __Crear el archivo `BeduTravels/reservas/urls.py` con el siguiente contenido:__
+   __Crear el archivo `Bedutravels/perfiles/urls.py` con el siguiente contenido:__
 
    ```python
    from django.urls import path
    from . import views
 
    urlpatterns = [
-       ???,
+       path('', views.index, name='perfiles_index'),
    ]
    ```
+   Acuérdate de estar reiniciando Django para observar los resultados y mensajes de error.
+   ***
 
-   __Reiniciar Django para observar el resultado:__
-
-   ```console
-   [...]
-   File "/home/rctorr/repos/Curso-Python-Expert/Sesion-03/Reto-02/BeduTravels/reservas/urls.py", line 5, in <module>
-     path('', views.index, name='index'),
-   AttributeError: module 'reservas.views' has no attribute 'index'
-   ```
-   Lo que indica que en el archivo `reservas/views.py` no existe una función llamada `index`, así que toca agregar dicha función.
-
-1. Agregar la función/vista `index` al archivo `BeduTravels/reservas/views.py` con el siguiente contenido:
+1. Agregar la función/vista `index` al archivo `Bedutravels/perfiles/views.py` con el siguiente contenido:
 
    ```python
    from django.http import HttpResponse
@@ -156,15 +131,16 @@
 
    # Create your views here.
    def index(request):
-       """ Vista para atender la petición de la url / """
-       ???
+       """ Vista para atender la petición de la url /perfiles """
+
+       return HttpResponse("<h2>Soy la página de inicio de un perfil! Estoy viva!</h2>")
    ```
 
-   __Nota: Si la aplicación Django no está iniciada, iniciarla en este momento y abrir la siguiente url en el navegador__
+   __Abrir la siguiente url en el navegador__
 
-   http://127.0.0.1:8000
+   http://127.0.0.1:8000/perfiles
 
    __El resultado debería ser el siguiente:__
 
-   ![Página de inicio BeduTravels](assets/bedutravels-index-01.png)
+   ![Página perfiles](assets/perfiles-index-01.png)
    ***

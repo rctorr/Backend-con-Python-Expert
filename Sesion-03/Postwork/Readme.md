@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Postwork
+[`Backend con Python`](../../Readme.md) > [`Sesión 03`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a un Proyecto
 
 ### OBJETIVOS

@@ -48,3 +48,15 @@ class Tour(models.Model):
 
     def __str__(self):
         return "{}".format(self.nombre)
+
+
+class Salida(models.Model):
+    """ Define la tabla Salida """
+    fechaInicio = models.DateField()
+    fechaFin = models.DateField()
+    asientos = models.PositiveSmallIntegerField(null=True, blank=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    tour = models.ForeignKey(Tour, related_name="salidas", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{} ({}, {})".format(self.tour, self.fechaInicio, self.fechaFin)

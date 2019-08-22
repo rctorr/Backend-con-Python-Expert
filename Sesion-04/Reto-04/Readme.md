@@ -36,6 +36,21 @@ El RETO consiste en modificar la página de inicio, en su columna izquierda para
 
    __Realizando cambios al archivo `Bedutravels/tours/template/tours/index.html`:__
    ```html
+   <aside id="column-left">
+     <p class="margin-bottom-sm">Filtrar por:</p>
+     <input class="margin-bottom-sm" type="text" name="" value="">
+     <div class="margin-bottom-sm">
+       <p>Destinos</p>
+         <ul>
+           {% for zona in zonas %}
+           <li>
+             <input type="checkbox" id="fruit4" name="zona" value="{{ zona.id }}">
+             <label for="fruit4">{{ zona }}</label>
+           </li>
+           {% endfor %}
+         </ul>
+      </div>
+    </aside>
    ```
    ***
 

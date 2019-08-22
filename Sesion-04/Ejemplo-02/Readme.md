@@ -66,7 +66,11 @@
    - Zona: bedutravels
    - Clave: bedutravels
 
-   __Se deberá de ver algo similar a la siguiente imagen después de agregar 1 tour:__
+   Al agregar un __Tour__ en el panel de administración de Django se puede observar como las relaciones con la tabla __Zona__ se muestran como listas de selección como se muestra a continuación:
 
-   ![Django Admin](assets/admin-01.png)
+   ![Django Admin](assets/admin-01.png)   
+
+   Después de agregar el tour ...
+
+   ![Django Admin](assets/admin-02.png)
    ***

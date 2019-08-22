@@ -13,9 +13,8 @@
    - [Ejemplo 01](Ejemplo-01)
    - [Reto 01](Reto-01)
 
- - Creando relaciones uno a muchos con el modelo de datos de Django.
+ - Creando relaciones con el modelo de datos de Django.
    - [Ejemplo 02](Ejemplo-02)
- - Creando relaciones muchos a muchos con el modelo de datos de Django.
    - [Reto 02](Reto-02)
 
  - Definiendo las consultas usando el ORM de Django

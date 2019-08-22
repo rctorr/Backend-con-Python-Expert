@@ -40,11 +40,18 @@
    (Bedutravels) Reto-02/Bedutravels $
    ```
 
-   Al agregar una Salida en el administrador de Django se verá algo similar a lo siguiente:
+   __Agregando el modelo Salida a el archivo `admin.py`:__
+
+   ```python
+   class SalidaAdmin(admin.ModelAdmin):
+       # Se sobre escribe lo que hace __str__
+       list_display = ("id", "fechaInicio", "fechaFin", "asientos", "precio",
+           "tour")
+
+   admin.site.register(Salida, SalidaAdmin)
+   ```
+
+   Después de agregar 3 Salida para el Tour de Chiapas Hermoso se observa:
 
    ![Django admin agregando una Salida](assets/admin-01.png)
-
-   Después de agregar una Salida se observa:
-
-   ![Django admin agregando una Salida](assets/admin-02.png)
    ***

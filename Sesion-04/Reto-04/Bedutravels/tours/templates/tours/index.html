@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <title>Bedu Travels</title>
@@ -105,109 +105,47 @@
        </aside>
 
        <section id="central">
+
+          {% for tour in tours %}
           <div class="tour-container">
             <div class="card-image-container">
-              <img src="/static/tours/img/cdmx.jpg" alt="alt here">
+              <img src="{{ tour.img }}" alt="{{ tour }}">
             </div>
             <div class="card-content">
               <div>
-                <h3>Tour por Ciudad de México</h3>
+                <h3>{{ tour.nombre }}</h3>
                 <p class="margin-bottom-sm">
-                  Descripción del tour
+                  {{ tour.descripcion }}
                 </p>
 
                 <table class="table-info-tour">
                   <tbody>
                     <tr>
-                      <th>Starts /Ends </th>
-                      <td>City/Guatemala City</td>
+                      <th>Salida / Llegada </th>
+                      <td>{{ tour.zonaSalida }}/{{ tour.zonaLlegada }}</td>
                     </tr>
                     <tr>
-                      <th>Operator</th>
-                      <td>Marvelus Travel</td>
+                      <th>Operador</th>
+                      <td>{{ tour.operador }}</td>
                     </tr>
                     <tr>
-                      <th>Tour Type</th>
-                      <td>Group Tour</td>
+                      <th>Tipo de tour</th>
+                      <td>{{ tour.tipoDeTour }}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="">
-                <button class="button-tour">Ver tour</button>
+                <a href="/tour/{{ tour.id }}/">
+                  <button class="button-tour">Ver tour</button>
+                </a>
               </div>
             </div>
           </div>
-
-          <div class="tour-container">
-            <div class="card-image-container">
-              <img src="/static/tours/img/angeles.jpg" alt="alt here">
-            </div>
-            <div class="card-content">
-              <div>
-                <h3>Tour por Ciudad de México</h3>
-                <p class="margin-bottom-sm">
-                  Descripción del tour
-                </p>
-
-                <table class="table-info-tour">
-                  <tbody>
-                    <tr>
-                      <th>Starts /Ends </th>
-                      <td>City/Guatemala City</td>
-                    </tr>
-                    <tr>
-                      <th>Operator</th>
-                      <td>Marvelus Travel</td>
-                    </tr>
-                    <tr>
-                      <th>Tour Type</th>
-                      <td>Group Tour</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="">
-                <button class="button-tour">Ver tour</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-container">
-            <div class="card-image-container">
-              <img src="/static/tours/img/colombia.jpg" alt="alt here">
-            </div>
-            <div class="card-content">
-              <div>
-                <h3>Tour por Ciudad de México</h3>
-                <p class="margin-bottom-sm">
-                  Descripción del tour
-                </p>
-
-                <table class="table-info-tour">
-                  <tbody>
-                    <tr>
-                      <th>Starts /Ends </th>
-                      <td>City/Guatemala City</td>
-                    </tr>
-                    <tr>
-                      <th>Operator</th>
-                      <td>Marvelus Travel</td>
-                    </tr>
-                    <tr>
-                      <th>Tour Type</th>
-                      <td>Group Tour</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="">
-                <button class="button-tour">Ver tour</button>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
         </section>
+
       </section>
 
       <footer class="margin-top-lg">

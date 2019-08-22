@@ -27,7 +27,7 @@
 
    # Create your views here.
    def index(request):
-       """ Vista para atender la petción de la url / """
+       """ Vista para atender la petición de la url / """
        # Obteniendo los datos mediantes consultas
        tours = Tour.objects.all()
 
@@ -39,17 +39,45 @@
 
    __Realizando cambios al archivo `Bedutravels/tours/template/tours/index.html`:__
    ```html
-   <table class="table table-responsive table-hover table-striped ">
-     <tr><th>Título</th><th>Fecha préstamo</th><th>Fecha devolución</th><th>Nombre</th></tr>
-     {% for r in registros %}
-     <tr>
-       <td>{{ r.titulo }}</td>
-       <td>{{ r.fechaPre }}</td>
-       <td>{{ r.fechaDev }}</td>
-       <td>{{ r.nombre }}</td>
-     </tr>
-     {% endfor %}
-   </table>
+   <section id="central">
+
+      {% for tour in tours %}
+      <div class="tour-container">
+        <div class="card-image-container">
+          <img src="{{ tour.img }}" alt="{{ tour }}">
+        </div>
+        <div class="card-content">
+          <div>
+            <h3>{{ tour.nombre }}</h3>
+            <p class="margin-bottom-sm">
+              {{ tour.descripcion }}
+            </p>
+
+            <table class="table-info-tour">
+              <tbody>
+                <tr>
+                  <th>Salida / Llegada </th>
+                  <td>{{ tour.zonaSalida }}/{{ tour.zonaLlegada }}</td>
+                </tr>
+                <tr>
+                  <th>Operador</th>
+                  <td>{{ tour.operador }}</td>
+                </tr>
+                <tr>
+                  <th>Tipo de tour</th>
+                  <td>{{ tour.tipoDeTour }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="">
+            <button class="button-tour">Ver tour</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </section>
    ```
    ***
 

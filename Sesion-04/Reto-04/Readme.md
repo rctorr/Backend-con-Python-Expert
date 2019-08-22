@@ -26,7 +26,7 @@ El RETO consiste en modificar la página de inicio, en su columna izquierda para
        """ Vista para atender la petición de la url / """
        # Obteniendo los datos mediantes consultas
        tours = Tour.objects.all()
-       zonas = Zona.objects.all()
+       zonas = ???
 
        return render(request, "tours/index.html", {"tours":tours, "zonas":zonas})
    ```
@@ -36,6 +36,14 @@ El RETO consiste en modificar la página de inicio, en su columna izquierda para
 
    __Realizando cambios al archivo `Bedutravels/tours/template/tours/index.html`:__
    ```html
+   <aside id="column-left">
+     <p class="margin-bottom-sm">Filtrar por:</p>
+     <input class="margin-bottom-sm" type="text" name="" value="">
+     <div class="margin-bottom-sm">
+       <p>Destinos</p>
+       ???
+      </div>
+    </aside>
    ```
    ***
 

@@ -13,7 +13,7 @@
    - [Ejemplo 01](Ejemplo-01)
    - [Reto 01](Reto-01)
 
- - Creando relaciones con el modelo de datos de Django.
+ - Creando relaciones con el modelo de datos de Django
    - [Ejemplo 02](Ejemplo-02)
    - [Reto 02](Reto-02)
 

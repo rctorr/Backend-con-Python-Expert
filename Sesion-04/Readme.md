@@ -19,11 +19,13 @@
 
  - Definiendo las consultas usando el ORM de Django
    - [Ejemplo 03](Ejemplo-03)
- - Usando las consultas junto a las plantillas de Django
    - [Reto 03](Reto-03)
 
- - Definiendo y agregando una página con formulario de la aplicación web.
+ - El sistema de plantillas de Django
    - [Ejemplo 04](Ejemplo-04)
+   - [Reto 04](Reto-04)
+
+ - Definiendo y agregando una página con formulario de la aplicación web.
    - [Proyecto](Proyecto)
 
 ### POSTWORK

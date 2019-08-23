@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 04`
+[`Backend con Python`](../Readme.md) > `Sesión 04`
 ## Modelos, Consultas y Formularios
 
 ### OBJETIVOS
@@ -13,18 +13,19 @@
    - [Ejemplo 01](Ejemplo-01)
    - [Reto 01](Reto-01)
 
- - Creando relaciones uno a muchos con el modelo de datos de Django.
+ - Creando relaciones con el modelo de datos de Django
    - [Ejemplo 02](Ejemplo-02)
- - Creando relaciones muchos a muchos con el modelo de datos de Django.
    - [Reto 02](Reto-02)
 
  - Definiendo las consultas usando el ORM de Django
    - [Ejemplo 03](Ejemplo-03)
- - Usando las consultas junto a las plantillas de Django
    - [Reto 03](Reto-03)
 
- - Definiendo y agregando una página con formulario de la aplicación web.
+ - El sistema de plantillas de Django
    - [Ejemplo 04](Ejemplo-04)
+   - [Reto 04](Reto-04)
+
+ - Definiendo y agregando una página con formulario de la aplicación web.
    - [Proyecto](Proyecto)
 
 ### POSTWORK

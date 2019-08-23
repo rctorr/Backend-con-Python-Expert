@@ -1,9 +1,9 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Postwork
+[`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a un Proyecto
 
 ### OBJETIVOS
 - Crear las tablas de tu modelo relacional con el modelo de datos de Django
-- Crear las relaciones entre trablas según corresponda con el modelo de datos de Django.
+- Crear las relaciones entre tablas según corresponda con el modelo de datos de Django.
 - Usar las consultas junto a las plantillas de Django para mostrar datos de forma dinámica.
 - Agregar una página con formulario y procesar la información.
 

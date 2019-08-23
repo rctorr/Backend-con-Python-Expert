@@ -13,7 +13,7 @@
    ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
-Dada la url `http://localhost/login/` se deberá mostrar las siguiente página para hacer __login__ al sistema:
+Dada la url `http://localhost/login/` se deberá mostrar la siguiente página para hacer __login__ al sistema:
 
 ![Bedutravels - Login](assets/login-01.png)
 
@@ -24,7 +24,7 @@ Y posteriormente al proporcionar el usuario __bedutravels__ y clave __bedutravel
    __Se modifica el archivo `Bedutravels/tours/urls.py` agregando la línea siguiente:__
 
    ```python
-   path("login/", views.login, name="login"),
+   path("login/", ???, name="login"),
    ```
    ***
 
@@ -45,51 +45,51 @@ Y posteriormente al proporcionar el usuario __bedutravels__ y clave __bedutravel
        )
    ```
    ***
+   Se envía a la plantilla el valor de `msg` que será la forma de indicar al usuario si hay algún error.
 
 1. Crear la plantilla `login.html`
 
-   __Se crea el archivo `Bedutravels/tours/templates/tours/registration/login.html` con el siguiente contenido:__
+   __Se crea el archivo `Bedutravels/tours/templates/tours/registration/login.html` copiándolo desde la carpeta `Bedutravels/public_html/` y se modifica de la siguiente forma:
 
    ```html
-   {% extends "base.html" %}
-
-   {% block title %}Entrada al sistema{% endblock %}
-
-   {% block contenido %}
-   <div class="row animate-box">
-     <div class="col-md-8 col-md-offset-2">
-       <h3 class="text-black text-center">Entrada al sistema</h3>
-       <form method="POST">
-           {% csrf_token %}
-           <aside class="form-group">
-               <label for="usuario">Usuario</label>
-               <input type="text" id="usuario" class="form-control" required placeholder="Escribe tu usuario" name="username" />
-           </aside>
-           <aside class="form-group">
-               <label for="clave">Clave</label>
-               <input type="password" id="clave" class="form-control" required placeholder="Escribe tu clave" name="password" />
-           </aside>
-           <hr />
-           <aside class="form-group">
-             <div class="row">
-               <div class="col-md-6 col-md-offset-3">
-                   <input class="btn btn-primary btn-block" type="submit" name="submit" value="Enviar" />
-               </div>
-             </div>
-           </aside>
-           <input type="hidden" name="next" value="{{ next }}" />
-           {% if msg %}
-           <aside class="alert alert-dismissible alert-danger">
-               {{ msg }}
-           </aside>
-           {% endif %}
-       </form>
+   <section class="profile-container padding-top-lg" style="height: -webkit-fill-available;">
+     <div>
+       {% if msg %}
+       <aside class="text-center">
+         {{ msg }}
+       </aside>
+       {% endif %}
+       <div class="margin-bottom-sm">
+         <p class="title-font margin-bottom-lg margin-top-lg text-center">Entra al sistema</p>
+       </div>
+       <div class="profile-info">
+         <form class="profile-inputs" method="post">
+               {% csrf_token %}
+               Usuario: <input type="text" name="usuario" value="" required>
+               Clave: <input type="password" name="clave" value="" required>
+               <button class="button-tour margin-top-sm" style="align-self: center; width:50%;" type="submit" name="button">
+                 Entrar
+               </button>
+         </form>
+       </div>
      </div>
-   </div>
-   {% endblock %}
+   </section>
    ```
+   No olvidar la etiqueta `csrf_token`, ya que de lo contrario el contenido del formulario no será aceptado por parte de Django.
 
-   Finalmente se obtiene el formulario esperado!
+   Finalmente se obtiene el formulario esperado! Hooo noooo?
+   ***
+
+1. Agregando los archivos de estilos
+
+   Es necesario copiar dos archivos de estilos más desde la carpeta `Bedutravels/public_html/css/`, que son `forms.css` y `profile.css` a la carpeta `Bedutravels/tours/static/tours/css/`
+
+   ```console
+   ???
+   ```
+   Recargar nuevamente la página (posiblemente sea necesario usar Control+Shift+R) y ahora si la página ya tiene que verse de forma correcta.
+
+   Ahora hay que procesar los datos recibidos del formulario
    ***
 
 1. Ajustar la vista `views.login` para que valide los datos del formulario.

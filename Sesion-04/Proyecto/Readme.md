@@ -1,28 +1,27 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Proyecto
-## Definiendo y agregando una página con formulario a la aplicación web
+[`Backend con Python`](../../Readme.md) > [`Sesión 04`](../Readme.md) > Proyecto
+## Definiendo y agregando una página con formulario de la aplicación web
 
 ### OBJETIVO
 - Crear la ruta y vista para generar el formulario de login
-- Crear la ruta y vista para procesar la información de un formulario vía POST.
+- Crear la ruta y vista para procesar la información de un formulario vía POST
 
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Sesion-04/Proyecto`
-1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
+1. Diagrama del modelo entidad-relación para el proyecto __Bedutravels__
 
-   ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)
-
+   ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.png)
 
 ### DESARROLLO
 Dada la url `http://localhost/login/` se deberá mostrar las siguiente página para hacer __login__ al sistema:
 
-![Biblioteca - Login](assets/login-01.png)
+![Bedutravels - Login](assets/login-01.png)
 
-Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca__ deberá mostrar la página de inicio o un mensaje de error en caso de que no se proporciones los datos de forma correcta.
+Y posteriormente al proporcionar el usuario __bedutravels__ y clave __bedutravels__ deberá mostrar la página de inicio o un mensaje de error en caso de que no se proporciones los datos de forma correcta.
 
 1. Crear la ruta para la url `/login/`
 
-   __Se modifica el archivo `Biblioteca/catalogo/urls.py` agregando la línea siguiente:__
+   __Se modifica el archivo `Bedutravels/tours/urls.py` agregando la línea siguiente:__
 
    ```python
    path("login/", views.login, name="login"),
@@ -31,7 +30,7 @@ Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca_
 
 1. Crear la vista `views.login`
 
-   __Se modifica el archivo `Biblioteca/catalogo/views.py` agregando las función login():__
+   __Se modifica el archivo `Bedutravels/tours/views.py` agregando las función login():__
 
    ```python
    def login(request):
@@ -49,7 +48,7 @@ Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca_
 
 1. Crear la plantilla `login.html`
 
-   __Se crea el archivo `Biblioteca/catalogo/templates/catalogo/registration/login.html` con el siguiente contenido:__
+   __Se crea el archivo `Bedutravels/tours/templates/tours/registration/login.html` con el siguiente contenido:__
 
    ```html
    {% extends "base.html" %}
@@ -99,7 +98,7 @@ Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca_
 
    ```python
    # Se definen los datos de un usuario válido
-   usuario_valido = ("biblioteca", "biblioteca")  # (username, password)
+   usuario_valido = ("bedutravels", "bedutravels")  # (username, password)
 
    # Si hay datos vía POST se procesan
    if request.method == "POST":
@@ -117,5 +116,5 @@ Y posteriormente al proporcionar el usuario __biblioteca__ y clave __biblioteca_
        msg = ""
    ```
    Y así se debería de ver cuando el usuario es incorrecto:
-   ![Biblioteca - Login - Error](assets/login-02.png)   
+   ![Bedutravels - Login - Error](assets/login-02.png)   
    ***

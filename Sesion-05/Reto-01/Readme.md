@@ -13,7 +13,7 @@
 
    __Se modifica el archivo `Bedutravels/tours/urls.py` con lo siguiente:__
    ```python
-   path("logout/", views.logout_user, name="logout_user"),
+   path("logout/", ???, name="???"),
    ```
 
 1. Agrega la vista `views.logout_user` para la ruta `logout/`
@@ -25,7 +25,7 @@
        # Se cierra la sesión del usuario actual
        logout(request)
 
-       return redirect("/")
+       return redirect("/login/")
    ```
 
    __Se tiene que importar la función `logout()` de la siguiente forma:__

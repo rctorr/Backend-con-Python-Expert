@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Ejemplo-01
+[`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Ejemplo-01
 ## Definiendo y agregando autenticación de entrada usando el modelo User de Django
 
 ### OBJETIVO
@@ -8,17 +8,16 @@
 ### REQUISITOS
 1. Actualizar repositorio
 1. Usar la carpeta de trabajo `Clase-10/Ejemplo-01`
-1. Diagrama del modelo entidad-relación para el proyect __Biblioteca__
+1. Diagrama del modelo entidad-relación para el proyect __Bedutravels__
 
-   ![Modelo entidad-relación para Biblioteca](modelo-entidad-relacion.jpg)
-
+   ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.jpg)
 
 ### DESARROLLO
 1. Conociendo el modelo User de Django:
 
    __Iniciar el shell de Django:__
    ```console
-   Ejemplo-01/Biblioteca $ python manage.py shell
+   Ejemplo-01/Bedutravels $ python manage.py shell
    Python 3.7.3 (default, Mar 27 2019, 22:11:17)
    [GCC 7.3.0] on linux
    Type "help", "copyright", "credits" or "license" for more information.
@@ -31,31 +30,32 @@
    ```python
    >>> from django.contrib.auth.models import User
    >>> User.objects.all()
-   <QuerySet [<User: biblioteca>]>
+   <QuerySet [<User: bedutravels>]>
    >>> u1 = User.objects.get(pk=1)
    >>> u1.username
-   'biblioteca'
+   'bedutravels'
    >>> u1.email
-   'biblioteca@gmail.com'
+   'bedutravels@gmail.com'
    ```
 
    __Validando datos de usuario contra los datos del modelo User:__
 
    ```python
    >>> from django.contrib.auth import authenticate
-   >>> username = "biblioteca"
-   >>> password = "biblio"
+   >>> username = "bedutravels"
+   >>> password = "bedu"
    >>> authenticate(username=username, password=password)
    >>> acceso = authenticate(username=username, password=password)
    >>> print(acceso)
    None
    >>> acceso == None
    True
-   >>> password = "biblioteca"
+   >>> password = "bedutravels"
    >>> acceso = authenticate(username=username, password=password)
    >>> acceso
-   <User: biblioteca>
+   <User: bedutravels>
    ```
+   ***
 
 1. Modificando la vista `login()` para incluir la validación usando el modelo User de Django.
 
@@ -64,7 +64,7 @@
    from django.contrib.auth import authenticate, login
    from django.contrib.auth.decorators import login_required
    from django.shortcuts import render, redirect
-   from .models import Usuario, Libro, Prestamo
+   from .models import User, Zona, Tour
 
    import datetime
    ```
@@ -94,7 +94,7 @@
            msg = ""
    [...]
    ```
-   Como estamos importando la función `login()` de Django, tenemos que cambiar el nombre de nuestra función para que no entren en conflico, así que la renombramos a `login_user()`.
+   Como estamos importando la función `login()` de Django, tenemos que cambiar el nombre de nuestra función para que no entren en conflicto, así que la renombramos a `login_user()`.
 
    __Ahora como cambiamos el nombre de la vista, hay que actualizar la ruta en `urls.py`:__
    ```python
@@ -104,34 +104,37 @@
    __Se agrega el decorador a la vista que necesita ser autenticada:__
    ```python
    @login_required()
-   def nuevo_prestamo(request):
-       """ Vista para atender la petción de la url /prestamo/nuevo/ """
-       # Ahora queremos saber si hay o no petición POST primero
-       if request.method == "POST":
+   def index(request):
+       """ Vista para entender la petición de la url / """
+
+       # Se obtiene la lista de todos los Tours y Zonas
+       tours = Tour.objects.all()
+       zonas = Zona.objects.all()
    [...]
    ```
 
-   __Se le indica a Django que la url para el login es `/login/` agregando la siguientes líneas al archivos `Biblioteca/Biblioteca/settings.py`:__
+   __Se le indica a Django que la url para el login es `/login/` agregando la siguientes líneas al archivos `Bedutravels/Bedutravels/settings.py`:__
    ```python
    # Se define la URL para login
    LOGIN_URL = "/login/"
    ```
 
-   Ahora cada vez que se abra la url `/prestamo/nuevo/` si no se está registrado en el sistema, no se podrá entrar a crear nuevos préstamos.
+   Ahora cada vez que se abra la url `/` si no se está registrado en el sistema, no se podrá entrar a ver la lista de tours.
+   ***
 
-1. Modificando el archivo `base.html` para indicar cuando hay usuario activo o no.
+1. Modificando el archivo `index.html` para indicar cuando hay usuario activo o no.
 
-   __Realizar las siguientes modificaciones al archivo `Biblioteca/catalogo/templates/base.html`:__
+   __Realizar las siguientes modificaciones al archivo `Bedutravels/tours/templates/tours/index.html`:__
    ```html
-   <ul>
-       <li><a href="/prestamo/nuevo/">Nuevo préstamo</a></li>
-       <li><a href="/">Libros prestados</a></li>
-       {% if user.username == "" %}
-       <li><a href="/login/">Login</a></li>
-       {% else %}
-       <li><a href="/logout/">{{ user.username }}</a></li>
-       {% endif %}
-   </ul>
+   <nav class="menu_main">
+       <a class="marca" href="#">
+         <strong>BEDUTRAVELS</strong>
+       </a>
+       <div>
+         <a href="#">{{ user.username }}</a>
+         <a href="/logout/">Salir</a>
+       </div>
+   </nav>
    ```
    Las plantillas o archivos html siempre reciben la información del usuario actual activo.
 

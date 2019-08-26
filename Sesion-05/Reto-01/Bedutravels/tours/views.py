@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -48,3 +48,10 @@ def login_user(request):
             "msg":msg,
         }
     )
+
+def logout_user(request):
+    """ Atiende las peticiones de GET /logout/ """
+
+    logout(request)
+
+    return redirect("/login/")

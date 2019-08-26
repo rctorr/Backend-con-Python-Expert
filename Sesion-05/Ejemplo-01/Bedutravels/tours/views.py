@@ -1,9 +1,11 @@
-from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from tours.models import Tour, Zona
 
 # Create your views here.
+@login_required()
 def index(request):
     """ Vista para entender la petición de la url / """
 
@@ -13,7 +15,7 @@ def index(request):
 
     return render(request, "tours/index.html", {"tours":tours, "zonas":zonas})
 
-def login(request):
+def login_user(request):
     """ Atiende las peticiones de GET /login/ """
 
     # Se definen los datos de un usuario válido
@@ -22,11 +24,18 @@ def login(request):
     # Si hay datos vía POST se procesan
     if request.method == "POST":
         # Se obtienen los datos del formulario
-        usuario_form = (request.POST["username"],
-            request.POST["password"])
-        if usuario_form == usuario_valido:
-            # Tenemos usuario válido, redireccionamos a index
-            return redirect("/")
+        next = request.GET.get("next", "/")
+        acceso = authenticate(
+            username=request.POST["username"],
+            password=request.POST["password"]
+        )
+        if acceso is not None:
+            # Tenemos usuario válido y agregamos datos
+            # al request para mantener activa la sesión.
+            login(request, acceso)
+
+            # Redireccionamos a next
+            return redirect(next)
         else:
             # Usuario malo
             msg = "Datos incorrectos, intente de nuevo!"

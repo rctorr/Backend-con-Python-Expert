@@ -1,17 +1,17 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Proyecto
-## Definiendo elementos necesarios para otorgar permisos para eliminar datos.  
+[`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Proyecto
+## Definiendo elementos necesarios para otorgar permisos para eliminar datos.
 
 ### OBJETIVO
-- Crear la ruta y vista para eliminar un registro de uno o más modelos.
+- Crear la ruta y vista para eliminar un registro de una Tabla.
 - Definir permisos en base a grupos para la eliminación de registros.
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Clase-10/Proyecto`
+1. Usar la carpeta de trabajo `Sesion-05/Proyecto`
 1. Los requerimientos consisten en que en base al maquetado de la página web de inicio mostrado en la imagen, realizar lo siguiente:
-   - La opción para borrar un registro sólo aparece si el usuario pertenece al grupo __eliminar__
+   - La opción para borrar un registro sólo aparece si el usuario pertenece al grupo __editores__
    - En cuando se dé click en la opción eliminar, aparecerá un diálogo para verificar si se elimina o no el registro, contando con las opciones de __Cancelar__ o __Eliminar__.
-   - Si se elige __Eliminar__ se hará una llamada a la url `/prestamo/idPrestamo/libros/elimina/idLibro/` para eliminar el libro del préstamo seleccionado.
+   - Si se elige __Eliminar__ se hará una llamada a la url `/tour/eliminar/idTour/` para eliminar el Tour seleccionado.
    - Se redirecciona a la página de inicio
 
    ![Maquetao de página de inicio](assets/pagina-inicio-borrar-01.png)

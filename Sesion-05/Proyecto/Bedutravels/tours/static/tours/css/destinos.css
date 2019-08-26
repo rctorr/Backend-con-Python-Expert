@@ -133,7 +133,7 @@
 
 
 
-.button-tour{
+.button-tour, .eliminar-tour {
   padding: 7px 10px;
   border: 1px solid #3eb368;
   background: #3eb368;
@@ -141,4 +141,14 @@
   line-height: 17px;
   border-radius: 3px;
   text-align: center;
+}
+
+.eliminar-tour {
+  background: #aa0000;
+}
+
+.buttons-tour {
+  display: flex;
+  flex-flow: wrap;
+  padding-right: 0px !important;
 }

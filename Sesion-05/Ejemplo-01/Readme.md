@@ -10,7 +10,7 @@
 1. Usar la carpeta de trabajo `Clase-10/Ejemplo-01`
 1. Diagrama del modelo entidad-relación para el proyect __Bedutravels__
 
-   ![Modelo entidad-relación para Bedutravels](bedutravels-modelo-er.jpg)
+   ![Modelo entidad-relación para Bedutravels](assets/bedutravels-modelo-er.jpg)
 
 ### DESARROLLO
 1. Conociendo el modelo User de Django:
@@ -55,6 +55,7 @@
    >>> acceso
    <User: bedutravels>
    ```
+   ***
 
 1. Modificando la vista `login()` para incluir la validación usando el modelo User de Django.
 
@@ -93,7 +94,7 @@
            msg = ""
    [...]
    ```
-   Como estamos importando la función `login()` de Django, tenemos que cambiar el nombre de nuestra función para que no entren en conflico, así que la renombramos a `login_user()`.
+   Como estamos importando la función `login()` de Django, tenemos que cambiar el nombre de nuestra función para que no entren en conflicto, así que la renombramos a `login_user()`.
 
    __Ahora como cambiamos el nombre de la vista, hay que actualizar la ruta en `urls.py`:__
    ```python
@@ -103,10 +104,12 @@
    __Se agrega el decorador a la vista que necesita ser autenticada:__
    ```python
    @login_required()
-   def inicio(request):
-       """ Vista para atender la petición de la url /tour/nuevo/ """
-       # Ahora queremos saber si hay o no petición POST primero
-       if request.method == "POST":
+   def index(request):
+       """ Vista para entender la petición de la url / """
+
+       # Se obtiene la lista de todos los Tours y Zonas
+       tours = Tour.objects.all()
+       zonas = Zona.objects.all()
    [...]
    ```
 
@@ -116,21 +119,22 @@
    LOGIN_URL = "/login/"
    ```
 
-   Ahora cada vez que se abra la url `/tour/nuevo/` si no se está registrado en el sistema, no se podrá entrar a crear nuevos préstamos.
+   Ahora cada vez que se abra la url `/` si no se está registrado en el sistema, no se podrá entrar a ver la lista de tours.
+   ***
 
-1. Modificando el archivo `base.html` para indicar cuando hay usuario activo o no.
+1. Modificando el archivo `index.html` para indicar cuando hay usuario activo o no.
 
-   __Realizar las siguientes modificaciones al archivo `Bedutravels/catalogo/templates/base.html`:__
+   __Realizar las siguientes modificaciones al archivo `Bedutravels/tours/templates/tours/index.html`:__
    ```html
-   <ul>
-       <li><a href="/tour/nuevo/">Nuevo préstamo</a></li>
-       <li><a href="/">Libros prestados</a></li>
-       {% if user.username == "" %}
-       <li><a href="/login/">Login</a></li>
-       {% else %}
-       <li><a href="/logout/">{{ user.username }}</a></li>
-       {% endif %}
-   </ul>
+   <nav class="menu_main">
+       <a class="marca" href="#">
+         <strong>BEDUTRAVELS</strong>
+       </a>
+       <div>
+         <a href="#">{{ user.username }}</a>
+         <a href="/logout/">Salir</a>
+       </div>
+   </nav>
    ```
    Las plantillas o archivos html siempre reciben la información del usuario actual activo.
 

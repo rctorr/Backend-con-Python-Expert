@@ -25,7 +25,7 @@
        # Se cierra la sesión del usuario actual
        logout(request)
 
-       return redirect("/")
+       return redirect("/login/")
    ```
 
    __Se tiene que importar la función `logout()` de la siguiente forma:__

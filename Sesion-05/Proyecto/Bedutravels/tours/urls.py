@@ -13,4 +13,6 @@ urlpatterns = [
         auth_views.LogoutView.as_view(next_page="/login/"),
         name="login"
     ),
+    path("tour/eliminar/<int:idTour>/",
+        views.eliminar_tour, name="eliminar_tour"),
 ]

@@ -10,149 +10,100 @@
 1. Usar la carpeta de trabajo `Sesion-05/Proyecto`
 1. Los requerimientos consisten en que en base al maquetado de la página web de inicio mostrado en la imagen, realizar lo siguiente:
    - La opción para borrar un registro sólo aparece si el usuario pertenece al grupo __editores__
-   - En cuando se dé click en la opción eliminar, aparecerá un diálogo para verificar si se elimina o no el registro, contando con las opciones de __Cancelar__ o __Eliminar__.
-   - Si se elige __Eliminar__ se hará una llamada a la url `/tour/eliminar/idTour/` para eliminar el Tour seleccionado.
+   - En cuando se dé click en el botón __Eliminar tour__, se hará una llamada a la url `/tour/eliminar/idTour/` para eliminar el Tour seleccionado.
    - Se redirecciona a la página de inicio
 
    ![Maquetao de página de inicio](assets/pagina-inicio-borrar-01.png)
 
 ### DESARROLLO
-1. El primer paso es completar la información de la tabla, así que se necesita el `id` de los modelos __Prestamo__ y __Libro__ por lo que se necesita modificar el archivo `Biblioteca/catalogo/views.py` para enviar a la plantilla index.html los datos mencionados:
+1. Lo primero es agregar una opción para borrar un __Tour__ si el usuario pertenece el grupo __editores__.
 
-   ```python
-   # Create your views here.
-   def index(request):
-       """ Vista para atender la petción de la url / """
-       # Obteniendo los datos mediantes consultas
-       prestamos = Prestamo.objects.all()
-
-       return render(request, "catalogo/index.html", {"prestamos":prestamos})
-
-   ```
-   En lugar de crear los registros a mano, mejor se envía la lista de préstamos, ya que cada préstamo está relacionado con su usuario y además con los libros asociados a ese préstamo, dejaremos que la plantilla en HTML haga el resto.
-
-   __Modificando la plantilla `index.html` para hacer uso de la variable `prestamos` y obtener los datos faltantes:__
+   __Modificando la plantilla `index.html` como sigue:__
 
    ```html
-   {% for p in prestamos %}
-   {%  for l in p.libros.all %}
-   <tr>
-       <td class="text-right">{{ p.id }}</td>
-       <td>{{ l.titulo }}</td>
-       <td>{{ p.fechaPre }}</td>
-       <td>{{ p.fechaDev }}</td>
-       <td>{{ p.usuario.nombre }}</td>
-       <td class="acciones">
-           <a data-toggle="modal" data-target="#eliminaModal"
-               data-url="/prestamo/{{ p.id }}/libros/elimia/{{ l.id }}/">
-               <i class="icon-cross"></i>
-           </a>
-       </td>
-   </tr>
-   {%   endfor %}
-   {% endfor %}
+   <div class="buttons-tour">
+     <div>
+       <a href="/tour/{{ tour.id }}/">
+         <button class="button-tour">Ver tour</button>
+       </a>
+     </div>
+     <div>
+       <a href="/tour/eliminar/{{ tour.id }}/">
+         <button class="eliminar-tour">Eliminar tour</button>
+       </a>
+     </div>
+   </div>
    ```
-   Es importante comentar que aunque algunas instrucciones como if y for de Python se pueden ejecutar en las plantillas, la finalidad de estas instrucciones es automatizar la creación de la presentación o plantilla o código HTML y no está pensando para crear la lógica de negocio.
+   Esto deberá mostrar el botón __Eliminar tour__ como se muestra a continuación:
 
-1. Después de las modificaciones anteriores ahora cada libro de cada préstamo tiene la acción para poder ser eliminado usando una url `/prestamo/idPrestamo/libros/elimina/idLibro/` por lo que se tiene que crear la ruta y vistas respectivas:
+   ![Botón eliminar tour](assets/eliminar-01.png)
 
-   __Creando la ruta para atender la url mencionada por lo que se agrega el siguiente código al archivo `Biblioteca/catalogo/urls.py`__
+1. En el paso anterior, el botón se muestra, pero uno de los requerimientos es que sólo los usuarios en el grupo __editores__ seán quienes puedan eliminar, así que el botón debe aparecer sólo cuando el usuario pertenece al grupo mencionado, así que se agrega una condición al código html del archivo `index.html` como sigue:
+
+   ```html
+   {% if es_editor %}
+   <div>
+     <a href="/tour/eliminar/{{ tour.id }}/">
+       <button class="eliminar-tour">Eliminar tour</button>
+     </a>
+   </div>
+   {% endif %}
+   ```
+   Ahora se obtiene lo siguiente porque la variable `es_editor` no está definida en la vista:
+
+   ![Botón eliminar tour](assets/eliminar-02.png)
+   ***   
+
+1. Se modifica la vista `index()` para que se agregue la variable `es_editor` al contexto de la plantilla:
 
    ```python
-   path("prestamo/<int:idPrestamo>/libros/elimina/<int:idLibro>/",
-       views.elimina_libros_prestamo, name="elimina_libros_prestamo"),
+   # Se determina si el usuario pertenece o no al grupo editores
+   es_editor = request.user.groups.filter(name="editores").exists()
+
+   return render(request, "tours/index.html",
+       {"tours":tours, "zonas":zonas, "es_editor":es_editor})
+   ```
+   si en este momento se actualiza la página de tours se verá exactamente lo mismo, así que antes de ello se procede a agregar el grupo __editores__ usando el administrador de Django:
+
+   ![Agregando grupo editores](assets/eliminar-03.png)
+
+   Luego se modifica el usuario __bedutravels__ para que pertenezca al grupo __editores__
+
+   ![Usuario bedutravels con grupo editores](assets/eliminar-04.png)
+
+   Si se recarga la página de inicio ya se debería de observar el botón de __eliminar tour__.
+   ***
+
+1. Después de las modificaciones anteriores ahora cada tour tiene la acción para poder ser eliminado usando una url `/tour/eliminar/idTour/` por lo que se tiene que crear la ruta y vistas respectivas:
+
+   __Creando la ruta para atender la url mencionada por lo que se agrega el siguiente código al archivo `Bedutravels/tours/urls.py`__
+
+   ```python
+   path("tour/eliminar/<int:idTour>/",
+       views.eliminar_tour, name="eliminar_tour"),
    ```
    Notas como el sistema de rutas de Django nos permite agregar variables en las url's y además indicar el tipo de dato. Ver https://docs.djangoproject.com/en/2.2/topics/http/urls/
 
-   __Creando la vista correspondiente en el archivo `Biblioteca/catalogo/views.py`:__
+   __Creando la vista correspondiente en el archivo `Bedutravels/tours/views.py`:__
 
    ```python
    @login_required()
-   def elimina_libros_prestamo(request, idPrestamo, idLibro):
+   def eliminar_tour(request, idTour):
        """
        Atiende la petición GET
-          /prestamo/<int:idPrestamo>/libros/elimina/<int:idLibro>/
+          /tour/eliminar/<int:idTour>/
        """
        # Se obtienen los objetos correspondientes a los id's
-       prestamo = Prestamo.objects.get(pk=idPrestamo)
-       libro = Libro.objects.get(pk=idLibro)
+       tour = Tour.objects.get(pk=idTour)
 
-       # Se elimina el libro del préstamo
-       prestamo.libros.remove(libro)
+       # Se elimina el tour
+       tour.delete()
 
        return redirect("/")
    ```
    Notar que la vista incluye del decorador `@login_required()` ya que no cualquiera puede eliminar un libro de un préstamo, así que ahora agregaremos los permisos usando el grupo __eliminar__.
 
-1. Crear el grupo usando el __Administrador de Django__:
+   Se sugiere agregar otro __Tour__ de prueba desde el administrador de Django y luego proceder a eliminarlo desde la página de la lista de tours.
 
-   ![Nuevo grupo eliminar](assets/admin-django-nuevo-grupo-01.png)
-
-   ![Nuevo grupo eliminar](assets/admin-django-nuevo-grupo-02.png)
-
-1. Se modifica la plantilla para que muestre sólo las opciones de eliminar cuando el usuario pertenezca al grupo __eliminar__.
-
-   ```html
-   {% if "eliminar" in grupos %}
-   <th>Acciones</th>
-   {% endif %}
-   [...]
-   {% if "eliminar" in grupos %}
-   <td class="acciones">
-       <a data-toggle="modal" data-target="#eliminaModal"
-           data-url="/prestamo/{{ p.id }}/libros/elimina/{{ l.id }}/">
-           <i class="icon-cross"></i>
-       </a>
-   </td>
-   {% endif %}
-   [...]
-   ```
-
-   __Se modifica la vista `index()` para que agregre la variable grupos al contexto__
-
-   ```python
-   def index(request):
-       """ Vista para atender la petción de la url / """
-       # Obteniendo los datos mediantes consultas
-       prestamos = Prestamo.objects.all()
-       grupos = request.user.groups.values_list("name", flat=True)
-
-       return render(request, "catalogo/index.html",
-           {"prestamos":prestamos, "grupos":grupos}
-       )
-   ```
-
-   __Se modifica la vista `elimina_libros_prestamo()` para que valide que el usuario pertenece al grupo eliminar__
-
-   ```python
-   # Se valida que el usuario pertenezca al grupo eliminar
-   grupos = request.user.groups.values_list("name", flat=True)
-   if "eliminar" in grupos:
-       # Se obtienen los objetos correspondientes a los id's
-       prestamo = Prestamo.objects.get(pk=idPrestamo)
-       libro = Libro.objects.get(pk=idLibro)
-
-       # Se elimina el libro del préstamo
-       prestamo.libros.remove(libro)
-   ```
-   Ahora ya se pueden comprobar algunos resultados ...
-
-   __RESULTADOS__
-
-   __Caso página de inicio sin usuario__
-
-   ![Inicio sin usuario](assets/pagina-inicio-borrar-02.png)
-   Notar que no se muestra la columna de acciones
-
-   __Caso página de inicio con usuario biblioteca__
-
-   ![Inicio con usuario](assets/pagina-inicio-borrar-03.png)
-   Notar que a presar de que se está usando el usuario biblioteca, la columna de acciones no apaece y esto es debido a que el usuario no pertenece al grupo __eliminar__.
-
-   __Caso página de inicio con usuario biblioteca agregado al grupo eliminar__
-
-   ![Agregando el grupo eliminar al usuario biblioteca](assets/pagina-inicio-borrar-04.png)
-   Usando el administrador de Django se agrega el grupo __eliminar__ al usuario __biblioteca__.
-
-   ![Inicio con usuario en grupo eliminar](assets/pagina-inicio-borrar-05.png)
-   En este caso ya se muestra la columna de __Acciones__ que permite eliminar cada registro.
+   ![Eliminando tour de prueba](assets/eliminar-05.png)
+   ***

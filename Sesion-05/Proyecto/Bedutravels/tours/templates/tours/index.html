@@ -71,10 +71,19 @@
                   </tbody>
                 </table>
               </div>
-              <div class="">
-                <a href="/tour/{{ tour.id }}/">
-                  <button class="button-tour">Ver tour</button>
-                </a>
+              <div class="buttons-tour">
+                <div>
+                  <a href="/tour/{{ tour.id }}/">
+                    <button class="button-tour">Ver tour</button>
+                  </a>
+                </div>
+                {% if es_editor %}
+                <div>
+                  <a href="/tour/eliminar/{{ tour.id }}/">
+                    <button class="eliminar-tour">Eliminar tour</button>
+                  </a>
+                </div>
+                {% endif %}
               </div>
             </div>
           </div>

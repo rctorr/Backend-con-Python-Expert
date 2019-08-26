@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../Readme.md) > `Sesión 08`
+[`Backend con Python`](../Readme.md) > `Sesión 08`
 ## Despliegue en producción de una aplicación creada con Django
 
 ### OBJETIVOS

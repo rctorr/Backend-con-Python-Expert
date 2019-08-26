@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-01
+[`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-01
 ## Proveedores, requisitos, registro y bases de datos.
 
 ### OBJETIVOS
@@ -37,9 +37,9 @@
 
    - https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
 
-1. Creando una base de datos para nuestro proyecto Biblioteca, lo primero es ir a la opción __Databases__ y asignar la clave para el usuario administrador del servidor MySQL y usaremos la misma clave usada en los contenedores __pythonsql__.
+1. Creando una base de datos para nuestro proyecto Bedutravels, lo primero es ir a la opción __Databases__ y asignar la clave para el usuario administrador del servidor MySQL y usaremos la misma clave usada en los contenedores __pythonsql__.
 
-   ![Asigaando clave al usuario root de MySQL](assets/bd-01.png)
+   ![Asignando clave al usuario root de MySQL](assets/bd-01.png)
 
    ![Procesando la petición](assets/bd-02.png)
    Se está procesando la petición
@@ -52,14 +52,14 @@
    - Host: tu-usuario.mysql.pythonanywhere-services.com
    ***
 
-1. Estándo en la misma página del punto anterior, existe la opción para crear nuestra base de datos a la que llamaremos __Biblioteca__:
+1. Estándo en la misma página del punto anterior, existe la opción para crear nuestra base de datos a la que llamaremos __Bedutravels__:
 
-   ![Creando la base de datos Biblioteca](assets/bd-04.png)
+   ![Creando la base de datos Bedutravels](assets/bd-04.png)
 
-   ![Base de datos Biblioteca creada](assets/bd-05.png)
-   Observa que ahora ya existen dos bases de datos __default__ y __Biblioteca__, sin embargo en PythonAnyWhere se agrega el prefijo con el usuario y el símbolo $, así que nuestros datos de conexión a la base de datos completos son:
+   ![Base de datos Bedutravels creada](assets/bd-05.png)
+   Observa que ahora ya existen dos bases de datos __default__ y __Bedutravels__, sin embargo en PythonAnyWhere se agrega el prefijo con el usuario y el símbolo $, así que nuestros datos de conexión a la base de datos completos son:
 
    - User: tu-usuario
    - Pass: pythonsql
    - Host: tu-usuario.mysql.pythonanywhere-services.com
-   - Base: tu-usuario$Biblioteca
+   - Base: tu-usuario$Bedutravels

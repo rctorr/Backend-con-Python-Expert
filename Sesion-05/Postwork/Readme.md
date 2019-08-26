@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Postwork
+[`Backend con Python`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Postwork
 ## Aplicar los conceptos de la clase a tú Postwork.
 
 ### OBJETIVO
@@ -8,8 +8,8 @@
 
 ### REQUISITOS
 1. Actualizar repositorio
-1. Usar la carpeta de trabajo `Clase-10/Postwork`
-1. Contar con tú Proyecto ya en Django mostrando página de inicio y página para agregar algun registro a alguna tabla cuando menos.
+1. Usar la carpeta de trabajo `Sesion-05/Postwork`
+1. Contar con tú Proyecto ya en Django mostrando página de inicio con lista de registros cuando menos.
 1. Contar con el maquetado del la página de `login.html`
 
 ### DESARROLLO
@@ -20,7 +20,7 @@
    - Si has elegido la versión personalizada, entonces agregar la vista o función `login()` al archivo `Proyecto/myapp/views.py`.
    - Actualizar el archivo `settings.py` para actualizar la url por omisión para la ruta de `/login/`
    - Usar el decorador `@login_required()` en cada vista que necesite de un usuario validado para poder continuar.
-   - Modifica el archivo `base.html` para incluir la opción de __Login__ en tu menú o dónde hayas elegido agregarlo y que hará uso de la url `/login/`
+   - Modifica el archivo `index.html` para incluir la opción de __Login__ en tu menú o dónde hayas elegido agregarlo y que hará uso de la url `/login/`
    ***
 
 1. Comprueba los siguiente casos para la autenticación de entrada

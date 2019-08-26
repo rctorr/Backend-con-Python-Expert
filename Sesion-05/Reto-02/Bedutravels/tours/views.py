@@ -14,10 +14,3 @@ def index(request):
     zonas = Zona.objects.all()
 
     return render(request, "tours/index.html", {"tours":tours, "zonas":zonas})
-
-def logout_user(request):
-    """ Atiende las peticiones de GET /logout/ """
-
-    logout(request)
-
-    return redirect("/login/")

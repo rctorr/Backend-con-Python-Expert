@@ -9,5 +9,8 @@ urlpatterns = [
             template_name="registration/login.html"),
         name="login"
     ),
-    path("logout/", views.logout_user, name="logout_user"),
+    path("logout/",
+        auth_views.LogoutView.as_view(next_page="/login/"),
+        name="login"
+    ),
 ]

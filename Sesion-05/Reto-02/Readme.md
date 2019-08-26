@@ -13,7 +13,7 @@
 
    __Se modifica la ruta:__
    ```python
-   path("logout/", auth_views.logoutView.as_view(next_page="/"), name="logout"),
+   path("logout/", ???.as_view(next_page="/login/"), name="logout"),
    ```
    De igual forma no se requiere la la vista `logout_user()`.
 

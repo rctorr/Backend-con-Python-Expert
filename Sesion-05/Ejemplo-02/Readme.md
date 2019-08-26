@@ -24,6 +24,28 @@
 
    __Borra la vista `login_user() del archivos views.py`__
 
-    Verifica que el proceso de login y logout sigue funcionando
+   Verifica que el proceso de login y logout sigue funcionando, sin embargo se observa un error indicando que la página no ha sido encontrada, pero más aún observar la url que es `localhost:8000/accounts/profiles/`.
+
+   Esta ruta es la que utiliza las vistas de Django por omisión, así que para indicar algo diferente se tiene que agregar un campo de entrada oculto en nuestra plantilla `index.html` de la siguiente forma:
+
+   ```html
+   <form class="profile-inputs" method="post">
+         {% csrf_token %}
+         Usuario: <input type="text" name="username" value="" required>
+         Clave: <input type="password" name="password" value="" required>
+         <!-- Para indicar a que url se redirige después de hacer login -->
+         {% if next %}
+         <input type="hidden" name="next" value="{{ next }}" />
+         {% else %}
+         <input type="hidden" name="next" value="/" />
+         {% endif %}
+         <button class="button-tour margin-top-sm" style="align-self: center; width:50%;" type="submit" name="button">
+           Entrar
+         </button>
+   </form>
+   ```
+   Observar que el campo se llama `next` y después de hacer login, si no se indica otro valor, se redirecionará a la página principal.
+
+   Ahora si, ya puedes hacer login y deberías de ver la lista de tours disponibles.
 
 Esto está bien si no se necesita personalizar el proceso de login, de lo contrario si es necesario crear el proceso a mano.

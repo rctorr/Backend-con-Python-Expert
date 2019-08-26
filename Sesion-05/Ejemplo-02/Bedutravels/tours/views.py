@@ -15,40 +15,6 @@ def index(request):
 
     return render(request, "tours/index.html", {"tours":tours, "zonas":zonas})
 
-def login_user(request):
-    """ Atiende las peticiones de GET /login/ """
-
-    # Se definen los datos de un usuario válido
-    usuario_valido = ("bedutravels", "bedutravels")  # (username, password)
-
-    # Si hay datos vía POST se procesan
-    if request.method == "POST":
-        # Se obtienen los datos del formulario
-        next = request.GET.get("next", "/")
-        acceso = authenticate(
-            username=request.POST["username"],
-            password=request.POST["password"]
-        )
-        if acceso is not None:
-            # Tenemos usuario válido y agregamos datos
-            # al request para mantener activa la sesión.
-            login(request, acceso)
-
-            # Redireccionamos a next
-            return redirect(next)
-        else:
-            # Usuario malo
-            msg = "Datos incorrectos, intente de nuevo!"
-    else:
-        # Si no hay datos POST
-        msg = ""
-
-    return render(request, "registration/login.html",
-        {
-            "msg":msg,
-        }
-    )
-
 def logout_user(request):
     """ Atiende las peticiones de GET /logout/ """
 

@@ -11,7 +11,7 @@
 1. Usar la carpeta de trabajo `Sesion-08/Ejemplo-02`
 
 ### DESARROLLO
-El subir los archivos de nuestra aplicación se puede realizar de varias formas, pero la más recomendada por la cantidad de archivos y para el manejo de veriones es hacer uso de git.
+El subir los archivos de nuestra aplicación se puede realizar de varias formas, pero la más recomendada por la cantidad de archivos y para el manejo de versiones es hacer uso de git.
 
 1. Lo primer que hay que hacer es tener los archivos de nuestro proyecto en un repositorio, por lo que vamos a crear un nuevo repo sólo con la carpeta __Bedutravels__:
 
@@ -73,7 +73,7 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
 
 1. __Clonando repo__: Estándo en la opción de __Dashboard__ dar click en el botón __$ Bash__ de la sección __New console__ lo que iniciará una consola o terminal de trabajo:
 
-   ![Abriend consola en PythonAnyWhere](assets/consola-01.png)
+   ![Abriendo consola en PythonAnyWhere](assets/consola-01.png)
 
    ![Consola abierta](assets/consola-02.png)
 

@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-04
+[`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-04
 ## Archivos estáticos y base de datos en producción
 
 ### OBJETIVOS
@@ -6,16 +6,16 @@
 - Configurar la base de datos en producción
 
 ### REQUISITOS
-1. Actualizar repositorio __CursoPythonBedu__
-1. La carpeta de referencia es `Sesion-08/Ejemplo-04/Biblioteca/`
-1. Contar con repo __Biblioteca__ en equipo local
-1. La carpeta de trabajo debe ser `Biblioteca/`
-1. Contar con repo __Biblioteca__ en Github
-1. Contar con repo __Biblioteca__ en Pythonanywhere
+1. Actualizar repositorio __Backend-con-Python__
+1. La carpeta de referencia es `Sesion-08/Ejemplo-04/Bedutravels/`
+1. Contar con repo __Bedutravels__ en equipo local
+1. La carpeta de trabajo debe ser `Bedutravels/`
+1. Contar con repo __Bedutravels__ en Github
+1. Contar con repo __Bedutravels__ en Pythonanywhere
 1. Contar con el proyecto ya configurado en Pythonanywhere
 
 ### DESARROLLO
-1. Nuestra aplicación en producción actualmente se ve sin estilos y para corregir esto en la carpeta `Biblioteca/` en el equipo local agregar el siguiente código al archivo `Biblioteca/Biblioteca/settings-prod.py`:
+1. Nuestra aplicación en producción actualmente se ve sin estilos y para corregir esto en la carpeta `Bedutravels/` en el equipo local agregar el siguiente código al archivo `Bedutravels/Bedutravels/settings-prod.py`:
 
    ```python
    STATIC_ROOT = os.path.join(BASE_DIR, "static")
@@ -23,16 +23,16 @@
 
    __Agregar el cambio a repo local con:__
    ```console
-   Biblioteca $ git add Biblioteca/settings-prod.py
-   Biblioteca $ git commit -m "Agregando variable STATIC_ROOT a settings-prod.py"
+   Bedutravels $ git add Bedutravels/settings-prod.py
+   Bedutravels $ git commit -m "Agregando variable STATIC_ROOT a settings-prod.py"
    [master 24fa423] Agregando variable STATIC_ROOT a settings-prod.py
    1 file changed, 1 insertion(+)
-   Biblioteca $
+   Bedutravels $
    ```
 
    __Actualizando el repo en github con:__
    ```console
-   Biblioteca $ git push
+   Bedutravels $ git push
    Username for 'https://github.com': tu-usuario
    Password for 'https://rctorr@github.com':
    Counting objects: 4, done.
@@ -41,33 +41,33 @@
    Writing objects: 100% (4/4), 408 bytes | 0 bytes/s, done.
    Total 4 (delta 3), reused 0 (delta 0)
    remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-   To https://github.com/rctorr/Biblioteca.git
+   To https://github.com/rctorr/Bedutravels.git
       d3d73e1..24fa423  master -> master
 
-   Biblioteca $
+   Bedutravels $
    ```
 
    __Actualizando el repo en Pythonanywhere en un consola bash:__
    ```console
-   (Biblioteca) 20:34 ~/Biblioteca (master)$ git pull                                               remote: Enumerating objects: 7, done.
+   (Bedutravels) 20:34 ~/Bedutravels (master)$ git pull                                               remote: Enumerating objects: 7, done.
    remote: Counting objects: 100% (7/7), done.
    remote: Compressing objects: 100% (1/1), done.
    remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
-   Unpacking objects: 100% (4/4), done.                                              From https://github.com/rctorr/Biblioteca
+   Unpacking objects: 100% (4/4), done.                                              From https://github.com/rctorr/Bedutravels
     d3d73e1..24fa423  master     -> origin/master
    Updating d3d73e1..24fa423                                       
-   Fast-forward                                                           Biblioteca/settings-prod.py | 1 +               
+   Fast-forward                                                           Bedutravels/settings-prod.py | 1 +               
      1 file changed, 1 insertion(+)                               
-   (Biblioteca) 20:38 ~/Biblioteca (master)$
+   (Bedutravels) 20:38 ~/Bedutravels (master)$
    ```
 
-   __En Pythonanywhere se crea la carpeta `Biblioteca/static` y se actualizan los archivos estáticos:__
+   __En Pythonanywhere se crea la carpeta `Bedutravels/static` y se actualizan los archivos estáticos:__
    ```console
-   (Biblioteca) 20:51 ~/Biblioteca (master)$ mkdir static
-   (Biblioteca) 20:51 ~/Biblioteca (master)$ python manage.py collectstatic
+   (Bedutravels) 20:51 ~/Bedutravels (master)$ mkdir static
+   (Bedutravels) 20:51 ~/Bedutravels (master)$ python manage.py collectstatic
 
-   195 static files copied to '/home/rctorr/Biblioteca/static'.
-   (Biblioteca) 20:52 ~/Biblioteca (master)$
+   195 static files copied to '/home/rctorr/Bedutravels/static'.
+   (Bedutravels) 20:52 ~/Bedutravels (master)$
    ```
 
    __En Pythonanywhere en Dashboard - Web sección Static se agregar la ruta para los archivos estáticos:__
@@ -79,7 +79,7 @@
    Y finalmente actualiza la página en el navegador y el resultado debería ser similar al siguiente:
    ![Aplicación con estilos](assets/produccion-02.png)
 
-1. La base de datos a usar en producción es MySQL con los datos obtenidos anteriormente, se configuran en el archivo `Biblioteca/Biblioteca/settings-prod.py` en la sección de base de datos quedando de la siguiente forma:
+1. La base de datos a usar en producción es MySQL con los datos obtenidos anteriormente, se configuran en el archivo `Bedutravels/Bedutravels/settings-prod.py` en la sección de base de datos quedando de la siguiente forma:
 
    ```python
    # Database
@@ -88,7 +88,7 @@
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.mysql',
-           'NAME': 'rctorr$Biblioteca',
+           'NAME': 'rctorr$Bedutravels',
            'USER': 'rctorr',
            'PASSWORD': 'pythonsql',
            'HOST': 'rctorr.mysql.pythonanywhere-services.com',
@@ -99,12 +99,12 @@
    __Nuevamente se realizar el proceso de actualizar el repo local, el repo en github:__
 
    ```console
-   Biblioteca $ git add Biblioteca/settings-prod.py
-   Biblioteca $ git commit -m "Agregando configuración para hacer uso de MySQL como base de datos en settings-prod.py"
+   Bedutravels $ git add Bedutravels/settings-prod.py
+   Bedutravels $ git commit -m "Agregando configuración para hacer uso de MySQL como base de datos en settings-prod.py"
    [master b1026f1] Agregando configuración para hacer uso de MySQL como base de datos en settings-prod.py
     1 file changed, 5 insertions(+), 2 deletions(-)
 
-   Biblioteca $ git push
+   Bedutravels $ git push
    Username for 'https://github.com': rctorr
    Password for 'https://rctorr@github.com':
    Counting objects: 4, done.
@@ -113,32 +113,32 @@
    Writing objects: 100% (4/4), 507 bytes | 0 bytes/s, done.
    Total 4 (delta 3), reused 0 (delta 0)
    remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
-   To https://github.com/rctorr/Biblioteca.git
+   To https://github.com/rctorr/Bedutravels.git
       24fa423..b1026f1  master -> master
    ```
 
    __Actualizando el repo en producción:__
    ```console
-   (Biblioteca) 21:37 ~/Biblioteca (master)$ git pull    
+   (Bedutravels) 21:37 ~/Bedutravels (master)$ git pull    
    remote: Enumerating objects: 7, done.
    remote: Counting objects: 100% (7/7), done.
    remote: Compressing objects: 100% (1/1), done.
    remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
    Unpacking objects: 100% (4/4), done.                   
-   From https://github.com/rctorr/Biblioteca
+   From https://github.com/rctorr/Bedutravels
       24fa423..b1026f1  master     -> origin/master
    Updating 24fa423..b1026f1
    Fast-forward
-    Biblioteca/settings-prod.py | 7 +++++--
+    Bedutravels/settings-prod.py | 7 +++++--
     1 file changed, 5 insertions(+), 2 deletions(-)
 
-   (Biblioteca) 21:37 ~/Biblioteca (master)$
+   (Bedutravels) 21:37 ~/Bedutravels (master)$
    ```
 
    Como se ha configurado la base de datos MySQL para producción por lo que se necesitará el módulo correspondiente para que Django pueda realizar la conexión:
 
    ```console
-   (Biblioteca) 21:37 ~/Biblioteca (master)$ pip install mysqlclient
+   (Bedutravels) 21:37 ~/Bedutravels (master)$ pip install mysqlclient
    Looking in links: /usr/share/pip-wheels
    Collecting mysqlclient
      Downloading https://files.pythonhosted.org/packages/f4/f1/3bb6f64ca7a429729413e6556b7ba5976df06019a5245a43d36032f1
@@ -153,12 +153,12 @@
    Installing collected packages: mysqlclient
    Successfully installed mysqlclient-1.4.2.post1
 
-   (Biblioteca) 21:37 ~/Biblioteca (master)$
+   (Bedutravels) 21:37 ~/Bedutravels (master)$
    ```
 
    Como tenemos una nueva base de datos, ésta está vacía por lo que hay que aplicar las migraciones en producción y luego crear el usuario administrador de nuestra aplicación.
    ```console
-   (Biblioteca) 21:37 ~/Biblioteca (master)$ python manage.py migrate
+   (Bedutravels) 21:37 ~/Bedutravels (master)$ python manage.py migrate
    System check identified some issues:
 
    WARNINGS:
@@ -193,16 +193,16 @@
    Applying catalogo.0006_prestamo_libros... OK
    Applying sessions.0001_initial... OK
 
-   (Biblioteca) 21:58 ~/Biblioteca (master)$ python manage.py createsuperuser
-   Nombre de usuario (leave blank to use 'rctorr'): biblioteca
-   Dirección de correo electrónico: biblioteca@gmail.com
+   (Bedutravels) 21:58 ~/Bedutravels (master)$ python manage.py createsuperuser
+   Nombre de usuario (leave blank to use 'rctorr'): bedutravels
+   Dirección de correo electrónico: bedutravels@gmail.com
    Password:
    Password (again):
    La contraseña es muy similar a  nombre de usuario.
    Bypass password validation and create user anyway? [y/N]: y
    Superuser created successfully.
 
-   (Biblioteca) 21:58 ~/Biblioteca (master)$
+   (Bedutravels) 21:58 ~/Bedutravels (master)$
    ```
 
    __En el Dashboard - Web dar click en el botón de reload__
@@ -210,14 +210,37 @@
    Actualizar el navegador y se debería obtener el siguiente resultado:
    ![Aplicación con nueva base de datos MySQL](assets/produccion-03.png)
 
-   Esto es así porque la base de datos en producción está vacía, así que es necesario agregar datos mediante el panel de adminitrador de Django o se pueden cargar los datos del archivo `Biblioteca/datos/catalogo.json` desde la __Consola Bash en el Dashboard__:
-   ```console
-   (Biblioteca) 18:51 ~/Biblioteca (master)$ pwd
-   /home/rctorr/Biblioteca
-   (Biblioteca) 18:51 ~/Biblioteca (master)$ python manage.py loaddata datos/catalogo.json
-   Installed 16 object(s) from 1 fixture(s)
+   Esto es así porque la base de datos en producción está vacía, así que es necesario agregar datos mediante el panel de adminitrador de Django o se pueden cargar los datos del archivo `datos/tours.json` desde la __Consola Bash en el Dashboard__.
 
-   (Biblioteca) 18:51 ~/Biblioteca (master)$
+   Para ellos, lo primero es agregar el archivos tours.json al repo local __Bedutravles__:
+
+   ```console
+   (Bedutravels) Bedutravels (master)$ cp -a Backend-con-Python/Sesion-08/datos .
+   (Bedutravels) Bedutravels (master)$ git add .
+   (Bedutravels) Bedutravels (master)$ git commit -m "Agregando datos"
+   (Bedutravels) Bedutravels (master)$ git push
+   Username for 'https://github.com': rctorr
+   Password for 'https://rctorr@github.com':
+   Contando objetos: 4, listo.
+   Delta compression using up to 4 threads.
+   Comprimiendo objetos: 100% (3/3), listo.
+   Escribiendo objetos: 100% (4/4), 1.13 KiB | 1.13 MiB/s, listo.
+   Total 4 (delta 1), reused 0 (delta 0)
+   remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+   To https://github.com/rctorr/Bedutravels.git
+      cef36d7..fc80726  master -> master
+   ```
+
+   En el repo de Pythonanywhere, actualizar el repo e importar los datos:
+
+   ```console
+   (Bedutravels) 18:51 ~/Bedutravels (master)$ git pull
+   (Bedutravels) 18:51 ~/Bedutravels (master)$ pwd
+   /home/rctorr/Bedutravels
+   (Bedutravels) 18:51 ~/Bedutravels (master)$ python manage.py loaddata datos/tours.json
+   Installed 20 object(s) from 1 fixture(s)
+
+   (Bedutravels) 18:51 ~/Bedutravels (master)$
    ```
 
    Tras lo cual recargar el navegador para obtener algo similar a lo siguiente:

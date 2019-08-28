@@ -1,4 +1,4 @@
-`Fullstack con Python` > [`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-02
+[`Backend con Python`](../../Readme.md) > [`Sesión 08`](../Readme.md) > Ejemplo-02
 ## Preparando entorno de producción en el hospedaje del Proveedor.
 
 ### OBJETIVOS
@@ -11,77 +11,77 @@
 1. Usar la carpeta de trabajo `Sesion-08/Ejemplo-02`
 
 ### DESARROLLO
-El subir los archivos de nuestra aplicación se puede realizar de varias formas, pero la más recomendada por la cantidad de archivos y para el manejo de veriones es hacer uso de git.
+El subir los archivos de nuestra aplicación se puede realizar de varias formas, pero la más recomendada por la cantidad de archivos y para el manejo de versiones es hacer uso de git.
 
-1. Lo primer que hay que hacer es tener los archivos de nuestro proyecto en un repositorio, por lo que vamos a crear un nuevo repo sólo con la carpeta __Biblioteca__:
+1. Lo primer que hay que hacer es tener los archivos de nuestro proyecto en un repositorio, por lo que vamos a crear un nuevo repo sólo con la carpeta __Bedutravels__:
 
-   __Copiar la carpeta `Biblioteca` fuera dela carpeta de `CursoPythonBedu`:__
+   __Copiar la carpeta `Bedutravels` fuera dela carpeta de la carpeta del repo:__
 
    ```console
-   CursoPythonBedu/Sesion-08/Ejemplo-02 $ cp -a Bilioteca ../../../
+   Backend-con-Python/Sesion-08/Ejemplo-02 $ cp -a Bedutravels ../../../
 
-   CursoPythonBedu/Sesion-08/Ejemplo-02 $ cd ../../..
+   Backend-con-Python/Sesion-08/Ejemplo-02 $ cd ../../..
 
-   $ cd Biblioteca
+   $ cd Bedutravels
 
-   Biblioteca $
+   Bedutravels $
    ```
-   Y nos cambiamos a la nueva carpeta `Biblioteca/`.
+   Y nos cambiamos a la nueva carpeta `Bedutravels/`.
 
    __Iniciar un nuevo repo:__
 
    ```console
-   Biblioteca $  git init
-   Biblioteca $  git add .
-   Biblioteca $  git commit -m "Iniciando repo para Biblioteca"
+   Bedutravels $  git init
+   Bedutravels $  git add .
+   Bedutravels $  git commit -m "Iniciando repo para Bedutravels"
    [...]
    create mode 100644 db.sqlite3
    create mode 100755 manage.py
    create mode 100644 requeriments.txt
 
-   Biblioteca $  
+   Bedutravels $  
    ```
 
-   __Crear el mismo repo Biblioteca en la página de github.com:__
+   __Crear el mismo repo Bedutravels en la página de github.com:__
 
-   ![Creando repo Biblioteca](assets/github-biblioteca-01.png)
+   ![Creando repo Bedutravels](assets/github-bedutravels-01.png)
 
-   ![Repo Biblioteca creado](assets/github-biblioteca-02.png)
+   ![Repo Bedutravels creado](assets/github-bedutravels-02.png)
    De aquí se copia la dirección del repo, recuerda usar la dirección creada en tú usuario de github.
 
    __Agregar el repo de github a nuestro repo local y actualizar repo remoto:__
    ```console
-   Biblioteca $ git remote add origin https://github.com/tu-usuario/Biblioteca.git
+   Bedutravels $ git remote add origin https://github.com/tu-usuario/Bedutravels.git
 
-   Biblioteca $ git push -u orign master
+   Bedutravels $ git push -u orign master
    Username for 'https://github.com': tu-usuario
-   Password for 'https://rctorr@github.com':
+   Password for 'https://tu-usuario@github.com':
    Counting objects: 84, done.
    Delta compression using up to 4 threads.
    Compressing objects: 100% (81/81), done.
    Writing objects: 100% (84/84), 1.02 MiB | 0 bytes/s, done.
    Total 84 (delta 6), reused 0 (delta 0)
    remote: Resolving deltas: 100% (6/6), done.
-   To https://github.com/tu-usuario/Biblioteca.git
+   To https://github.com/tu-usuario/Bedutravels.git
     * [new branch]      master -> master
    Branch master set up to track remote branch master from origin.
 
-   Biblioteca $
+   Bedutravels $
    ```
-   Actualiza la página del repo en github y comprobar que ya existen los archivos del proyecto Biblioteca.
+   Actualiza la página del repo en github y comprobar que ya existen los archivos del proyecto Bedutravels.
    ***
 
 1. __Clonando repo__: Estándo en la opción de __Dashboard__ dar click en el botón __$ Bash__ de la sección __New console__ lo que iniciará una consola o terminal de trabajo:
 
-   ![Abriend consola en PythonAnyWhere](assets/consola-01.png)
+   ![Abriendo consola en PythonAnyWhere](assets/consola-01.png)
 
    ![Consola abierta](assets/consola-02.png)
 
-   __Clonar el repo de Biblioteca creado en el punto anterior:__
+   __Clonar el repo de Bedutravels creado en el punto anterior:__
 
    ```console
-   10:54 ~ $ git clone https://github.com/tu-usuario/Biblioteca.git
-   Cloning into'Biblioteca'...
+   10:54 ~ $ git clone https://github.com/tu-usuario/Bedutravels.git
+   Cloning into'Bedutravels'...
    remote: Enumerating objects: 84, done.
    remote: Counting objects: 100% (84/84), done.
    remote: Compressing objects: 100% (75/75), done.
@@ -91,45 +91,45 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
 
    10:55 ~ $ ls -lF
    total 8
-   drwxrwxr-x 5 rctorr registered_users 4096 Jul  3 10:55 Biblioteca/                                            
-   -rwxr-xr-x 1 rctorr registered_users  232 Jul  3 02:56 README.txt*                                            
+   drwxrwxr-x 5 user registered_users 4096 Jul  3 10:55 Bedutravels/                                            
+   -rwxr-xr-x 1 user registered_users  232 Jul  3 02:56 README.txt*                                            
 
    10:56 ~ $
    ```
-   Con esto ya se cuenta con el proyecto Biblioteca en el hospedaje de PythonAnyWhere.
+   Con esto ya se cuenta con el proyecto Bedutravels en el hospedaje de PythonAnyWhere.
    ***
 
 1. Creando un entorno virtual para nuestro proyecto en PythonAnyWhere
 
    ```console
-   1:23 ~ $ mkvirtualenv Biblioteca --python=/usr/bin/python3.7
-   NOTE: Virtual environments directory /home/rctorr/.virtualenvs does not exist. Creating...
+   1:23 ~ $ mkvirtualenv Bedutravels --python=/usr/bin/python3.7
+   NOTE: Virtual environments directory /home/user/.virtualenvs does not exist. Creating...
    Running virtualenv with interpreter /usr/bin/python3.7
    Using base prefix '/usr'
    /usr/local/lib/python2.7/dist-packages/virtualenv.py:1041: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses                                     
      import imp
-   New python executable in /home/rctorr/.virtualenvs/Biblioteca/bin/python3.7
-   Also creating executable in /home/rctorr/.virtualenvs/Biblioteca/bin/python
+   New python executable in /home/user/.virtualenvs/Bedutravels/bin/python3.7
+   Also creating executable in /home/user/.virtualenvs/Bedutravels/bin/python
    Installing setuptools, pip, wheel...done.
-   virtualenvwrapper.user_scripts creating /home/rctorr/.virtualenvs/Biblioteca/bin/predeactivate
-   virtualenvwrapper.user_scripts creating /home/rctorr/.virtualenvs/Biblioteca/bin/postdeactivate
-   virtualenvwrapper.user_scripts creating /home/rctorr/.virtualenvs/Biblioteca/bin/preactivate
-   virtualenvwrapper.user_scripts creating /home/rctorr/.virtualenvs/Biblioteca/bin/postactivate
-   virtualenvwrapper.user_scripts creating /home/rctorr/.virtualenvs/Biblioteca/bin/get_env_details
+   virtualenvwrapper.user_scripts creating /home/user/.virtualenvs/Bedutravels/bin/predeactivate
+   virtualenvwrapper.user_scripts creating /home/user/.virtualenvs/Bedutravels/bin/postdeactivate
+   virtualenvwrapper.user_scripts creating /home/user/.virtualenvs/Bedutravels/bin/preactivate
+   virtualenvwrapper.user_scripts creating /home/user/.virtualenvs/Bedutravels/bin/postactivate
+   virtualenvwrapper.user_scripts creating /home/user/.virtualenvs/Bedutravels/bin/get_env_details
 
-   (Biblioteca) 11:24 ~ $
+   (Bedutravels) 11:24 ~ $
    ```
-   Notar que el comando `mkvirtualenv` en automático realiza un activate, pero en caso de ser necesario para activar o desactivar el entorno viretual se puede hacer uso de los comandos:
-   - Activar: `workon Biblioteca`
+   Notar que el comando `mkvirtualenv` en automático realiza un activate, pero en caso de ser necesario para activar o desactivar el entorno virtual se puede hacer uso de los comandos:
+   - Activar: `workon Bedutravels`
    - Desactivar: `deactivate`
    ***
 
-1. Instalando los requerimientos de módulos. Asegurarse que el entorno __Biblioteca__ está activo.
+1. Instalando los requerimientos de módulos. Asegurarse que el entorno __Bedutravels__ está activo.
 
    ```console
-   (Biblioteca) 11:24 ~ $ cd Biblioteca/
+   (Bedutravels) 11:24 ~ $ cd Bedutravels/
 
-   Biblioteca) 11:33 ~/Biblioteca (master)$ pip install -r requeriments.txt
+   Bedutravels) 11:33 ~/Bedutravels (master)$ pip install -r requeriments.txt
    Looking in links: /usr/share/pip-wheels
    Collecting certifi==2019.3.9 (from -r requeriments.txt (line 1))
      Using cached https://files.pythonhosted.org/packages/60/75/f692a584e85b7eaba0e03827b3d51f45f571c2e793dd731e5
@@ -149,16 +149,16 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
    Installing collected packages: certifi, pytz, sqlparse, Django, djangorestframework
    Successfully installed Django-2.2.2 certifi-2019.3.9 djangorestframework-3.9.4 pytz-2019.1 sqlparse-0.3.0
 
-   Biblioteca) 11:33 ~/Biblioteca (master)$
+   Bedutravels) 11:33 ~/Bedutravels (master)$
    ```
    Con esto ya estarán los módulos necesarios para que nuestra aplicación funcione.
    ***
 
-1. Creando y configurando una aplicación en PythonAnyWhere para hacer uso del entorno virtual y de los archivos de nuestra aplicación Biblioteca.
+1. Creando y configurando una aplicación en PythonAnyWhere para hacer uso del entorno virtual y de los archivos de nuestra aplicación Bedutravels.
 
    ![Opción Web del Dashboard](assets/dashboard-web-01.png)
 
-   Se da click en el botón __Add a new web app__ y el primer mensaje indica que no podemos usar dominios personalizados hasta que actualicemos el nuvel de la cuenta, así que se presiona el botón __Next__.
+   Se da click en el botón __Add a new web app__ y el primer mensaje indica que no podemos usar dominios personalizados hasta que actualicemos el nivel de la cuenta, así que se presiona el botón __Next__.
 
    Se elige la opción __Manual configuration__, seguido de la versión de __Python 3.7__ y se presiona el botón __Next__ de nuevo. Se debería ver algo similar a lo siguiente:
 
@@ -166,15 +166,15 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
 
    __Agregando la ruta a donde está nuestro archivo `manage.py`:__
 
-   El archivo `manage.py` se encuentra en la ruta: `/home/rctorr/Biblioteca/`, así que se agrega a las opciones de __Source code__ y __Working directory__ en la sección __Code__.
+   El archivo `manage.py` se encuentra en la ruta: `/home/user/Bedutravels/`, así que se agrega a las opciones de __Source code__ y __Working directory__ en la sección __Code__.
 
-   __Agregando el entorno virtual escribiendo el nombre Biblioteca:__
+   __Agregando el entorno virtual escribiendo el nombre Bedutravels:__
 
-   Con que se escriba el nombre del entorno virtual, que en este caso es __Biblioteca__ y aceptar en automático se colocará la ruta completa quedando de la siguiente manera:
+   Con que se escriba el nombre del entorno virtual, que en este caso es __Bedutravels__ y aceptar en automático se colocará la ruta completa quedando de la siguiente manera:
 
    ![configurando rutas de archivos](assets/dashboard-web-03.png)
 
-   __Ahora es se modifica el archivo wsgi.py para indicarle al servidor web de PythonAnyWhere cual es la función de inicio para nuestra aplicación Biblioteca:__
+   __Ahora es se modifica el archivo wsgi.py para indicarle al servidor web de PythonAnyWhere cual es la función de inicio para nuestra aplicación Bedutravels:__
 
    En la misma página del navegador, en la sección __Code__ dar click sobre el nombre del archivo wsgi.py y ajustarlo de la siguiente forma:
 
@@ -185,12 +185,12 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
    import sys
 
    # assuming your django settings file is at '/home/tu-usuario/mysite/mysite/settings.py'
-   # and your manage.py is is at '/home/rctorr/mysite/manage.py'
-   path = '/home/tu-usuario/Biblioteca'
+   # and your manage.py is is at '/home/user/mysite/manage.py'
+   path = '/home/tu-usuario/Bedutravels'
    if path not in sys.path:
        sys.path.append(path)
 
-   os.environ['DJANGO_SETTINGS_MODULE'] = 'Biblioteca.settings'
+   os.environ['DJANGO_SETTINGS_MODULE'] = 'Bedutravels.settings'
 
    # then:
    from django.core.wsgi import get_wsgi_application
@@ -198,11 +198,11 @@ El subir los archivos de nuestra aplicación se puede realizar de varias formas,
    ```
    Guardar los cambios y regresar a la opción de __Web__, entonces dar click en el botón __Reload tu-usuario.pythonanywhere.com__
 
-   Abrir la aplicación __Biblioteca__ con la url:
+   Abrir la aplicación __Bedutravels__ con la url:
 
    - http://tu-usuario.pythonanywhere.com/
 
    Se debe obtener una página como la siguiente:
 
-   ![Página Biblioteca en PythonAnyWhere](assets/biblioteca-01.png)
-   Aunque es un error, es una buena noticia, ya que es un error generado por la aplicación Biblioteca, lo que indica que ya se está ejecutando.
+   ![Página Bedutravels en PythonAnyWhere](assets/bedutravels-01.png)
+   Aunque es un error, es una buena noticia, ya que es un error generado por la aplicación Bedutravels, lo que indica que ya se está ejecutando.
